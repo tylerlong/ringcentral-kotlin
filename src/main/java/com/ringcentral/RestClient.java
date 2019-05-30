@@ -63,7 +63,7 @@ public class RestClient {
         RevokeTokenRequest revokeTokenRequest = new RevokeTokenRequest();
         revokeTokenRequest.token = token.access_token;
         token = null;
-        post("/restapi/oauth/revoke", null, revokeTokenRequest, ContentType.FORM);
+        post("/restapi/oauth/revoke", revokeTokenRequest, null, ContentType.FORM);
     }
 
     public TokenInfo authorize(String username, String extension, String password) throws IOException, RestException {
@@ -77,32 +77,52 @@ public class RestClient {
 
     public TokenInfo authorize(GetTokenRequest getTokenRequest) throws IOException, RestException {
         token = null;
-        ResponseBody responseBody = post("/restapi/oauth/token", null, getTokenRequest, ContentType.FORM);
+        ResponseBody responseBody = post("/restapi/oauth/token", getTokenRequest, null, ContentType.FORM);
         token = JSON.parseObject(responseBody.string(), TokenInfo.class);
         return token;
+    }
+
+    public ResponseBody get(String endpoint) throws IOException, RestException {
+        return request(HttpMethod.GET, endpoint, null, null);
     }
 
     public ResponseBody get(String endpoint, Object queryParameters) throws IOException, RestException {
         return request(HttpMethod.GET, endpoint, queryParameters, null);
     }
 
+    public ResponseBody delete(String endpoint) throws IOException, RestException {
+        return request(HttpMethod.DELETE, endpoint, null, null);
+    }
+
     public ResponseBody delete(String endpoint, Object queryParameters) throws IOException, RestException {
         return request(HttpMethod.DELETE, endpoint, queryParameters, null);
     }
 
-    public ResponseBody post(String endpoint, Object queryParameters, Object object) throws IOException, RestException {
+    public ResponseBody post(String endpoint, Object object) throws IOException, RestException {
+        return request(HttpMethod.POST, endpoint, null, object, ContentType.JSON);
+    }
+
+    public ResponseBody post(String endpoint, Object object, Object queryParameters) throws IOException, RestException {
         return request(HttpMethod.POST, endpoint, queryParameters, object, ContentType.JSON);
     }
 
-    public ResponseBody post(String endpoint, Object queryParameters, Object object, ContentType contentType) throws IOException, RestException {
+    public ResponseBody post(String endpoint, Object object, Object queryParameters, ContentType contentType) throws IOException, RestException {
         return request(HttpMethod.POST, endpoint, queryParameters, object, contentType);
     }
 
-    public ResponseBody put(String endpoint, Object queryParameters, Object object) throws IOException, RestException {
+    public ResponseBody put(String endpoint, Object object) throws IOException, RestException {
+        return request(HttpMethod.PUT, endpoint, null, object);
+    }
+
+    public ResponseBody put(String endpoint, Object object, Object queryParameters) throws IOException, RestException {
         return request(HttpMethod.PUT, endpoint, queryParameters, object);
     }
 
-    public ResponseBody patch(String endpoint, Object queryParameters, Object object) throws IOException, RestException {
+    public ResponseBody patch(String endpoint, Object object) throws IOException, RestException {
+        return request(HttpMethod.PATCH, endpoint, null, object);
+    }
+
+    public ResponseBody patch(String endpoint, Object object, Object queryParameters) throws IOException, RestException {
         return request(HttpMethod.PATCH, endpoint, queryParameters, object);
     }
 
@@ -130,6 +150,8 @@ public class RestClient {
                     }
                 }
                 requestBody = formBodyBuilder.build();
+                break;
+            case MULTIPART:
                 break;
             default:
                 break;
