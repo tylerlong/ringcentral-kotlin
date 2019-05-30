@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class ContactAddressInfo {
-    /// <summary>
-    /// Street address
-    /// </summary>
+    /**
+     * Street address
+     */
     public String street;
 
-    /// <summary>
-    /// City name
-    /// </summary>
+    /**
+     * City name
+     */
     public String city;
 
-    /// <summary>
-    /// State/province name
-    /// </summary>
+    /**
+     * State/province name
+     */
     public String state;
 
-    /// <summary>
-    /// Zip/Postal code
-    /// </summary>
+    /**
+     * Zip/Postal code
+     */
     public String zip;
 }

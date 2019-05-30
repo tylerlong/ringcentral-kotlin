@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class UpdateGlipEveryoneRequest {
-    /// <summary>
-    /// Everyone chat name. Maximum number of characters supported is 250
-    /// </summary>
+    /**
+     * Everyone chat name. Maximum number of characters supported is 250
+     */
     public Long name;
 
-    /// <summary>
-    /// Everyone chat description. Maximum number of characters supported is 1000
-    /// </summary>
+    /**
+     * Everyone chat description. Maximum number of characters supported is 1000
+     */
     public String description;
 }

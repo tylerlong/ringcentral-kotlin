@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class CallQueueInfo {
-    /// <summary>
-    /// Link to a call queue
-    /// </summary>
+    /**
+     * Link to a call queue
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a call queue
-    /// </summary>
+    /**
+     * Internal identifier of a call queue
+     */
     public String id;
 
-    /// <summary>
-    /// Extension number of a call queue
-    /// </summary>
+    /**
+     * Extension number of a call queue
+     */
     public String extensionNumber;
 
-    /// <summary>
-    /// Name of a call queue
-    /// </summary>
+    /**
+     * Name of a call queue
+     */
     public String name;
 }

@@ -2,24 +2,24 @@ package com.ringcentral.definitions;
 
 
 public class NumberPortingVerifyNumberResponseRecord {
-    /// <summary>
-    /// The verified phone number.
-    /// </summary>
+    /**
+     * The verified phone number.
+     */
     public String phoneNumber;
 
-    /// <summary>
-    /// Is phone number billing phone number or not.
-    /// </summary>
+    /**
+     * Is phone number billing phone number or not.
+     */
     public Boolean isBillingNumber;
 
-    /// <summary>
-    /// The result of phone number validation, can or not be ported the phone number.
-    /// Enum: Success, Failure
-    /// </summary>
+    /**
+     * The result of phone number validation, can or not be ported the phone number.
+     * Enum: Success, Failure
+     */
     public String validationStatus;
 
-    /// <summary>
-    /// The reason why the corresponding phone number can`t be ported.
-    /// </summary>
+    /**
+     * The reason why the corresponding phone number can`t be ported.
+     */
     public String reason;
 }

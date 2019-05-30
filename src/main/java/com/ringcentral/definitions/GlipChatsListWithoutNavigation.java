@@ -2,9 +2,9 @@ package com.ringcentral.definitions;
 
 
 public class GlipChatsListWithoutNavigation {
-    /// <summary>
-    /// List of chats
-    /// Required
-    /// </summary>
+    /**
+     * List of chats
+     * Required
+     */
     public GlipChatInfo[] records;
 }

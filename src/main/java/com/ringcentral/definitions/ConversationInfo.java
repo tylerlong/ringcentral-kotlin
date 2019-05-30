@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class ConversationInfo {
-    /// <summary>
-    /// Internal identifier of a conversation
-    /// </summary>
+    /**
+     * Internal identifier of a conversation
+     */
     public String id;
 
-    /// <summary>
-    /// Deprecated. Link to a conversation resource
-    /// </summary>
+    /**
+     * Deprecated. Link to a conversation resource
+     */
     public String uri;
 }

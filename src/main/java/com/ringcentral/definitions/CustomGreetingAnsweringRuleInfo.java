@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class CustomGreetingAnsweringRuleInfo {
-    /// <summary>
-    /// Canonical URI of an answering rule
-    /// </summary>
+    /**
+     * Canonical URI of an answering rule
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of an answering rule
-    /// </summary>
+    /**
+     * Internal identifier of an answering rule
+     */
     public String id;
 }

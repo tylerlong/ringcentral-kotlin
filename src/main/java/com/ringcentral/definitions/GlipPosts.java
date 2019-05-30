@@ -2,13 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class GlipPosts {
-    /// <summary>
-    /// List of posts
-    /// Required
-    /// </summary>
+    /**
+     * List of posts
+     * Required
+     */
     public GlipPostInfo[] records;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public GlipNavigationInfo navigation;
 }

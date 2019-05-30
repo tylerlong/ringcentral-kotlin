@@ -2,34 +2,34 @@ package com.ringcentral.definitions;
 
 
 public class DataExportTask {
-    /// <summary>
-    /// Canonical URI of a task
-    /// </summary>
+    /**
+     * Canonical URI of a task
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a task
-    /// </summary>
+    /**
+     * Internal identifier of a task
+     */
     public String id;
 
-    /// <summary>
-    /// Task creation datetime
-    /// </summary>
+    /**
+     * Task creation datetime
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Task last modification datetime
-    /// </summary>
+    /**
+     * Task last modification datetime
+     */
     public String lastModifiedTime;
 
-    /// <summary>
-    /// Task status
-    /// Enum: Accepted, InProgress, Completed, Failed
-    /// </summary>
+    /**
+     * Task status
+     * Enum: Accepted, InProgress, Completed, Failed
+     */
     public String status;
 
-    /// <summary>
-    /// Data collection archives. Returned by task ID
-    /// </summary>
+    /**
+     * Data collection archives. Returned by task ID
+     */
     public ExportTaskResultInfo[] result;
 }

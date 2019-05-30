@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class ContactList {
-    /// <summary>
-    /// List of personal contacts from the extension address book
-    /// </summary>
+    /**
+     * List of personal contacts from the extension address book
+     */
     public PersonalContactResource[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public UserContactsNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public UserContactsPagingInfo paging;
 }

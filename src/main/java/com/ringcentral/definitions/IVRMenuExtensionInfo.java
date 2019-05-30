@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class IVRMenuExtensionInfo {
-    /// <summary>
-    /// Link to an extension resource
-    /// </summary>
+    /**
+     * Link to an extension resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of an extension
-    /// </summary>
+    /**
+     * Internal identifier of an extension
+     */
     public String id;
 }

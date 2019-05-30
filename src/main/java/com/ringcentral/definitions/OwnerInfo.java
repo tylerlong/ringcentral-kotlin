@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class OwnerInfo {
-    /// <summary>
-    /// Internal identifier of an account
-    /// </summary>
+    /**
+     * Internal identifier of an account
+     */
     public String accountId;
 
-    /// <summary>
-    /// Internal identifier of an extension
-    /// </summary>
+    /**
+     * Internal identifier of an extension
+     */
     public String extensionId;
 }

@@ -2,87 +2,87 @@ package com.ringcentral.definitions;
 
 
 public class InstantMessageEventBody {
-    /// <summary>
-    /// Internal identifier of a message
-    /// </summary>
+    /**
+     * Internal identifier of a message
+     */
     public String id;
 
-    /// <summary>
-    /// Message receiver(s) information
-    /// </summary>
+    /**
+     * Message receiver(s) information
+     */
     public NotificationRecipientInfo[] to;
 
-    /// <summary>
-    /// Extension Type. For GCM transport type '_from' property should be used
-    /// </summary>
+    /**
+     * Extension Type. For GCM transport type '_from' property should be used
+     */
     public SenderInfo from;
 
-    /// <summary>
-    /// Type of a message. The default value is 'SMS'
-    /// </summary>
+    /**
+     * Type of a message. The default value is 'SMS'
+     */
     public String type;
 
-    /// <summary>
-    /// Message creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
-    /// </summary>
+    /**
+     * Message creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Datetime when the message was modified in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
-    /// </summary>
+    /**
+     * Datetime when the message was modified in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
+     */
     public String lastModifiedTime;
 
-    /// <summary>
-    /// Status of a message
-    /// Default: Unread
-    /// </summary>
+    /**
+     * Status of a message
+     * Default: Unread
+     */
     public String readStatus;
 
-    /// <summary>
-    /// Default: Normal
-    /// </summary>
+    /**
+     * Default: Normal
+     */
     public String priority;
 
-    /// <summary>
-    /// Message attachment data
-    /// </summary>
+    /**
+     * Message attachment data
+     */
     public MessageAttachmentInfo[] attachments;
 
-    /// <summary>
-    /// Message direction
-    /// Default: Inbound
-    /// </summary>
+    /**
+     * Message direction
+     * Default: Inbound
+     */
     public String direction;
 
-    /// <summary>
-    /// Message availability status
-    /// Default: Alive
-    /// </summary>
+    /**
+     * Message availability status
+     * Default: Alive
+     */
     public String availability;
 
-    /// <summary>
-    /// Message subject. It replicates message text which is also returned as an attachment
-    /// </summary>
+    /**
+     * Message subject. It replicates message text which is also returned as an attachment
+     */
     public String subject;
 
-    /// <summary>
-    /// Status of a message
-    /// Default: Received
-    /// </summary>
+    /**
+     * Status of a message
+     * Default: Received
+     */
     public String messageStatus;
 
-    /// <summary>
-    /// Deprecated. Identifier of a conversation the message belongs to
-    /// </summary>
+    /**
+     * Deprecated. Identifier of a conversation the message belongs to
+     */
     public String conversationId;
 
-    /// <summary>
-    /// Information about a conversation the message belongs to
-    /// </summary>
+    /**
+     * Information about a conversation the message belongs to
+     */
     public ConversationInfo conversation;
 
-    /// <summary>
-    /// Internal identifier of a subscription owner extension
-    /// </summary>
+    /**
+     * Internal identifier of a subscription owner extension
+     */
     public String ownerId;
 }

@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class GetVersionResponse {
-    /// <summary>
-    /// Canonical URI of the version info resource
-    /// </summary>
+    /**
+     * Canonical URI of the version info resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Version of the RingCentral REST API
-    /// </summary>
+    /**
+     * Version of the RingCentral REST API
+     */
     public String versionString;
 
-    /// <summary>
-    /// Release date of this version
-    /// </summary>
+    /**
+     * Release date of this version
+     */
     public String releaseDate;
 
-    /// <summary>
-    /// URI part determining the current version
-    /// </summary>
+    /**
+     * URI part determining the current version
+     */
     public String uriString;
 }

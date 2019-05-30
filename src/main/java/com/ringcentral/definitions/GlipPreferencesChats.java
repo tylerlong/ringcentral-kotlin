@@ -2,14 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class GlipPreferencesChats {
-    /// <summary>
-    /// Default: 10
-    /// </summary>
+    /**
+     * Default: 10
+     */
     public Long maxCount;
 
-    /// <summary>
-    /// Default: CombineAllChatTypes
-    /// Enum: SeparateAllChatTypes, SeparateConversationsAndTeams, CombineAllChatTypes
-    /// </summary>
+    /**
+     * Default: CombineAllChatTypes
+     * Enum: SeparateAllChatTypes, SeparateConversationsAndTeams, CombineAllChatTypes
+     */
     public String leftRailMode;
 }

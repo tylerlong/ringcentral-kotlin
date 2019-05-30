@@ -2,39 +2,39 @@ package com.ringcentral.definitions;
 
 
 public class GlipWebhookInfo {
-    /// <summary>
-    /// Internal identifier of a webhook
-    /// </summary>
+    /**
+     * Internal identifier of a webhook
+     */
     public String id;
 
-    /// <summary>
-    /// Internal identifier of the user who created a webhook
-    /// </summary>
+    /**
+     * Internal identifier of the user who created a webhook
+     */
     public String creatorId;
 
-    /// <summary>
-    /// Internal identifiers of groups where a webhook has been created
-    /// </summary>
+    /**
+     * Internal identifiers of groups where a webhook has been created
+     */
     public String[] groupsId;
 
-    /// <summary>
-    /// Webhook creation time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
-    /// </summary>
+    /**
+     * Webhook creation time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Webhook last update time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
-    /// </summary>
+    /**
+     * Webhook last update time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+     */
     public String lastModifiedTime;
 
-    /// <summary>
-    /// Public link to send a webhook payload
-    /// </summary>
+    /**
+     * Public link to send a webhook payload
+     */
     public String uri;
 
-    /// <summary>
-    /// Current status of a webhook
-    /// Enum: Active, Suspended, Deleted
-    /// </summary>
+    /**
+     * Current status of a webhook
+     * Enum: Active, Suspended, Deleted
+     */
     public String status;
 }

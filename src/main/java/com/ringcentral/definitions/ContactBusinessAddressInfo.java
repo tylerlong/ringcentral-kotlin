@@ -2,28 +2,28 @@ package com.ringcentral.definitions;
 
 
 public class ContactBusinessAddressInfo {
-    /// <summary>
-    /// Country name of an extension user company
-    /// </summary>
+    /**
+     * Country name of an extension user company
+     */
     public String country;
 
-    /// <summary>
-    /// State/province name of an extension user company. Mandatory for the USA, UK and Canada
-    /// </summary>
+    /**
+     * State/province name of an extension user company. Mandatory for the USA, UK and Canada
+     */
     public String state;
 
-    /// <summary>
-    /// City name of an extension user company
-    /// </summary>
+    /**
+     * City name of an extension user company
+     */
     public String city;
 
-    /// <summary>
-    /// Street address of an extension user company
-    /// </summary>
+    /**
+     * Street address of an extension user company
+     */
     public String street;
 
-    /// <summary>
-    /// Zip code of an extension user company
-    /// </summary>
+    /**
+     * Zip code of an extension user company
+     */
     public String zip;
 }

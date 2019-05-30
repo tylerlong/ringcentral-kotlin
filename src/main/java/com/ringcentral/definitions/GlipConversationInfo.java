@@ -2,28 +2,29 @@ package com.ringcentral.definitions;
 
 
 public class GlipConversationInfo {
-    /// <summary>
-    /// Internal identifier of a conversation
-    /// </summary>
+    /**
+     * Internal identifier of a conversation
+     */
     public String id;
 
-    /// <summary>
-    /// Type of a conversation
-    /// Enum: Direct, Personal, Group
-    /// </summary>
+    /**
+     * Type of a conversation
+     * Enum: Direct, Personal, Group
+     */
     public String type;
 
-    /// <summary>
-    /// Conversation creation datetime in ISO 8601 format
-    /// </summary>
+    /**
+     * Conversation creation datetime in ISO 8601 format
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Conversation last change datetime in ISO 8601 format
-    /// </summary>
+    /**
+     * Conversation last change datetime in ISO 8601 format
+     */
     public String lastModifiedTime;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public GlipChatMemberInfo[] members;
 }

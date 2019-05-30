@@ -2,28 +2,28 @@ package com.ringcentral.definitions;
 
 
 public class BusinessAddressInfo {
-    /// <summary>
-    /// Name of a country
-    /// </summary>
+    /**
+     * Name of a country
+     */
     public String country;
 
-    /// <summary>
-    /// Name of a state/province
-    /// </summary>
+    /**
+     * Name of a state/province
+     */
     public String state;
 
-    /// <summary>
-    /// Name of a city
-    /// </summary>
+    /**
+     * Name of a city
+     */
     public String city;
 
-    /// <summary>
-    /// Street address
-    /// </summary>
+    /**
+     * Street address
+     */
     public String street;
 
-    /// <summary>
-    /// Zip code
-    /// </summary>
+    /**
+     * Zip code
+     */
     public String zip;
 }

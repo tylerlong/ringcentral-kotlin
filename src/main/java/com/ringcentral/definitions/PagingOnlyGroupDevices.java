@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class PagingOnlyGroupDevices {
-    /// <summary>
-    /// List of paging devices assigned to this group
-    /// </summary>
+    /**
+     * List of paging devices assigned to this group
+     */
     public PagingDeviceInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public ProvisioningPagingInfo paging;
 }

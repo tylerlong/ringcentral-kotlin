@@ -4,29 +4,29 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 
 public class NotificationInfo {
-    /// <summary>
-    /// Alert information
-    /// </summary>
+    /**
+     * Alert information
+     */
     public AlertInfo alert;
 
-    /// <summary>
-    /// Number of incoming messages
-    /// </summary>
+    /**
+     * Number of incoming messages
+     */
     public String badge;
 
-    /// <summary>
-    /// Message sound
-    /// </summary>
+    /**
+     * Message sound
+     */
     public String sound;
 
-    /// <summary>
-    /// Content availability
-    /// </summary>
+    /**
+     * Content availability
+     */
     @JSONField(name = "content-available")
     public String contentAvailable;
 
-    /// <summary>
-    /// Category of a message
-    /// </summary>
+    /**
+     * Category of a message
+     */
     public String category;
 }

@@ -4,56 +4,60 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 
 public class User {
-    /// <summary>
-    /// user status
-    /// </summary>
+    /**
+     * user status
+     */
     public Boolean active;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public UserAddress[] addresses;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public Email[] emails;
 
-    /// <summary>
-    /// external unique resource id defined by provisioning client
-    /// </summary>
+    /**
+     * external unique resource id defined by provisioning client
+     */
     public String externalId;
 
-    /// <summary>
-    /// unique resource id defined by RingCentral
-    /// </summary>
+    /**
+     * unique resource id defined by RingCentral
+     */
     public String id;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public Name name;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public PhoneNumber[] phoneNumbers;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public Photo[] photos;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public String[] schemas;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     @JSONField(name = "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")
     public EnterpriseUser urn_ietf_params_scim_schemas_extension_enterprise_2_0_User;
 
-    /// <summary>
-    /// MUST be same as work type email address
-    /// Required
-    /// </summary>
+    /**
+     * MUST be same as work type email address
+     * Required
+     */
     public String userName;
 }

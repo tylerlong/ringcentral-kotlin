@@ -2,9 +2,9 @@ package com.ringcentral.definitions;
 
 
 public class PagerCallerInfoRequest {
-    /// <summary>
-    /// Extension identifier
-    /// Required
-    /// </summary>
+    /**
+     * Extension identifier
+     * Required
+     */
     public String extensionId;
 }

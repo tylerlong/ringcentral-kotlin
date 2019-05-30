@@ -2,22 +2,22 @@ package com.ringcentral.definitions;
 
 
 public class SuperviseCallSessionRequest {
-    /// <summary>
-    /// Supervising mode
-    /// Required
-    /// Enum: Listen
-    /// </summary>
+    /**
+     * Supervising mode
+     * Required
+     * Enum: Listen
+     */
     public String mode;
 
-    /// <summary>
-    /// Internal identifier of a supervisor's device
-    /// Required
-    /// </summary>
+    /**
+     * Internal identifier of a supervisor's device
+     * Required
+     */
     public String deviceId;
 
-    /// <summary>
-    /// Extension number of a user that will be monitored
-    /// Required
-    /// </summary>
+    /**
+     * Extension number of a user that will be monitored
+     * Required
+     */
     public String extensionNumber;
 }

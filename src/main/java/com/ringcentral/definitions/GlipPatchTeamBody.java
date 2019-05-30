@@ -4,19 +4,19 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 
 public class GlipPatchTeamBody {
-    /// <summary>
-    /// Team access level
-    /// </summary>
+    /**
+     * Team access level
+     */
     @JSONField(name = "public")
     public Boolean _public;
 
-    /// <summary>
-    /// Team name. Maximum number of characters supported is 250
-    /// </summary>
+    /**
+     * Team name. Maximum number of characters supported is 250
+     */
     public String name;
 
-    /// <summary>
-    /// Team description. Maximum number of characters supported is 1000
-    /// </summary>
+    /**
+     * Team description. Maximum number of characters supported is 1000
+     */
     public String description;
 }

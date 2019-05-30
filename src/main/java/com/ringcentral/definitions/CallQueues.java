@@ -2,27 +2,27 @@ package com.ringcentral.definitions;
 
 
 public class CallQueues {
-    /// <summary>
-    /// Link to a call queues resource
-    /// Required
-    /// </summary>
+    /**
+     * Link to a call queues resource
+     * Required
+     */
     public String uri;
 
-    /// <summary>
-    /// List of call queues
-    /// Required
-    /// </summary>
+    /**
+     * List of call queues
+     * Required
+     */
     public CallQueueInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

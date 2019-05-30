@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class CallRecording {
-    /// <summary>
-    /// Internal identifier of a call recording
-    /// </summary>
+    /**
+     * Internal identifier of a call recording
+     */
     public String id;
 
-    /// <summary>
-    /// Call recording status
-    /// </summary>
+    /**
+     * Call recording status
+     */
     public Boolean active;
 }

@@ -2,56 +2,56 @@ package com.ringcentral.definitions;
 
 
 public class DictionaryGreetingInfo {
-    /// <summary>
-    /// Internal identifier of a greeting
-    /// </summary>
+    /**
+     * Internal identifier of a greeting
+     */
     public String id;
 
-    /// <summary>
-    /// Link to a greeting
-    /// </summary>
+    /**
+     * Link to a greeting
+     */
     public String uri;
 
-    /// <summary>
-    /// Name of a greeting
-    /// </summary>
+    /**
+     * Name of a greeting
+     */
     public String name;
 
-    /// <summary>
-    /// Usage type of a greeting, specifying if the greeting is applied for user extension or department extension.
-    /// Enum: UserExtensionAnsweringRule, ExtensionAnsweringRule, DepartmentExtensionAnsweringRule, CompanyAnsweringRule, CompanyAfterHoursAnsweringRule, VoicemailExtensionAnsweringRule, AnnouncementExtensionAnsweringRule
-    /// </summary>
+    /**
+     * Usage type of a greeting, specifying if the greeting is applied for user extension or department extension.
+     * Enum: UserExtensionAnsweringRule, ExtensionAnsweringRule, DepartmentExtensionAnsweringRule, CompanyAnsweringRule, CompanyAfterHoursAnsweringRule, VoicemailExtensionAnsweringRule, AnnouncementExtensionAnsweringRule
+     */
     public String usageType;
 
-    /// <summary>
-    /// Text of a greeting, if any
-    /// </summary>
+    /**
+     * Text of a greeting, if any
+     */
     public String text;
 
-    /// <summary>
-    /// Link to a greeting content (audio file), if any
-    /// </summary>
+    /**
+     * Link to a greeting content (audio file), if any
+     */
     public String contentUri;
 
-    /// <summary>
-    /// Type of a greeting, specifying the case when the greeting is played.
-    /// Enum: Introductory, Announcement, ConnectingMessage, ConnectingAudio, Voicemail, Unavailable, InterruptPrompt, HoldMusic, Company
-    /// </summary>
+    /**
+     * Type of a greeting, specifying the case when the greeting is played.
+     * Enum: Introductory, Announcement, ConnectingMessage, ConnectingAudio, Voicemail, Unavailable, InterruptPrompt, HoldMusic, Company
+     */
     public String type;
 
-    /// <summary>
-    /// Category of a greeting, specifying data form. The category value 'None' specifies that greetings of a certain type ('Introductory', 'ConnectingAudio', etc.) are switched off for an extension = ['Music', 'Message', 'RingTones', 'None']
-    /// Enum: Music, Message, RingTones, None
-    /// </summary>
+    /**
+     * Category of a greeting, specifying data form. The category value 'None' specifies that greetings of a certain type ('Introductory', 'ConnectingAudio', etc.) are switched off for an extension = ['Music', 'Message', 'RingTones', 'None']
+     * Enum: Music, Message, RingTones, None
+     */
     public String category;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public CallHandlingNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public CallHandlingPagingInfo paging;
 }

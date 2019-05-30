@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class GetServiceInfoResponse {
-    /// <summary>
-    /// Canonical URI of the account Service Info resource
-    /// </summary>
+    /**
+     * Canonical URI of the account Service Info resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Account Service Plan name
-    /// </summary>
+    /**
+     * Account Service Plan name
+     */
     public String servicePlanName;
 
-    /// <summary>
-    /// Service features information, see Service Feature List
-    /// </summary>
+    /**
+     * Service features information, see Service Feature List
+     */
     public ServiceFeatureInfo[] serviceFeatures;
 
-    /// <summary>
-    /// Limits which are effective for the account
-    /// </summary>
+    /**
+     * Limits which are effective for the account
+     */
     public AccountLimits limits;
 }

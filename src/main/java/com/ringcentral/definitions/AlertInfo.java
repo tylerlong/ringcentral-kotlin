@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class AlertInfo {
-    /// <summary>
-    /// Title of a message
-    /// </summary>
+    /**
+     * Title of a message
+     */
     public String title;
 
-    /// <summary>
-    /// Message Description
-    /// </summary>
+    /**
+     * Message Description
+     */
     public String body;
 }

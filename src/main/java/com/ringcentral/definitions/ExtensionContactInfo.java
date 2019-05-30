@@ -2,33 +2,33 @@ package com.ringcentral.definitions;
 
 
 public class ExtensionContactInfo {
-    /// <summary>
-    /// For User extension type only. Extension user first name
-    /// </summary>
+    /**
+     * For User extension type only. Extension user first name
+     */
     public String firstName;
 
-    /// <summary>
-    /// For User extension type only. Extension user last name
-    /// </summary>
+    /**
+     * For User extension type only. Extension user last name
+     */
     public String lastName;
 
-    /// <summary>
-    /// Extension user company name
-    /// </summary>
+    /**
+     * Extension user company name
+     */
     public String company;
 
-    /// <summary>
-    /// Email of extension user
-    /// </summary>
+    /**
+     * Email of extension user
+     */
     public String email;
 
-    /// <summary>
-    /// Extension user contact phone number
-    /// </summary>
+    /**
+     * Extension user contact phone number
+     */
     public String businessPhone;
 
-    /// <summary>
-    /// Business address of extension user company
-    /// </summary>
+    /**
+     * Business address of extension user company
+     */
     public ContactAddressInfo businessAddress;
 }

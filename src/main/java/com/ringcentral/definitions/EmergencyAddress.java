@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class EmergencyAddress {
-    /// <summary>
-    /// 'True' if specifying of emergency address is required
-    /// </summary>
+    /**
+     * 'True' if specifying of emergency address is required
+     */
     public Boolean required;
 
-    /// <summary>
-    /// 'True' if only local emergency address can be specified
-    /// </summary>
+    /**
+     * 'True' if only local emergency address can be specified
+     */
     public Boolean localOnly;
 }

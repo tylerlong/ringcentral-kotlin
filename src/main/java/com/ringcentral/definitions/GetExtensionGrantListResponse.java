@@ -2,21 +2,21 @@ package com.ringcentral.definitions;
 
 
 public class GetExtensionGrantListResponse {
-    /// <summary>
-    /// List of extension grants with details
-    /// Required
-    /// </summary>
+    /**
+     * List of extension grants with details
+     * Required
+     */
     public GrantInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

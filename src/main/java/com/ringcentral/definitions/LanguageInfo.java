@@ -2,38 +2,38 @@ package com.ringcentral.definitions;
 
 
 public class LanguageInfo {
-    /// <summary>
-    /// Internal identifier of a language
-    /// </summary>
+    /**
+     * Internal identifier of a language
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a language
-    /// </summary>
+    /**
+     * Canonical URI of a language
+     */
     public String uri;
 
-    /// <summary>
-    /// Indicates whether a language is available as greeting language
-    /// </summary>
+    /**
+     * Indicates whether a language is available as greeting language
+     */
     public Boolean greeting;
 
-    /// <summary>
-    /// Indicates whether a language is available as formatting locale
-    /// </summary>
+    /**
+     * Indicates whether a language is available as formatting locale
+     */
     public Boolean formattingLocale;
 
-    /// <summary>
-    /// Localization code of a language
-    /// </summary>
+    /**
+     * Localization code of a language
+     */
     public String localeCode;
 
-    /// <summary>
-    /// Official name of a language
-    /// </summary>
+    /**
+     * Official name of a language
+     */
     public String name;
 
-    /// <summary>
-    /// Indicates whether a language is available as UI language
-    /// </summary>
+    /**
+     * Indicates whether a language is available as UI language
+     */
     public Boolean ui;
 }

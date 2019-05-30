@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class LanguageList {
-    /// <summary>
-    /// Canonical URI of the language list resource
-    /// </summary>
+    /**
+     * Canonical URI of the language list resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Language data
-    /// </summary>
+    /**
+     * Language data
+     */
     public LanguageInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public ProvisioningPagingInfo paging;
 }

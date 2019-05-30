@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class ReadAccountPresenceParameters {
-    /// <summary>
-    /// Whether to return detailed telephony state
-    /// </summary>
+    /**
+     * Whether to return detailed telephony state
+     */
     public Boolean detailedTelephonyState;
 
-    /// <summary>
-    /// Whether to return SIP data
-    /// </summary>
+    /**
+     * Whether to return SIP data
+     */
     public Boolean sipData;
 
-    /// <summary>
-    /// Page number for account presence information
-    /// </summary>
+    /**
+     * Page number for account presence information
+     */
     public Long page;
 
-    /// <summary>
-    /// Number for account presence information items per page
-    /// </summary>
+    /**
+     * Number for account presence information items per page
+     */
     public Long perPage;
 }

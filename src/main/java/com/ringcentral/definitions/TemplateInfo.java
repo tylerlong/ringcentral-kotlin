@@ -2,33 +2,33 @@ package com.ringcentral.definitions;
 
 
 public class TemplateInfo {
-    /// <summary>
-    /// Link to a template
-    /// </summary>
+    /**
+     * Link to a template
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a template
-    /// </summary>
+    /**
+     * Internal identifier of a template
+     */
     public String id;
 
-    /// <summary>
-    /// Enum: UserSettings, CallHandling
-    /// </summary>
+    /**
+     * Enum: UserSettings, CallHandling
+     */
     public String type;
 
-    /// <summary>
-    /// Name of a template
-    /// </summary>
+    /**
+     * Name of a template
+     */
     public String name;
 
-    /// <summary>
-    /// Time of a template creation
-    /// </summary>
+    /**
+     * Time of a template creation
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Time of the last template modification
-    /// </summary>
+    /**
+     * Time of the last template modification
+     */
     public String lastModifiedTime;
 }

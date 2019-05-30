@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class ListCallRecordingCustomGreetingsParameters {
-    /// <summary>
-    /// Enum: StartRecording, StopRecording, AutomaticRecording
-    /// </summary>
+    /**
+     * Enum: StartRecording, StopRecording, AutomaticRecording
+     */
     public String type;
 }

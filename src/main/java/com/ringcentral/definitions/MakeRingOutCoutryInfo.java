@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class MakeRingOutCoutryInfo {
-    /// <summary>
-    /// Dialing plan country identifier
-    /// </summary>
+    /**
+     * Dialing plan country identifier
+     */
     public String id;
 }

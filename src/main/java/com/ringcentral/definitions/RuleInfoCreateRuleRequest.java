@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class RuleInfoCreateRuleRequest {
-    /// <summary>
-    /// Forwarding number (or group) ordinal. Not returned for inactive numbers
-    /// </summary>
+    /**
+     * Forwarding number (or group) ordinal. Not returned for inactive numbers
+     */
     public Long index;
 
-    /// <summary>
-    /// Number of rings for a forwarding number (or group). For inactive numbers the default value ('4') is returned
-    /// </summary>
+    /**
+     * Number of rings for a forwarding number (or group). For inactive numbers the default value ('4') is returned
+     */
     public Long ringCount;
 
-    /// <summary>
-    /// Phone number status
-    /// </summary>
+    /**
+     * Phone number status
+     */
     public Boolean enabled;
 
-    /// <summary>
-    /// Forwarding number (or group) data
-    /// </summary>
+    /**
+     * Forwarding number (or group) data
+     */
     public ForwardingNumberInfoRulesCreateRuleRequest[] forwardingNumbers;
 }

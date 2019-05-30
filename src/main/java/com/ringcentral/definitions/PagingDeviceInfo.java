@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class PagingDeviceInfo {
-    /// <summary>
-    /// Internal identifier of a paging device
-    /// </summary>
+    /**
+     * Internal identifier of a paging device
+     */
     public String id;
 
-    /// <summary>
-    /// Link to a paging device resource
-    /// </summary>
+    /**
+     * Link to a paging device resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Name of a paging device
-    /// </summary>
+    /**
+     * Name of a paging device
+     */
     public String name;
 }

@@ -2,33 +2,33 @@ package com.ringcentral.definitions;
 
 
 public class LocationInfo {
-    /// <summary>
-    /// Canonical URI of a location
-    /// </summary>
+    /**
+     * Canonical URI of a location
+     */
     public String uri;
 
-    /// <summary>
-    /// Area code of the location
-    /// </summary>
+    /**
+     * Area code of the location
+     */
     public String areaCode;
 
-    /// <summary>
-    /// Official name of the city, belonging to the certain state
-    /// </summary>
+    /**
+     * Official name of the city, belonging to the certain state
+     */
     public String city;
 
-    /// <summary>
-    /// Area code of the location (3-digit usually), according to the NANP number format, that can be summarized as NPA-NXX-xxxx and covers Canada, the United States, parts of the Caribbean Sea, and some Atlantic and Pacific islands. See for details North American Numbering Plan
-    /// </summary>
+    /**
+     * Area code of the location (3-digit usually), according to the NANP number format, that can be summarized as NPA-NXX-xxxx and covers Canada, the United States, parts of the Caribbean Sea, and some Atlantic and Pacific islands. See for details North American Numbering Plan
+     */
     public String npa;
 
-    /// <summary>
-    /// Central office code of the location, according to the NANP number format, that can be summarized as NPA-NXX-xxxx and covers Canada, the United States, parts of the Caribbean Sea, and some Atlantic and Pacific islands. See for details North American Numbering Plan
-    /// </summary>
+    /**
+     * Central office code of the location, according to the NANP number format, that can be summarized as NPA-NXX-xxxx and covers Canada, the United States, parts of the Caribbean Sea, and some Atlantic and Pacific islands. See for details North American Numbering Plan
+     */
     public String nxx;
 
-    /// <summary>
-    /// ID and URI of the state this location belongs to, see State Info
-    /// </summary>
+    /**
+     * ID and URI of the state this location belongs to, see State Info
+     */
     public String state;
 }

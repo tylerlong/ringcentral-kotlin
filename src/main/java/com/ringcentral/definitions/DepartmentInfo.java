@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class DepartmentInfo {
-    /// <summary>
-    /// Internal identifier of a department extension
-    /// </summary>
+    /**
+     * Internal identifier of a department extension
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a department extension
-    /// </summary>
+    /**
+     * Canonical URI of a department extension
+     */
     public String uri;
 
-    /// <summary>
-    /// Number of a department extension
-    /// </summary>
+    /**
+     * Number of a department extension
+     */
     public String extensionNumber;
 }

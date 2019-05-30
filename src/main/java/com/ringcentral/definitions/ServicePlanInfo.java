@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class ServicePlanInfo {
-    /// <summary>
-    /// Internal identifier of a service plan
-    /// </summary>
+    /**
+     * Internal identifier of a service plan
+     */
     public String id;
 
-    /// <summary>
-    /// Name of a service plan
-    /// </summary>
+    /**
+     * Name of a service plan
+     */
     public String name;
 
-    /// <summary>
-    /// Edition of a service plan
-    /// </summary>
+    /**
+     * Edition of a service plan
+     */
     public String edition;
 }

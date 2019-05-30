@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class PresetInfo {
-    /// <summary>
-    /// Link to a greeting resource
-    /// </summary>
+    /**
+     * Link to a greeting resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a greeting
-    /// </summary>
+    /**
+     * Internal identifier of a greeting
+     */
     public String id;
 
-    /// <summary>
-    /// Name of a greeting
-    /// </summary>
+    /**
+     * Name of a greeting
+     */
     public String name;
 }

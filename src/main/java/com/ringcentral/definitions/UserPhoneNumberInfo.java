@@ -2,61 +2,61 @@ package com.ringcentral.definitions;
 
 
 public class UserPhoneNumberInfo {
-    /// <summary>
-    /// Internal identifier of a phone number
-    /// </summary>
+    /**
+     * Internal identifier of a phone number
+     */
     public String id;
 
-    /// <summary>
-    /// Brief information on a phone number country
-    /// </summary>
+    /**
+     * Brief information on a phone number country
+     */
     public CountryInfo country;
 
-    /// <summary>
-    /// Information on the extension, to which the phone number is assigned. Returned only for the request of Account phone number list
-    /// </summary>
+    /**
+     * Information on the extension, to which the phone number is assigned. Returned only for the request of Account phone number list
+     */
     public ExtensionInfo extension;
 
-    /// <summary>
-    /// Custom user name of a phone number, if any
-    /// </summary>
+    /**
+     * Custom user name of a phone number, if any
+     */
     public String label;
 
-    /// <summary>
-    /// Location (City, State). Filled for local US numbers
-    /// </summary>
+    /**
+     * Location (City, State). Filled for local US numbers
+     */
     public String location;
 
-    /// <summary>
-    /// Payment type. 'External' is returned for forwarded numbers which are not terminated in the RingCentral phone system
-    /// Enum: External, TollFree, Local
-    /// </summary>
+    /**
+     * Payment type. 'External' is returned for forwarded numbers which are not terminated in the RingCentral phone system
+     * Enum: External, TollFree, Local
+     */
     public String paymentType;
 
-    /// <summary>
-    /// Phone number
-    /// </summary>
+    /**
+     * Phone number
+     */
     public String phoneNumber;
 
-    /// <summary>
-    /// Status of a phone number. If the value is 'Normal', the phone number is ready to be used. Otherwise it is an external number not yet ported to RingCentral
-    /// </summary>
+    /**
+     * Status of a phone number. If the value is 'Normal', the phone number is ready to be used. Otherwise it is an external number not yet ported to RingCentral
+     */
     public String status;
 
-    /// <summary>
-    /// Phone number type
-    /// Enum: VoiceFax, FaxOnly, VoiceOnly
-    /// </summary>
+    /**
+     * Phone number type
+     * Enum: VoiceFax, FaxOnly, VoiceOnly
+     */
     public String type;
 
-    /// <summary>
-    /// Usage type of a phone number
-    /// Enum: MainCompanyNumber, AdditionalCompanyNumber, CompanyNumber, DirectNumber, CompanyFaxNumber, ForwardedNumber, ForwardedCompanyNumber, ContactCenterNumber, ConferencingNumber
-    /// </summary>
+    /**
+     * Usage type of a phone number
+     * Enum: MainCompanyNumber, AdditionalCompanyNumber, CompanyNumber, DirectNumber, CompanyFaxNumber, ForwardedNumber, ForwardedCompanyNumber, ContactCenterNumber, ConferencingNumber
+     */
     public String usageType;
 
-    /// <summary>
-    /// List of features of a phone number
-    /// </summary>
+    /**
+     * List of features of a phone number
+     */
     public String[] features;
 }

@@ -2,21 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class UserAnsweringRuleList {
-    /// <summary>
-    /// Canonical URI of an answering rule list resource
-    /// </summary>
+    /**
+     * Canonical URI of an answering rule list resource
+     */
     public String uri;
 
-    /// <summary>
-    /// List of answering rules
-    /// </summary>
+    /**
+     * List of answering rules
+     */
     public UserAnsweringRuleListRecord[] records;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public UserAnsweringRuleListPaging paging;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public UserAnsweringRuleListNavigation navigation;
 }

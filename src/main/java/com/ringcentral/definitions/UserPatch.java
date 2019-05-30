@@ -2,14 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class UserPatch {
-    /// <summary>
-    /// patch operations list
-    /// Required
-    /// </summary>
+    /**
+     * patch operations list
+     * Required
+     */
     public PatchOperation[] Operations;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public String[] schemas;
 }

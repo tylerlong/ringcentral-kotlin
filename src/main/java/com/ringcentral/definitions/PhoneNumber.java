@@ -2,14 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class PhoneNumber {
-    /// <summary>
-    /// Required
-    /// Enum: work, mobile, other
-    /// </summary>
+    /**
+     * Required
+     * Enum: work, mobile, other
+     */
     public String type;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public String value;
 }

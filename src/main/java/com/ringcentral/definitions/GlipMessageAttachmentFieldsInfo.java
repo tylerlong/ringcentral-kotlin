@@ -2,20 +2,20 @@ package com.ringcentral.definitions;
 
 
 public class GlipMessageAttachmentFieldsInfo {
-    /// <summary>
-    /// Title of an individual field
-    /// </summary>
+    /**
+     * Title of an individual field
+     */
     public String title;
 
-    /// <summary>
-    /// Value of an individual field (supports Markdown)
-    /// </summary>
+    /**
+     * Value of an individual field (supports Markdown)
+     */
     public String value;
 
-    /// <summary>
-    /// Style of width span applied to a field
-    /// Default: Short
-    /// Enum: Short, Long
-    /// </summary>
+    /**
+     * Style of width span applied to a field
+     * Default: Short
+     * Enum: Short, Long
+     */
     public String style;
 }

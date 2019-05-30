@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class RevokeTokenRequest {
-    /// <summary>
-    /// Active access or refresh token to be revoked
-    /// </summary>
+    /**
+     * Active access or refresh token to be revoked
+     */
     public String token;
 }

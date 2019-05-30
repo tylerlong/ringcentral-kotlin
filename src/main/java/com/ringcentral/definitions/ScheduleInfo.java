@@ -2,19 +2,19 @@ package com.ringcentral.definitions;
 
 
 public class ScheduleInfo {
-    /// <summary>
-    /// Weekly schedule
-    /// </summary>
+    /**
+     * Weekly schedule
+     */
     public WeeklyScheduleInfo weeklyRanges;
 
-    /// <summary>
-    /// Specific data ranges
-    /// </summary>
+    /**
+     * Specific data ranges
+     */
     public RangesInfo[] ranges;
 
-    /// <summary>
-    /// The user's schedule specified for business hours or after hours; it can also be set/retrieved calling the corresponding method
-    /// Enum: BusinessHours, AfterHours
-    /// </summary>
+    /**
+     * The user's schedule specified for business hours or after hours; it can also be set/retrieved calling the corresponding method
+     * Enum: BusinessHours, AfterHours
+     */
     public String ref;
 }

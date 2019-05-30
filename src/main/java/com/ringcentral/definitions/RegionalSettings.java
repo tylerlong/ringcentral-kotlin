@@ -2,34 +2,34 @@ package com.ringcentral.definitions;
 
 
 public class RegionalSettings {
-    /// <summary>
-    /// Extension country information
-    /// </summary>
+    /**
+     * Extension country information
+     */
     public CountryInfo homeCountry;
 
-    /// <summary>
-    /// Extension timezone information
-    /// </summary>
+    /**
+     * Extension timezone information
+     */
     public TimezoneInfo timezone;
 
-    /// <summary>
-    /// User interface language data
-    /// </summary>
+    /**
+     * User interface language data
+     */
     public LanguageInfo language;
 
-    /// <summary>
-    /// Information on language used for telephony greetings
-    /// </summary>
+    /**
+     * Information on language used for telephony greetings
+     */
     public GreetingLanguageInfo greetingLanguage;
 
-    /// <summary>
-    /// Formatting language preferences for numbers, dates and currencies
-    /// </summary>
+    /**
+     * Formatting language preferences for numbers, dates and currencies
+     */
     public FormattingLocaleInfo formattingLocale;
 
-    /// <summary>
-    /// Time format setting. The default value is '12h' = ['12h', '24h']
-    /// Enum: 12h, 24h
-    /// </summary>
+    /**
+     * Time format setting. The default value is '12h' = ['12h', '24h']
+     * Enum: 12h, 24h
+     */
     public String timeFormat;
 }

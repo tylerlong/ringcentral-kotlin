@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class GetExtensionForwardingNumberListResponse {
-    /// <summary>
-    /// List of forwarding phone numbers
-    /// </summary>
+    /**
+     * List of forwarding phone numbers
+     */
     public ForwardingNumberInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public CallHandlingNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public CallHandlingPagingInfo paging;
 }

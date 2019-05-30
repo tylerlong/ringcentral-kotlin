@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class CallRecordingExtensionInfo {
-    /// <summary>
-    /// Internal identifier of an extension
-    /// </summary>
+    /**
+     * Internal identifier of an extension
+     */
     public String id;
 
-    /// <summary>
-    /// Link to an extension resource
-    /// </summary>
+    /**
+     * Link to an extension resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Number of an extension
-    /// </summary>
+    /**
+     * Number of an extension
+     */
     public String extensionNumber;
 
-    /// <summary>
-    /// Name of an extension
-    /// </summary>
+    /**
+     * Name of an extension
+     */
     public String name;
 }

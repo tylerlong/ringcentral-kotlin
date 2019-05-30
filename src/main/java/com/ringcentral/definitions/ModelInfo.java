@@ -2,24 +2,24 @@ package com.ringcentral.definitions;
 
 
 public class ModelInfo {
-    /// <summary>
-    /// Addon identifier. For HardPhones of certain types, which are compatible with this addon identifier
-    /// </summary>
+    /**
+     * Addon identifier. For HardPhones of certain types, which are compatible with this addon identifier
+     */
     public String id;
 
-    /// <summary>
-    /// Device name
-    /// </summary>
+    /**
+     * Device name
+     */
     public String name;
 
-    /// <summary>
-    /// Addons description
-    /// Required
-    /// </summary>
+    /**
+     * Addons description
+     * Required
+     */
     public AddonInfo[] addons;
 
-    /// <summary>
-    /// Device feature or multiple features supported
-    /// </summary>
+    /**
+     * Device feature or multiple features supported
+     */
     public String[] features;
 }

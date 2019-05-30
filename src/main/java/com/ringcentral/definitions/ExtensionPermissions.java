@@ -3,13 +3,13 @@ package com.ringcentral.definitions;
 
 // Extension permissions, corresponding to the Service Web permissions 'Admin' and 'InternationalCalling'
 public class ExtensionPermissions {
-    /// <summary>
-    /// Admin permission
-    /// </summary>
+    /**
+     * Admin permission
+     */
     public PermissionInfo admin;
 
-    /// <summary>
-    /// International Calling permission
-    /// </summary>
+    /**
+     * International Calling permission
+     */
     public PermissionInfo internationalCalling;
 }

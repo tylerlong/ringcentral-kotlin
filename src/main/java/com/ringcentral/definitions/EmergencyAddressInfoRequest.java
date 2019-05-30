@@ -2,38 +2,38 @@ package com.ringcentral.definitions;
 
 
 public class EmergencyAddressInfoRequest {
-    /// <summary>
-    /// Name of a customer
-    /// </summary>
+    /**
+     * Name of a customer
+     */
     public String customerName;
 
-    /// <summary>
-    /// Street address, line 1 - street address, P.O. box, company name, c/o
-    /// </summary>
+    /**
+     * Street address, line 1 - street address, P.O. box, company name, c/o
+     */
     public String street;
 
-    /// <summary>
-    /// Street address, line 2 - apartment, suite, unit, building, floor, etc.
-    /// </summary>
+    /**
+     * Street address, line 2 - apartment, suite, unit, building, floor, etc.
+     */
     public String street2;
 
-    /// <summary>
-    /// City name
-    /// </summary>
+    /**
+     * City name
+     */
     public String city;
 
-    /// <summary>
-    /// Zip code
-    /// </summary>
+    /**
+     * Zip code
+     */
     public String zip;
 
-    /// <summary>
-    /// State/province name
-    /// </summary>
+    /**
+     * State/province name
+     */
     public String state;
 
-    /// <summary>
-    /// Country name
-    /// </summary>
+    /**
+     * Country name
+     */
     public String country;
 }

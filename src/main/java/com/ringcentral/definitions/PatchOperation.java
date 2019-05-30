@@ -2,18 +2,19 @@ package com.ringcentral.definitions;
 
 
 public class PatchOperation {
-    /// <summary>
-    /// Required
-    /// Enum: add, replace, remove
-    /// </summary>
+    /**
+     * Required
+     * Enum: add, replace, remove
+     */
     public String op;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String path;
 
-    /// <summary>
-    /// corresponding 'value' of that field specified by 'path'
-    /// </summary>
+    /**
+     * corresponding 'value' of that field specified by 'path'
+     */
     public String value;
 }

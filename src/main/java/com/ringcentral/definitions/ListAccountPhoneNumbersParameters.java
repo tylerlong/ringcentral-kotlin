@@ -2,20 +2,20 @@ package com.ringcentral.definitions;
 
 
 public class ListAccountPhoneNumbersParameters {
-    /// <summary>
-    /// Indicates the page number to retrieve. Only positive number values are accepted
-    /// Default: 1
-    /// </summary>
+    /**
+     * Indicates the page number to retrieve. Only positive number values are accepted
+     * Default: 1
+     */
     public Long page;
 
-    /// <summary>
-    /// Indicates the page size (number of items)
-    /// Default: 100
-    /// </summary>
+    /**
+     * Indicates the page size (number of items)
+     * Default: 100
+     */
     public Long perPage;
 
-    /// <summary>
-    /// Usage type of a phone number
-    /// </summary>
+    /**
+     * Usage type of a phone number
+     */
     public String[] usageType;
 }

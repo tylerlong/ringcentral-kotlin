@@ -2,9 +2,9 @@ package com.ringcentral.definitions;
 
 
 public class GlipPostMembersIdsListBody {
-    /// <summary>
-    /// Identifier(s) of chat members.
-    /// Required
-    /// </summary>
+    /**
+     * Identifier(s) of chat members.
+     * Required
+     */
     public Object[] members;
 }

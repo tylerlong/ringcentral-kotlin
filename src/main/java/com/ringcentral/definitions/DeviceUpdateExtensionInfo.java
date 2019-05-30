@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class DeviceUpdateExtensionInfo {
-    /// <summary>
-    /// Internal identifier of an extension
-    /// </summary>
+    /**
+     * Internal identifier of an extension
+     */
     public String id;
 }

@@ -2,33 +2,33 @@ package com.ringcentral.definitions;
 
 
 public class InboundMessageEvent {
-    /// <summary>
-    /// Information on a notification
-    /// </summary>
+    /**
+     * Information on a notification
+     */
     public NotificationInfo aps;
 
-    /// <summary>
-    /// Internal identifier of a message
-    /// </summary>
+    /**
+     * Internal identifier of a message
+     */
     public String messageId;
 
-    /// <summary>
-    /// Internal identifier of an conversation
-    /// </summary>
+    /**
+     * Internal identifier of an conversation
+     */
     public String conversationId;
 
-    /// <summary>
-    /// Sender phone number. For GCM transport type '_from' property should be used
-    /// </summary>
+    /**
+     * Sender phone number. For GCM transport type '_from' property should be used
+     */
     public String from;
 
-    /// <summary>
-    /// Receiver phone number
-    /// </summary>
+    /**
+     * Receiver phone number
+     */
     public String to;
 
-    /// <summary>
-    /// Internal identifier of a subscription owner extension
-    /// </summary>
+    /**
+     * Internal identifier of a subscription owner extension
+     */
     public String ownerId;
 }

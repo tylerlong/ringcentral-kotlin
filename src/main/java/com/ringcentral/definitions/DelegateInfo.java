@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class DelegateInfo {
-    /// <summary>
-    /// Internal identifier of a Secretary extension
-    /// </summary>
+    /**
+     * Internal identifier of a Secretary extension
+     */
     public String id;
 
-    /// <summary>
-    /// Custom name of a Secretary extension
-    /// </summary>
+    /**
+     * Custom name of a Secretary extension
+     */
     public String name;
 }

@@ -2,21 +2,21 @@ package com.ringcentral.definitions;
 
 
 public class GetMessageList {
-    /// <summary>
-    /// List of records with message information
-    /// Required
-    /// </summary>
+    /**
+     * List of records with message information
+     * Required
+     */
     public GetMessageInfoResponse[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public MessagingNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public MessagingPagingInfo paging;
 }

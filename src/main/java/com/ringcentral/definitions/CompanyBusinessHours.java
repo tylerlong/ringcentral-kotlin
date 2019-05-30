@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class CompanyBusinessHours {
-    /// <summary>
-    /// Canonical URI of a business-hours resource
-    /// </summary>
+    /**
+     * Canonical URI of a business-hours resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Schedule when an answering rule is applied
-    /// </summary>
+    /**
+     * Schedule when an answering rule is applied
+     */
     public CompanyBusinessHoursScheduleInfo schedule;
 }

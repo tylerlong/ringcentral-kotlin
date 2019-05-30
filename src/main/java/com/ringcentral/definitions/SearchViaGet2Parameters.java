@@ -2,20 +2,20 @@ package com.ringcentral.definitions;
 
 
 public class SearchViaGet2Parameters {
-    /// <summary>
-    /// only support 'userName' or 'email' filter expressions for now
-    /// </summary>
+    /**
+     * only support 'userName' or 'email' filter expressions for now
+     */
     public String filter;
 
-    /// <summary>
-    /// start index (1-based)
-    /// Default: 1
-    /// </summary>
+    /**
+     * start index (1-based)
+     * Default: 1
+     */
     public Long startIndex;
 
-    /// <summary>
-    /// page size
-    /// Default: 100
-    /// </summary>
+    /**
+     * page size
+     * Default: 100
+     */
     public Long count;
 }

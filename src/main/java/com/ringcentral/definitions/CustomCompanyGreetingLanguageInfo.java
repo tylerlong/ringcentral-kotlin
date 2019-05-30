@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class CustomCompanyGreetingLanguageInfo {
-    /// <summary>
-    /// Internal identifier of a greeting language
-    /// </summary>
+    /**
+     * Internal identifier of a greeting language
+     */
     public String id;
 
-    /// <summary>
-    /// Link to a greeting language
-    /// </summary>
+    /**
+     * Link to a greeting language
+     */
     public String uri;
 
-    /// <summary>
-    /// Name of a greeting language
-    /// </summary>
+    /**
+     * Name of a greeting language
+     */
     public String name;
 
-    /// <summary>
-    /// Locale code of a greeting language
-    /// </summary>
+    /**
+     * Locale code of a greeting language
+     */
     public String localeCode;
 }

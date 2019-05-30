@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class GetCountryInfoState {
-    /// <summary>
-    /// Internal identifier of a state
-    /// </summary>
+    /**
+     * Internal identifier of a state
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a state
-    /// </summary>
+    /**
+     * Canonical URI of a state
+     */
     public String uri;
 }

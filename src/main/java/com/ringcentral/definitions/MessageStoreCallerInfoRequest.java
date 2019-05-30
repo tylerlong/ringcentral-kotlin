@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class MessageStoreCallerInfoRequest {
-    /// <summary>
-    /// Phone number in E.164 format
-    /// </summary>
+    /**
+     * Phone number in E.164 format
+     */
     public String phoneNumber;
 }

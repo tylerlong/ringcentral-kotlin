@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class ActiveCallsRecordExtensionInfo {
-    /// <summary>
-    /// Link to an extension on whose behalf a call is initiated
-    /// </summary>
+    /**
+     * Link to an extension on whose behalf a call is initiated
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of an extension on whose behalf a call is initiated
-    /// </summary>
+    /**
+     * Internal identifier of an extension on whose behalf a call is initiated
+     */
     public String id;
 }

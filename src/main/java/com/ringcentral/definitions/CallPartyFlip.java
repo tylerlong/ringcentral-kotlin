@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class CallPartyFlip {
-    /// <summary>
-    /// Call flip id
-    /// </summary>
+    /**
+     * Call flip id
+     */
     public String callFlipId;
 }

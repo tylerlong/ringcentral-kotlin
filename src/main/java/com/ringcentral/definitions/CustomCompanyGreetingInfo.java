@@ -2,40 +2,40 @@ package com.ringcentral.definitions;
 
 
 public class CustomCompanyGreetingInfo {
-    /// <summary>
-    /// Link to an extension custom greeting
-    /// </summary>
+    /**
+     * Link to an extension custom greeting
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of an answering rule
-    /// </summary>
+    /**
+     * Internal identifier of an answering rule
+     */
     public String id;
 
-    /// <summary>
-    /// Type of a company greeting
-    /// Enum: Company, StartRecording, StopRecording, AutomaticRecording
-    /// </summary>
+    /**
+     * Type of a company greeting
+     * Enum: Company, StartRecording, StopRecording, AutomaticRecording
+     */
     public String type;
 
-    /// <summary>
-    /// Content media type in WAV/MP3 format
-    /// Enum: WAV, MP3
-    /// </summary>
+    /**
+     * Content media type in WAV/MP3 format
+     * Enum: WAV, MP3
+     */
     public String contentType;
 
-    /// <summary>
-    /// Link to a greeting content (audio file)
-    /// </summary>
+    /**
+     * Link to a greeting content (audio file)
+     */
     public String contentUri;
 
-    /// <summary>
-    /// Information on an answering rule that the greeting is applied to
-    /// </summary>
+    /**
+     * Information on an answering rule that the greeting is applied to
+     */
     public CustomGreetingAnsweringRuleInfo answeringRule;
 
-    /// <summary>
-    /// Information on a greeting language. Supported for types 'StopRecording', 'StartRecording', 'AutomaticRecording'
-    /// </summary>
+    /**
+     * Information on a greeting language. Supported for types 'StopRecording', 'StartRecording', 'AutomaticRecording'
+     */
     public CustomCompanyGreetingLanguageInfo language;
 }

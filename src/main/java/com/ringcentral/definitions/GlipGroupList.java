@@ -2,13 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class GlipGroupList {
-    /// <summary>
-    /// List of groups/teams/private chats
-    /// Required
-    /// </summary>
+    /**
+     * List of groups/teams/private chats
+     * Required
+     */
     public GlipGroupInfo[] records;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public GlipNavigationInfo navigation;
 }

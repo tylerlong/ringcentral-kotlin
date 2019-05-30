@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class ReadUserPresenceStatusParameters {
-    /// <summary>
-    /// Whether to return detailed telephony state
-    /// </summary>
+    /**
+     * Whether to return detailed telephony state
+     */
     public Boolean detailedTelephonyState;
 
-    /// <summary>
-    /// Whether to return SIP data
-    /// </summary>
+    /**
+     * Whether to return SIP data
+     */
     public Boolean sipData;
 }

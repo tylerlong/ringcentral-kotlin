@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class DictionaryGreetingList {
-    /// <summary>
-    /// Canonical URI of greetings list resource
-    /// </summary>
+    /**
+     * Canonical URI of greetings list resource
+     */
     public String uri;
 
-    /// <summary>
-    /// List of greetings
-    /// </summary>
+    /**
+     * List of greetings
+     */
     public DictionaryGreetingInfo[] records;
 }

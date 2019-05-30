@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class ArchiveInfo {
-    /// <summary>
-    /// Archive size in bytes
-    /// </summary>
+    /**
+     * Archive size in bytes
+     */
     public Long size;
 
-    /// <summary>
-    /// Link for archive download
-    /// </summary>
+    /**
+     * Link for archive download
+     */
     public String uri;
 }

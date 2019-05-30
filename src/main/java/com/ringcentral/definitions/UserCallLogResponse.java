@@ -2,21 +2,21 @@ package com.ringcentral.definitions;
 
 
 public class UserCallLogResponse {
-    /// <summary>
-    /// List of call log records
-    /// Required
-    /// </summary>
+    /**
+     * List of call log records
+     * Required
+     */
     public CallLogRecord[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public CallLogNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public CallLogPagingInfo paging;
 }

@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class ExportTaskResultInfo {
-    /// <summary>
-    /// Size of the collected data archive in bytes
-    /// </summary>
+    /**
+     * Size of the collected data archive in bytes
+     */
     public Long size;
 
-    /// <summary>
-    /// Canonical URI for downloading an archive
-    /// </summary>
+    /**
+     * Canonical URI for downloading an archive
+     */
     public String uri;
 }

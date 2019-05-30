@@ -2,39 +2,39 @@ package com.ringcentral.definitions;
 
 
 public class ForwardingNumberInfo {
-    /// <summary>
-    /// Internal identifier of a forwarding/call flip phone number
-    /// </summary>
+    /**
+     * Internal identifier of a forwarding/call flip phone number
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a forwarding/call flip phone number
-    /// </summary>
+    /**
+     * Canonical URI of a forwarding/call flip phone number
+     */
     public String uri;
 
-    /// <summary>
-    /// Forwarding/Call flip phone number
-    /// </summary>
+    /**
+     * Forwarding/Call flip phone number
+     */
     public String phoneNumber;
 
-    /// <summary>
-    /// Forwarding/Call flip number title
-    /// </summary>
+    /**
+     * Forwarding/Call flip number title
+     */
     public String label;
 
-    /// <summary>
-    /// Type of option this phone number is used for. Multiple values are accepted
-    /// </summary>
+    /**
+     * Type of option this phone number is used for. Multiple values are accepted
+     */
     public String[] features;
 
-    /// <summary>
-    /// Number assigned to the call flip phone number, corresponds to the shortcut dial number
-    /// </summary>
+    /**
+     * Number assigned to the call flip phone number, corresponds to the shortcut dial number
+     */
     public Long flipNumber;
 
-    /// <summary>
-    /// Forwarding phone number type
-    /// Enum: Home, Mobile, Work, PhoneLine, Outage, Other
-    /// </summary>
+    /**
+     * Forwarding phone number type
+     * Enum: Home, Mobile, Work, PhoneLine, Outage, Other
+     */
     public String type;
 }

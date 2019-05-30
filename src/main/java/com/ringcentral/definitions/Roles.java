@@ -2,12 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class Roles {
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a role
-    /// </summary>
+    /**
+     * Internal identifier of a role
+     */
     public String id;
 }

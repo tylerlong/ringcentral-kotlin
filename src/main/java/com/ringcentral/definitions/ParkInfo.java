@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class ParkInfo {
-    /// <summary>
-    /// Call park identifier
-    /// </summary>
+    /**
+     * Call park identifier
+     */
     public String id;
 }

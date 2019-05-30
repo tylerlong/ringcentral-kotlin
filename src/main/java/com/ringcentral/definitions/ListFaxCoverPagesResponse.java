@@ -2,21 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class ListFaxCoverPagesResponse {
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String uri;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public FaxCoverPageInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public MessagingNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public MessagingPagingInfo paging;
 }

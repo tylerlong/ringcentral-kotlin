@@ -2,33 +2,33 @@ package com.ringcentral.definitions;
 
 
 public class IVRMenuInfo {
-    /// <summary>
-    /// Internal identifier of an IVR Menu extension
-    /// </summary>
+    /**
+     * Internal identifier of an IVR Menu extension
+     */
     public String id;
 
-    /// <summary>
-    /// Link to an IVR Menu extension resource
-    /// </summary>
+    /**
+     * Link to an IVR Menu extension resource
+     */
     public String uri;
 
-    /// <summary>
-    /// First name of an IVR Menu user
-    /// </summary>
+    /**
+     * First name of an IVR Menu user
+     */
     public String name;
 
-    /// <summary>
-    /// Number of an IVR Menu extension
-    /// </summary>
+    /**
+     * Number of an IVR Menu extension
+     */
     public String extensionNumber;
 
-    /// <summary>
-    /// Prompt metadata
-    /// </summary>
+    /**
+     * Prompt metadata
+     */
     public IVRMenuPromptInfo prompt;
 
-    /// <summary>
-    /// Keys handling settings
-    /// </summary>
+    /**
+     * Keys handling settings
+     */
     public IVRMenuActionsInfo[] actions;
 }

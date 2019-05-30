@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class DeviceProvisioningNavigationInfo {
-    /// <summary>
-    /// Canonical URI for the first page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the first page of the list
+     */
     public DeviceProvisioningNavigationInfoUri firstPage;
 
-    /// <summary>
-    /// Canonical URI for the next page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the next page of the list
+     */
     public DeviceProvisioningNavigationInfoUri nextPage;
 
-    /// <summary>
-    /// Canonical URI for the previous page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the previous page of the list
+     */
     public DeviceProvisioningNavigationInfoUri previousPage;
 
-    /// <summary>
-    /// Canonical URI for the last page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the last page of the list
+     */
     public DeviceProvisioningNavigationInfoUri lastPage;
 }

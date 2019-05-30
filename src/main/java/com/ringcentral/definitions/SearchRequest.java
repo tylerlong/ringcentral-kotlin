@@ -2,22 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class SearchRequest {
-    /// <summary>
-    /// page size
-    /// </summary>
+    /**
+     * page size
+     */
     public Long count;
 
-    /// <summary>
-    /// only support 'userName' or 'email' filter expressions for now
-    /// </summary>
+    /**
+     * only support 'userName' or 'email' filter expressions for now
+     */
     public String filter;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String[] schemas;
 
-    /// <summary>
-    /// start index (1-based)
-    /// </summary>
+    /**
+     * start index (1-based)
+     */
     public Long startIndex;
 }

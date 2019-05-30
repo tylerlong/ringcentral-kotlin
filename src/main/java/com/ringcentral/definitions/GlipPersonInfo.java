@@ -2,44 +2,44 @@ package com.ringcentral.definitions;
 
 
 public class GlipPersonInfo {
-    /// <summary>
-    /// Internal identifier of a user
-    /// Required
-    /// </summary>
+    /**
+     * Internal identifier of a user
+     * Required
+     */
     public String id;
 
-    /// <summary>
-    /// First name of a user
-    /// </summary>
+    /**
+     * First name of a user
+     */
     public String firstName;
 
-    /// <summary>
-    /// Last name of a user
-    /// </summary>
+    /**
+     * Last name of a user
+     */
     public String lastName;
 
-    /// <summary>
-    /// Email of a user
-    /// </summary>
+    /**
+     * Email of a user
+     */
     public String email;
 
-    /// <summary>
-    /// Photo of a user
-    /// </summary>
+    /**
+     * Photo of a user
+     */
     public String avatar;
 
-    /// <summary>
-    /// Internal identifier of a company
-    /// </summary>
+    /**
+     * Internal identifier of a company
+     */
     public String companyId;
 
-    /// <summary>
-    /// Time of creation in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
-    /// </summary>
+    /**
+     * Time of creation in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Time of the last modification in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
-    /// </summary>
+    /**
+     * Time of the last modification in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+     */
     public String lastModifiedTime;
 }

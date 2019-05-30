@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class ExtensionGrantListEventBody {
-    /// <summary>
-    /// Internal identifier of an extension
-    /// </summary>
+    /**
+     * Internal identifier of an extension
+     */
     public String extensionId;
 
-    /// <summary>
-    /// Internal identifier of a subscription owner extension
-    /// </summary>
+    /**
+     * Internal identifier of a subscription owner extension
+     */
     public String ownerId;
 }

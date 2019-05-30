@@ -2,19 +2,19 @@ package com.ringcentral.definitions;
 
 
 public class ModifyAccountBusinessAddressRequest {
-    /// <summary>
-    /// Company business name
-    /// </summary>
+    /**
+     * Company business name
+     */
     public String company;
 
-    /// <summary>
-    /// Company business email address
-    /// </summary>
+    /**
+     * Company business email address
+     */
     public String email;
 
-    /// <summary>
-    /// Company business address
-    /// Required
-    /// </summary>
+    /**
+     * Company business address
+     * Required
+     */
     public BusinessAddressInfo businessAddress;
 }

@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class IVRPrompts {
-    /// <summary>
-    /// Link to prompts library resource
-    /// </summary>
+    /**
+     * Link to prompts library resource
+     */
     public String uri;
 
-    /// <summary>
-    /// List of Prompts
-    /// </summary>
+    /**
+     * List of Prompts
+     */
     public PromptInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public CallHandlingNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public CallHandlingPagingInfo paging;
 }

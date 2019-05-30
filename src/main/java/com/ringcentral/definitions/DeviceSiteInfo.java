@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class DeviceSiteInfo {
-    /// <summary>
-    /// Internal identifier of a site
-    /// </summary>
+    /**
+     * Internal identifier of a site
+     */
     public String id;
 
-    /// <summary>
-    /// Name of a site
-    /// </summary>
+    /**
+     * Name of a site
+     */
     public String name;
 }

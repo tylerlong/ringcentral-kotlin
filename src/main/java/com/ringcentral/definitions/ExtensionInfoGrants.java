@@ -2,24 +2,24 @@ package com.ringcentral.definitions;
 
 
 public class ExtensionInfoGrants {
-    /// <summary>
-    /// Internal identifier of an extension
-    /// </summary>
+    /**
+     * Internal identifier of an extension
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of an extension
-    /// </summary>
+    /**
+     * Canonical URI of an extension
+     */
     public String uri;
 
-    /// <summary>
-    /// Extension short number (usually 3 or 4 digits)
-    /// </summary>
+    /**
+     * Extension short number (usually 3 or 4 digits)
+     */
     public String extensionNumber;
 
-    /// <summary>
-    /// Extension type
-    /// Enum: User, Fax User, VirtualUser, DigitalUser, Department, Announcement, Voicemail, SharedLinesGroup, PagingOnly, IvrMenu, ApplicationExtension, Park Location
-    /// </summary>
+    /**
+     * Extension type
+     * Enum: User, Fax User, VirtualUser, DigitalUser, Department, Announcement, Voicemail, SharedLinesGroup, PagingOnly, IvrMenu, ApplicationExtension, Park Location
+     */
     public String type;
 }

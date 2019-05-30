@@ -2,35 +2,35 @@ package com.ringcentral.definitions;
 
 
 public class CustomUserGreetingInfo {
-    /// <summary>
-    /// Link to a custom user greeting
-    /// </summary>
+    /**
+     * Link to a custom user greeting
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a custom user greeting
-    /// </summary>
+    /**
+     * Internal identifier of a custom user greeting
+     */
     public String id;
 
-    /// <summary>
-    /// Type of a custom user greeting
-    /// Enum: Introductory, Announcement, ConnectingAudio, ConnectingMessage, Voicemail, Unavailable, HoldMusic
-    /// </summary>
+    /**
+     * Type of a custom user greeting
+     * Enum: Introductory, Announcement, ConnectingAudio, ConnectingMessage, Voicemail, Unavailable, HoldMusic
+     */
     public String type;
 
-    /// <summary>
-    /// Content media type in WAV/MP3 format
-    /// Enum: WAV, MP3
-    /// </summary>
+    /**
+     * Content media type in WAV/MP3 format
+     * Enum: WAV, MP3
+     */
     public String contentType;
 
-    /// <summary>
-    /// Link to a greeting content (audio file)
-    /// </summary>
+    /**
+     * Link to a greeting content (audio file)
+     */
     public String contentUri;
 
-    /// <summary>
-    /// Information on an answering rule that the greeting is applied to
-    /// </summary>
+    /**
+     * Information on an answering rule that the greeting is applied to
+     */
     public CustomGreetingAnsweringRuleInfo answeringRule;
 }

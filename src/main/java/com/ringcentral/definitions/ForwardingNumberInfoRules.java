@@ -2,29 +2,29 @@ package com.ringcentral.definitions;
 
 
 public class ForwardingNumberInfoRules {
-    /// <summary>
-    /// Link to a forwarding number resource
-    /// </summary>
+    /**
+     * Link to a forwarding number resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a forwarding number
-    /// </summary>
+    /**
+     * Internal identifier of a forwarding number
+     */
     public String id;
 
-    /// <summary>
-    /// Phone number to which the call is forwarded
-    /// </summary>
+    /**
+     * Phone number to which the call is forwarded
+     */
     public String phoneNumber;
 
-    /// <summary>
-    /// Title of a forwarding number
-    /// </summary>
+    /**
+     * Title of a forwarding number
+     */
     public String label;
 
-    /// <summary>
-    /// Type of a forwarding number
-    /// Enum: Home, Mobile, Work, PhoneLine, Outage, Other
-    /// </summary>
+    /**
+     * Type of a forwarding number
+     * Enum: Home, Mobile, Work, PhoneLine, Outage, Other
+     */
     public String type;
 }

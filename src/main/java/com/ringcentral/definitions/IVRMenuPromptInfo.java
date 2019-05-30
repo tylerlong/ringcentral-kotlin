@@ -2,24 +2,24 @@ package com.ringcentral.definitions;
 
 
 public class IVRMenuPromptInfo {
-    /// <summary>
-    /// Prompt mode: custom media or text
-    /// Enum: Audio, TextToSpeech
-    /// </summary>
+    /**
+     * Prompt mode: custom media or text
+     * Enum: Audio, TextToSpeech
+     */
     public String mode;
 
-    /// <summary>
-    /// For 'Audio' mode only. Prompt media reference
-    /// </summary>
+    /**
+     * For 'Audio' mode only. Prompt media reference
+     */
     public PromptLanguageInfo audio;
 
-    /// <summary>
-    /// For 'TextToSpeech' mode only. Prompt text
-    /// </summary>
+    /**
+     * For 'TextToSpeech' mode only. Prompt text
+     */
     public String text;
 
-    /// <summary>
-    /// For 'TextToSpeech' mode only. Prompt language metadata
-    /// </summary>
+    /**
+     * For 'TextToSpeech' mode only. Prompt language metadata
+     */
     public AudioPromptInfo language;
 }

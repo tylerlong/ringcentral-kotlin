@@ -2,15 +2,15 @@ package com.ringcentral.definitions;
 
 
 public class ListGlipGroupPostsParameters {
-    /// <summary>
-    /// Max number of records to be returned
-    /// Maximum: 250
-    /// Default: 30
-    /// </summary>
+    /**
+     * Max number of records to be returned
+     * Maximum: 250
+     * Default: 30
+     */
     public Long recordCount;
 
-    /// <summary>
-    /// Pagination token
-    /// </summary>
+    /**
+     * Pagination token
+     */
     public String pageToken;
 }

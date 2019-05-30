@@ -2,34 +2,34 @@ package com.ringcentral.definitions;
 
 
 public class GlipEveryoneInfo {
-    /// <summary>
-    /// Internal identifier of a chat
-    /// </summary>
+    /**
+     * Internal identifier of a chat
+     */
     public String id;
 
-    /// <summary>
-    /// Type of a chat
-    /// Enum: Everyone
-    /// </summary>
+    /**
+     * Type of a chat
+     * Enum: Everyone
+     */
     public String type;
 
-    /// <summary>
-    /// Chat name
-    /// </summary>
+    /**
+     * Chat name
+     */
     public String name;
 
-    /// <summary>
-    /// Chat description
-    /// </summary>
+    /**
+     * Chat description
+     */
     public String description;
 
-    /// <summary>
-    /// Chat creation datetime in ISO 8601 format
-    /// </summary>
+    /**
+     * Chat creation datetime in ISO 8601 format
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Chat last change datetime in ISO 8601 format
-    /// </summary>
+    /**
+     * Chat last change datetime in ISO 8601 format
+     */
     public String lastModifiedTime;
 }

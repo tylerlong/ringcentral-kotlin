@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class APNSInfo {
-    /// <summary>
-    /// Notification priority data
-    /// </summary>
+    /**
+     * Notification priority data
+     */
     public APSInfo aps;
 }

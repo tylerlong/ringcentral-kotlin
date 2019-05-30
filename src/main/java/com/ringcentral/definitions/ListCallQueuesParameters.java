@@ -2,20 +2,20 @@ package com.ringcentral.definitions;
 
 
 public class ListCallQueuesParameters {
-    /// <summary>
-    /// Indicates the page number to retrieve. Only positive number values are accepted
-    /// Default: 1
-    /// </summary>
+    /**
+     * Indicates the page number to retrieve. Only positive number values are accepted
+     * Default: 1
+     */
     public Long page;
 
-    /// <summary>
-    /// Indicates the page size (number of items)
-    /// Default: 100
-    /// </summary>
+    /**
+     * Indicates the page size (number of items)
+     * Default: 100
+     */
     public Long perPage;
 
-    /// <summary>
-    /// Internal identifier of an extension that is a member of every group within the result
-    /// </summary>
+    /**
+     * Internal identifier of an extension that is a member of every group within the result
+     */
     public String memberExtensionId;
 }

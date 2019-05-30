@@ -2,12 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class Reference {
-    /// <summary>
-    /// Enum: PartnerId, CustomerDirectoryId
-    /// </summary>
+    /**
+     * Enum: PartnerId, CustomerDirectoryId
+     */
     public String type;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String ref;
 }

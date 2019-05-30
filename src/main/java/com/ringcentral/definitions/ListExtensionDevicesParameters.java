@@ -2,15 +2,15 @@ package com.ringcentral.definitions;
 
 
 public class ListExtensionDevicesParameters {
-    /// <summary>
-    /// Pooling type of a device
-    /// Enum: Host, Guest, None
-    /// </summary>
+    /**
+     * Pooling type of a device
+     * Enum: Host, Guest, None
+     */
     public String linePooling;
 
-    /// <summary>
-    /// Device feature or multiple features supported
-    /// Enum: Intercom, Paging, BLA
-    /// </summary>
+    /**
+     * Device feature or multiple features supported
+     * Enum: Intercom, Paging, BLA
+     */
     public String feature;
 }

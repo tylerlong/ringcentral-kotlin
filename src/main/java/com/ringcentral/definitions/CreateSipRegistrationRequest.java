@@ -2,15 +2,15 @@ package com.ringcentral.definitions;
 
 
 public class CreateSipRegistrationRequest {
-    /// <summary>
-    /// Device unique description
-    /// Required
-    /// </summary>
+    /**
+     * Device unique description
+     * Required
+     */
     public DeviceInfoRequest[] device;
 
-    /// <summary>
-    /// SIP settings for device
-    /// Required
-    /// </summary>
+    /**
+     * SIP settings for device
+     * Required
+     */
     public SIPInfoRequest[] sipInfo;
 }

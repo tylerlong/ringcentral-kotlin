@@ -2,42 +2,44 @@ package com.ringcentral.definitions;
 
 
 public class SuperviseCallSession {
-    /// <summary>
-    /// Information about a call party that monitors a call
-    /// </summary>
+    /**
+     * Information about a call party that monitors a call
+     */
     public PartyInfo from;
 
-    /// <summary>
-    /// Information about a call party that is monitored
-    /// </summary>
+    /**
+     * Information about a call party that is monitored
+     */
     public PartyInfo to;
 
-    /// <summary>
-    /// Direction of a call
-    /// Enum: Outbound, Inbound
-    /// </summary>
+    /**
+     * Direction of a call
+     * Enum: Outbound, Inbound
+     */
     public String direction;
 
-    /// <summary>
-    /// Internal identifier of a party that monitors a call
-    /// </summary>
+    /**
+     * Internal identifier of a party that monitors a call
+     */
     public String id;
 
-    /// <summary>
-    /// Specifies if a call party is muted
-    /// </summary>
+    /**
+     * Specifies if a call party is muted
+     */
     public Boolean muted;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public OwnerInfo owner;
 
-    /// <summary>
-    /// Specifies if a device is stand-alone
-    /// </summary>
+    /**
+     * Specifies if a device is stand-alone
+     */
     public Boolean standAlone;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public CallStatusInfo status;
 }

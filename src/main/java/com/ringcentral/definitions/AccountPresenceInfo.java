@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class AccountPresenceInfo {
-    /// <summary>
-    /// Canonical URI of account presence resource
-    /// </summary>
+    /**
+     * Canonical URI of account presence resource
+     */
     public String uri;
 
-    /// <summary>
-    /// List of Prompts
-    /// </summary>
+    /**
+     * List of Prompts
+     */
     public GetPresenceInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public PresenceNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public PresencePagingInfo paging;
 }

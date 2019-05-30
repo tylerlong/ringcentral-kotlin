@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class CallerIdDeviceInfo {
-    /// <summary>
-    /// Internal identifier of a device
-    /// </summary>
+    /**
+     * Internal identifier of a device
+     */
     public String id;
 
-    /// <summary>
-    /// Link to a device resource
-    /// </summary>
+    /**
+     * Link to a device resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Name of a device
-    /// </summary>
+    /**
+     * Name of a device
+     */
     public String phoneNumber;
 }

@@ -2,15 +2,15 @@ package com.ringcentral.definitions;
 
 
 public class GetMessageSyncResponse {
-    /// <summary>
-    /// List of message records with synchronization information
-    /// Required
-    /// </summary>
+    /**
+     * List of message records with synchronization information
+     * Required
+     */
     public GetMessageInfoResponse[] records;
 
-    /// <summary>
-    /// Sync type, token and time
-    /// Required
-    /// </summary>
+    /**
+     * Sync type, token and time
+     * Required
+     */
     public SyncInfoMessages syncInfo;
 }

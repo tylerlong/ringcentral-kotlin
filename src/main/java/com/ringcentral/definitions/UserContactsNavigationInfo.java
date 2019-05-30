@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class UserContactsNavigationInfo {
-    /// <summary>
-    /// Canonical URI for the first page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the first page of the list
+     */
     public UserContactsNavigationInfoUri firstPage;
 
-    /// <summary>
-    /// Canonical URI for the next page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the next page of the list
+     */
     public UserContactsNavigationInfoUri nextPage;
 
-    /// <summary>
-    /// Canonical URI for the previous page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the previous page of the list
+     */
     public UserContactsNavigationInfoUri previousPage;
 
-    /// <summary>
-    /// Canonical URI for the last page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the last page of the list
+     */
     public UserContactsNavigationInfoUri lastPage;
 }

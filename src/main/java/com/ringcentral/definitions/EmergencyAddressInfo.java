@@ -2,74 +2,74 @@ package com.ringcentral.definitions;
 
 
 public class EmergencyAddressInfo {
-    /// <summary>
-    /// Name of a customer
-    /// </summary>
+    /**
+     * Name of a customer
+     */
     public String customerName;
 
-    /// <summary>
-    /// Street address, line 1 - street address, P.O. box, company name, c/o
-    /// </summary>
+    /**
+     * Street address, line 1 - street address, P.O. box, company name, c/o
+     */
     public String street;
 
-    /// <summary>
-    /// Street address, line 2 - apartment, suite, unit, building, floor, etc.
-    /// </summary>
+    /**
+     * Street address, line 2 - apartment, suite, unit, building, floor, etc.
+     */
     public String street2;
 
-    /// <summary>
-    /// City name
-    /// </summary>
+    /**
+     * City name
+     */
     public String city;
 
-    /// <summary>
-    /// Zip code
-    /// </summary>
+    /**
+     * Zip code
+     */
     public String zip;
 
-    /// <summary>
-    /// State/province name
-    /// </summary>
+    /**
+     * State/province name
+     */
     public String state;
 
-    /// <summary>
-    /// Internal identifier of a state
-    /// </summary>
+    /**
+     * Internal identifier of a state
+     */
     public String stateId;
 
-    /// <summary>
-    /// ISO code of a state
-    /// </summary>
+    /**
+     * ISO code of a state
+     */
     public String stateIsoCode;
 
-    /// <summary>
-    /// Full name of a state
-    /// </summary>
+    /**
+     * Full name of a state
+     */
     public String stateName;
 
-    /// <summary>
-    /// Internal identifier of a country
-    /// </summary>
+    /**
+     * Internal identifier of a country
+     */
     public String countryId;
 
-    /// <summary>
-    /// ISO code of a country
-    /// </summary>
+    /**
+     * ISO code of a country
+     */
     public String countryIsoCode;
 
-    /// <summary>
-    /// Country name
-    /// </summary>
+    /**
+     * Country name
+     */
     public String country;
 
-    /// <summary>
-    /// Full name of a country
-    /// </summary>
+    /**
+     * Full name of a country
+     */
     public String countryName;
 
-    /// <summary>
-    /// Resulting status of emergency address synchronization. Returned for 'Get Device Info' request if `syncEmergencyAddress` parameter is set to 'True'
-    /// Enum: Verified, Updated, Deleted, NotRequired, Unsupported, Failed
-    /// </summary>
+    /**
+     * Resulting status of emergency address synchronization. Returned for 'Get Device Info' request if `syncEmergencyAddress` parameter is set to 'True'
+     * Enum: Verified, Updated, Deleted, NotRequired, Unsupported, Failed
+     */
     public String syncStatus;
 }

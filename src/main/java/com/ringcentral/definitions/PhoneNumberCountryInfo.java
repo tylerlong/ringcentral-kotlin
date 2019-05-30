@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class PhoneNumberCountryInfo {
-    /// <summary>
-    /// Internal identifier of a home country
-    /// </summary>
+    /**
+     * Internal identifier of a home country
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a home country
-    /// </summary>
+    /**
+     * Canonical URI of a home country
+     */
     public String uri;
 
-    /// <summary>
-    /// Official name of a home country
-    /// </summary>
+    /**
+     * Official name of a home country
+     */
     public String name;
 }

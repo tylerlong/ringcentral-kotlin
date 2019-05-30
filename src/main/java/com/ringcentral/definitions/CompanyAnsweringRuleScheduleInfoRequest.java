@@ -2,19 +2,19 @@ package com.ringcentral.definitions;
 
 
 public class CompanyAnsweringRuleScheduleInfoRequest {
-    /// <summary>
-    /// Weekly schedule. If specified, ranges cannot be specified
-    /// </summary>
+    /**
+     * Weekly schedule. If specified, ranges cannot be specified
+     */
     public CompanyAnsweringRuleWeeklyScheduleInfoRequest weeklyRanges;
 
-    /// <summary>
-    /// Specific data ranges. If specified, weeklyRanges cannot be specified
-    /// </summary>
+    /**
+     * Specific data ranges. If specified, weeklyRanges cannot be specified
+     */
     public RangesInfo[] ranges;
 
-    /// <summary>
-    /// Reference to Business Hours or After Hours schedule
-    /// Enum: BusinessHours, AfterHours
-    /// </summary>
+    /**
+     * Reference to Business Hours or After Hours schedule
+     * Enum: BusinessHours, AfterHours
+     */
     public String ref;
 }

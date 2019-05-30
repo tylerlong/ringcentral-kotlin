@@ -2,21 +2,21 @@ package com.ringcentral.definitions;
 
 
 public class GetExtensionListResponse {
-    /// <summary>
-    /// List of extensions with extension information
-    /// Required
-    /// </summary>
+    /**
+     * List of extensions with extension information
+     * Required
+     */
     public GetExtensionInfoResponse[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class Name {
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public String familyName;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public String givenName;
 }

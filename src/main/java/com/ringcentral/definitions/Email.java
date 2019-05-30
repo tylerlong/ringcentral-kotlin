@@ -2,14 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class Email {
-    /// <summary>
-    /// Required
-    /// Enum: work
-    /// </summary>
+    /**
+     * Required
+     * Enum: work
+     */
     public String type;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public String value;
 }

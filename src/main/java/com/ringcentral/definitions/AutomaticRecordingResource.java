@@ -2,28 +2,28 @@ package com.ringcentral.definitions;
 
 
 public class AutomaticRecordingResource {
-    /// <summary>
-    /// Flag for controling Automatic Call Recording settings
-    /// </summary>
+    /**
+     * Flag for controling Automatic Call Recording settings
+     */
     public Boolean enabled;
 
-    /// <summary>
-    /// Flag for controlling 'Play Call Recording Announcement for Outbound Calls' settings
-    /// </summary>
+    /**
+     * Flag for controlling 'Play Call Recording Announcement for Outbound Calls' settings
+     */
     public Boolean outboundCallTones;
 
-    /// <summary>
-    /// Flag for controlling 'Play periodic tones for outbound calls' settings
-    /// </summary>
+    /**
+     * Flag for controlling 'Play periodic tones for outbound calls' settings
+     */
     public Boolean outboundCallAnnouncement;
 
-    /// <summary>
-    /// Flag for controlling 'Allow mute in auto call recording' settings
-    /// </summary>
+    /**
+     * Flag for controlling 'Allow mute in auto call recording' settings
+     */
     public Boolean allowMute;
 
-    /// <summary>
-    /// Total amount of extension that are used in call recordings
-    /// </summary>
+    /**
+     * Total amount of extension that are used in call recordings
+     */
     public Long extensionCount;
 }

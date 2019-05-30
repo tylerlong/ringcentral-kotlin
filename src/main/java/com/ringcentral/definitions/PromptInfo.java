@@ -2,28 +2,28 @@ package com.ringcentral.definitions;
 
 
 public class PromptInfo {
-    /// <summary>
-    /// Internal identifier of a prompt
-    /// </summary>
+    /**
+     * Internal identifier of a prompt
+     */
     public String uri;
 
-    /// <summary>
-    /// Link to a prompt metadata
-    /// </summary>
+    /**
+     * Link to a prompt metadata
+     */
     public String id;
 
-    /// <summary>
-    /// Type of a prompt media content
-    /// </summary>
+    /**
+     * Type of a prompt media content
+     */
     public String contentType;
 
-    /// <summary>
-    /// Link to a prompt media content
-    /// </summary>
+    /**
+     * Link to a prompt media content
+     */
     public String contentUri;
 
-    /// <summary>
-    /// Name of a prompt
-    /// </summary>
+    /**
+     * Name of a prompt
+     */
     public String filename;
 }

@@ -2,20 +2,20 @@ package com.ringcentral.definitions;
 
 
 public class GetLocationListResponse {
-    /// <summary>
-    /// List of locations
-    /// </summary>
+    /**
+     * List of locations
+     */
     public LocationInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

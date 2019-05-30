@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class CallLogRecordDeviceInfo {
-    /// <summary>
-    /// Internal identifier of a device
-    /// </summary>
+    /**
+     * Internal identifier of a device
+     */
     public String id;
 
-    /// <summary>
-    /// string to a device
-    /// </summary>
+    /**
+     * string to a device
+     */
     public String uri;
 }

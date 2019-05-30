@@ -2,53 +2,58 @@ package com.ringcentral.definitions;
 
 
 public class ActiveCallInfo {
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String id;
 
-    /// <summary>
-    /// Enum: Inbound, Outbound
-    /// </summary>
+    /**
+     * Enum: Inbound, Outbound
+     */
     public String direction;
 
-    /// <summary>
-    /// Phone number or extension number of a caller. For GCM transport type '_from' property should be used
-    /// </summary>
+    /**
+     * Phone number or extension number of a caller. For GCM transport type '_from' property should be used
+     */
     public String from;
 
-    /// <summary>
-    /// Name of a caller
-    /// </summary>
+    /**
+     * Name of a caller
+     */
     public String fromName;
 
-    /// <summary>
-    /// Phone number or extension number of a callee
-    /// </summary>
+    /**
+     * Phone number or extension number of a callee
+     */
     public String to;
 
-    /// <summary>
-    /// Name of a callee
-    /// </summary>
+    /**
+     * Name of a callee
+     */
     public String toName;
 
-    /// <summary>
-    /// Time when the call is actually started
-    /// </summary>
+    /**
+     * Time when the call is actually started
+     */
     public String startTime;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String telephonyStatus;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public DetailedCallInfo sipData;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String sessionId;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String terminationType;
 }

@@ -4,46 +4,46 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 
 public class GlipTeamInfo {
-    /// <summary>
-    /// Internal identifier of a team
-    /// </summary>
+    /**
+     * Internal identifier of a team
+     */
     public String id;
 
-    /// <summary>
-    /// Type of a chat
-    /// Enum: Team
-    /// </summary>
+    /**
+     * Type of a chat
+     * Enum: Team
+     */
     public String type;
 
-    /// <summary>
-    /// Team access level
-    /// </summary>
+    /**
+     * Team access level
+     */
     @JSONField(name = "public")
     public Boolean _public;
 
-    /// <summary>
-    /// Team name
-    /// </summary>
+    /**
+     * Team name
+     */
     public String name;
 
-    /// <summary>
-    /// Team description
-    /// </summary>
+    /**
+     * Team description
+     */
     public String description;
 
-    /// <summary>
-    /// Team status
-    /// Enum: Active, Archived
-    /// </summary>
+    /**
+     * Team status
+     * Enum: Active, Archived
+     */
     public String status;
 
-    /// <summary>
-    /// Team creation datetime in ISO 8601 format
-    /// </summary>
+    /**
+     * Team creation datetime in ISO 8601 format
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Team last change datetime in ISO 8601 format
-    /// </summary>
+    /**
+     * Team last change datetime in ISO 8601 format
+     */
     public String lastModifiedTime;
 }

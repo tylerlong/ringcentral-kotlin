@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class ExtensionFormattingLocaleInfoRequest {
-    /// <summary>
-    /// Internal Identifier of a formatting language
-    /// </summary>
+    /**
+     * Internal Identifier of a formatting language
+     */
     public String id;
 }

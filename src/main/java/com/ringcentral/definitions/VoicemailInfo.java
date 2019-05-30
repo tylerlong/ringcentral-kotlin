@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class VoicemailInfo {
-    /// <summary>
-    /// If 'True' then voicemails are allowed to be received
-    /// </summary>
+    /**
+     * If 'True' then voicemails are allowed to be received
+     */
     public Boolean enabled;
 
-    /// <summary>
-    /// Recipient data
-    /// </summary>
+    /**
+     * Recipient data
+     */
     public RecipientInfo recipient;
 }

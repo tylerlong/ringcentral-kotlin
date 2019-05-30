@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class CallRecordingCustomGreetingLanguage {
-    /// <summary>
-    /// Link to a language
-    /// </summary>
+    /**
+     * Link to a language
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a language
-    /// </summary>
+    /**
+     * Internal identifier of a language
+     */
     public String id;
 
-    /// <summary>
-    /// Language name
-    /// </summary>
+    /**
+     * Language name
+     */
     public String name;
 
-    /// <summary>
-    /// Language locale code
-    /// </summary>
+    /**
+     * Language locale code
+     */
     public String localeCode;
 }

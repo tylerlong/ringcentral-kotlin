@@ -4,50 +4,51 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 
 public class GlipChatInfo {
-    /// <summary>
-    /// Internal identifier of a chat
-    /// </summary>
+    /**
+     * Internal identifier of a chat
+     */
     public String id;
 
-    /// <summary>
-    /// Type of a chat
-    /// Enum: Everyone, Team, Group, Direct, Personal
-    /// </summary>
+    /**
+     * Type of a chat
+     * Enum: Everyone, Team, Group, Direct, Personal
+     */
     public String type;
 
-    /// <summary>
-    /// For 'Team' chat type only. Team access level.
-    /// </summary>
+    /**
+     * For 'Team' chat type only. Team access level.
+     */
     @JSONField(name = "public")
     public Boolean _public;
 
-    /// <summary>
-    /// For 'Team','Everyone' chats types only. Chat name.
-    /// </summary>
+    /**
+     * For 'Team','Everyone' chats types only. Chat name.
+     */
     public String name;
 
-    /// <summary>
-    /// For 'Team','Everyone' chats types only. Chat description.
-    /// </summary>
+    /**
+     * For 'Team','Everyone' chats types only. Chat description.
+     */
     public String description;
 
-    /// <summary>
-    /// For 'Team' chat type only. Team status.
-    /// Enum: Active, Archived
-    /// </summary>
+    /**
+     * For 'Team' chat type only. Team status.
+     * Enum: Active, Archived
+     */
     public String status;
 
-    /// <summary>
-    /// Chat creation datetime in ISO 8601 format
-    /// </summary>
+    /**
+     * Chat creation datetime in ISO 8601 format
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Chat last change datetime in ISO 8601 format
-    /// </summary>
+    /**
+     * Chat last change datetime in ISO 8601 format
+     */
     public String lastModifiedTime;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public GlipChatMemberInfo[] members;
 }

@@ -2,24 +2,24 @@ package com.ringcentral.definitions;
 
 
 public class CallLogRecordingInfo {
-    /// <summary>
-    /// Internal identifier of the call recording
-    /// </summary>
+    /**
+     * Internal identifier of the call recording
+     */
     public String id;
 
-    /// <summary>
-    /// Link to the call recording metadata resource
-    /// </summary>
+    /**
+     * Link to the call recording metadata resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Indicates recording mode used
-    /// Enum: Automatic, OnDemand
-    /// </summary>
+    /**
+     * Indicates recording mode used
+     * Enum: Automatic, OnDemand
+     */
     public String type;
 
-    /// <summary>
-    /// Link to the call recording binary content
-    /// </summary>
+    /**
+     * Link to the call recording binary content
+     */
     public String contentUri;
 }

@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class ForwardTarget {
-    /// <summary>
-    /// Phone number
-    /// </summary>
+    /**
+     * Phone number
+     */
     public String phoneNumber;
 
-    /// <summary>
-    /// VM owner's extension id
-    /// </summary>
+    /**
+     * VM owner's extension id
+     */
     public String voicemail;
 }

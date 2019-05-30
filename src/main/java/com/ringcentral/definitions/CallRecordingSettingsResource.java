@@ -2,16 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class CallRecordingSettingsResource {
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public OnDemandResource onDemand;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public AutomaticRecordingResource automatic;
 
-    /// <summary>
-    /// Collection of Greeting Info
-    /// </summary>
+    /**
+     * Collection of Greeting Info
+     */
     public GreetingResource[] greetings;
 }

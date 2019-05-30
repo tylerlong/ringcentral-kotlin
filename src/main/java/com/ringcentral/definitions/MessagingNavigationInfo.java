@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class MessagingNavigationInfo {
-    /// <summary>
-    /// Canonical URI for the first page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the first page of the list
+     */
     public MessagingNavigationInfoURI firstPage;
 
-    /// <summary>
-    /// Canonical URI for the next page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the next page of the list
+     */
     public MessagingNavigationInfoURI nextPage;
 
-    /// <summary>
-    /// Canonical URI for the previous page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the previous page of the list
+     */
     public MessagingNavigationInfoURI previousPage;
 
-    /// <summary>
-    /// Canonical URI for the last page of the list
-    /// </summary>
+    /**
+     * Canonical URI for the last page of the list
+     */
     public MessagingNavigationInfoURI lastPage;
 }

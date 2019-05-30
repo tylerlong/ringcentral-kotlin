@@ -2,28 +2,28 @@ package com.ringcentral.definitions;
 
 
 public class CountryInfo {
-    /// <summary>
-    /// Internal identifier of a home country
-    /// </summary>
+    /**
+     * Internal identifier of a home country
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a home country
-    /// </summary>
+    /**
+     * Canonical URI of a home country
+     */
     public String uri;
 
-    /// <summary>
-    /// Official name of a home country
-    /// </summary>
+    /**
+     * Official name of a home country
+     */
     public String name;
 
-    /// <summary>
-    /// ISO code of a country
-    /// </summary>
+    /**
+     * ISO code of a country
+     */
     public String isoCode;
 
-    /// <summary>
-    /// Calling code of a country
-    /// </summary>
+    /**
+     * Calling code of a country
+     */
     public String callingCode;
 }

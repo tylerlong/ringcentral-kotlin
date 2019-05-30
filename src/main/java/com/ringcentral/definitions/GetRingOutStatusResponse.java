@@ -2,17 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class GetRingOutStatusResponse {
-    /// <summary>
-    /// Internal identifier of a RingOut call
-    /// </summary>
+    /**
+     * Internal identifier of a RingOut call
+     */
     public String id;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String uri;
 
-    /// <summary>
-    /// RingOut status information
-    /// </summary>
+    /**
+     * RingOut status information
+     */
     public RingOutStatusInfo status;
 }

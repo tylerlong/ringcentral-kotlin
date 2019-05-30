@@ -2,29 +2,29 @@ package com.ringcentral.definitions;
 
 
 public class UserAnsweringRuleListRecord {
-    /// <summary>
-    /// Canonical URI to an answering rule resource
-    /// </summary>
+    /**
+     * Canonical URI to an answering rule resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of an asnwering rule
-    /// </summary>
+    /**
+     * Internal identifier of an asnwering rule
+     */
     public String id;
 
-    /// <summary>
-    /// Type of an answering rule
-    /// Enum: BusinessHours, AfterHours, Custom
-    /// </summary>
+    /**
+     * Type of an answering rule
+     * Enum: BusinessHours, AfterHours, Custom
+     */
     public String type;
 
-    /// <summary>
-    /// Name of an answering rule specified by user
-    /// </summary>
+    /**
+     * Name of an answering rule specified by user
+     */
     public String name;
 
-    /// <summary>
-    /// Specifies if an answering rule is active or inactive
-    /// </summary>
+    /**
+     * Specifies if an answering rule is active or inactive
+     */
     public Boolean enabled;
 }

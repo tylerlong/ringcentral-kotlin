@@ -2,20 +2,20 @@ package com.ringcentral.definitions;
 
 
 public class ParsePhoneNumberResponse {
-    /// <summary>
-    /// Canonical URI of a resource
-    /// </summary>
+    /**
+     * Canonical URI of a resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Information on a user home country
-    /// Required
-    /// </summary>
+    /**
+     * Information on a user home country
+     * Required
+     */
     public GetCountryInfoNumberParser[] homeCountry;
 
-    /// <summary>
-    /// Parsed phone numbers data
-    /// Required
-    /// </summary>
+    /**
+     * Parsed phone numbers data
+     * Required
+     */
     public PhoneNumberInfoNumberParser[] phoneNumbers;
 }

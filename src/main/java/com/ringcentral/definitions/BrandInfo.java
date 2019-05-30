@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class BrandInfo {
-    /// <summary>
-    /// Internal identifier of a brand
-    /// </summary>
+    /**
+     * Internal identifier of a brand
+     */
     public String id;
 
-    /// <summary>
-    /// Brand name, for example  RingCentral UK ,  ClearFax
-    /// </summary>
+    /**
+     * Brand name, for example  RingCentral UK ,  ClearFax
+     */
     public String name;
 
-    /// <summary>
-    /// Home country information
-    /// </summary>
+    /**
+     * Home country information
+     */
     public CountryInfo homeCountry;
 }

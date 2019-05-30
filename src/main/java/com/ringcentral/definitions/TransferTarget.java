@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class TransferTarget {
-    /// <summary>
-    /// Phone number
-    /// </summary>
+    /**
+     * Phone number
+     */
     public String phoneNumber;
 
-    /// <summary>
-    /// VM owner's extension id
-    /// </summary>
+    /**
+     * VM owner's extension id
+     */
     public String voicemail;
 
-    /// <summary>
-    /// Park orbit id
-    /// </summary>
+    /**
+     * Park orbit id
+     */
     public String parkOrbit;
 }

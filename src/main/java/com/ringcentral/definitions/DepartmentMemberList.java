@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class DepartmentMemberList {
-    /// <summary>
-    /// List of department members extensions
-    /// </summary>
+    /**
+     * List of department members extensions
+     */
     public ExtensionInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public ProvisioningPagingInfo paging;
 }

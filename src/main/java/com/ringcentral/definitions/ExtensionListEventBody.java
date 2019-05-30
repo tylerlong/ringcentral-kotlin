@@ -2,19 +2,19 @@ package com.ringcentral.definitions;
 
 
 public class ExtensionListEventBody {
-    /// <summary>
-    /// Internal identifier of an extension
-    /// </summary>
+    /**
+     * Internal identifier of an extension
+     */
     public String extensionId;
 
-    /// <summary>
-    /// Type of extension info change
-    /// Enum: Create, Update, Delete
-    /// </summary>
+    /**
+     * Type of extension info change
+     * Enum: Create, Update, Delete
+     */
     public String eventType;
 
-    /// <summary>
-    /// Internal identifier of a subscription owner extension
-    /// </summary>
+    /**
+     * Internal identifier of a subscription owner extension
+     */
     public String ownerId;
 }

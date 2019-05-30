@@ -2,60 +2,60 @@ package com.ringcentral.definitions;
 
 
 public class GlipPostEvent {
-    /// <summary>
-    /// Internal identifier of a post
-    /// </summary>
+    /**
+     * Internal identifier of a post
+     */
     public String id;
 
-    /// <summary>
-    /// Type of a post event
-    /// Enum: PostAdded, PostChanged, PostRemoved
-    /// </summary>
+    /**
+     * Type of a post event
+     * Enum: PostAdded, PostChanged, PostRemoved
+     */
     public String eventType;
 
-    /// <summary>
-    /// Internal identifier of a group a post belongs to
-    /// </summary>
+    /**
+     * Internal identifier of a group a post belongs to
+     */
     public String groupId;
 
-    /// <summary>
-    /// Type of a post. 'TextMessage' - an incoming text message; 'PersonJoined' - a message notifying that person has joined a conversation; 'PersonsAdded' - a message notifying that a person(s) were added to a conversation
-    /// Enum: TextMessage, PersonJoined, PersonsAdded, Card
-    /// </summary>
+    /**
+     * Type of a post. 'TextMessage' - an incoming text message; 'PersonJoined' - a message notifying that person has joined a conversation; 'PersonsAdded' - a message notifying that a person(s) were added to a conversation
+     * Enum: TextMessage, PersonJoined, PersonsAdded, Card
+     */
     public String type;
 
-    /// <summary>
-    /// For 'TextMessage' post type only. Message text
-    /// </summary>
+    /**
+     * For 'TextMessage' post type only. Message text
+     */
     public String text;
 
-    /// <summary>
-    /// Internal identifier of a user - author of a post
-    /// </summary>
+    /**
+     * Internal identifier of a user - author of a post
+     */
     public String creatorId;
 
-    /// <summary>
-    /// For PersonsAdded post type only. Identifiers of persons added to a group
-    /// </summary>
+    /**
+     * For PersonsAdded post type only. Identifiers of persons added to a group
+     */
     public String[] addedPersonIds;
 
-    /// <summary>
-    /// For PersonsRemoved post type only. Identifiers of persons removed from a group
-    /// </summary>
+    /**
+     * For PersonsRemoved post type only. Identifiers of persons removed from a group
+     */
     public String[] removedPersonIds;
 
-    /// <summary>
-    /// List of at mentions in post text with names.
-    /// </summary>
+    /**
+     * List of at mentions in post text with names.
+     */
     public GlipMentionsInfo[] mentions;
 
-    /// <summary>
-    /// Post creation datetime in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
-    /// </summary>
+    /**
+     * Post creation datetime in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+     */
     public String creationTime;
 
-    /// <summary>
-    /// Post last change datetime in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
-    /// </summary>
+    /**
+     * Post last change datetime in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+     */
     public String lastModifiedTime;
 }

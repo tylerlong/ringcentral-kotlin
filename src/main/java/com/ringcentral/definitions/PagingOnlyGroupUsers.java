@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class PagingOnlyGroupUsers {
-    /// <summary>
-    /// List of users allowed to page this group
-    /// </summary>
+    /**
+     * List of users allowed to page this group
+     */
     public PagingGroupExtensionInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public ProvisioningPagingInfo paging;
 }

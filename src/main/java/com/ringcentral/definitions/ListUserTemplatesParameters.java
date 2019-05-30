@@ -2,16 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class ListUserTemplatesParameters {
-    /// <summary>
-    /// Enum: UserSettings, CallHandling
-    /// </summary>
+    /**
+     * Enum: UserSettings, CallHandling
+     */
     public String type;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String page;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String perPage;
 }

@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class ListExtensionGrantsParameters {
-    /// <summary>
-    /// Default: 1
-    /// </summary>
+    /**
+     * Default: 1
+     */
     public String page;
 
-    /// <summary>
-    /// Default: 100
-    /// </summary>
+    /**
+     * Default: 100
+     */
     public String perPage;
 }

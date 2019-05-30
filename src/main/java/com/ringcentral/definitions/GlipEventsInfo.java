@@ -2,12 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class GlipEventsInfo {
-    /// <summary>
-    /// List of events created by the current user
-    /// </summary>
+    /**
+     * List of events created by the current user
+     */
     public GlipEventInfo[] records;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public GlipNavigationInfo navigation;
 }

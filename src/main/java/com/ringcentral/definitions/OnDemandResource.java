@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class OnDemandResource {
-    /// <summary>
-    /// Flag for controlling OnDemand Call Recording settings
-    /// </summary>
+    /**
+     * Flag for controlling OnDemand Call Recording settings
+     */
     public Boolean enabled;
 }

@@ -2,64 +2,68 @@ package com.ringcentral.definitions;
 
 
 public class ExtensionUpdateRequest {
-    /// <summary>
-    /// Enum: Disabled, Enabled, NotActivated
-    /// </summary>
+    /**
+     * Enum: Disabled, Enabled, NotActivated
+     */
     public String status;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public ExtensionStatusInfo statusInfo;
 
-    /// <summary>
-    /// Type of suspension
-    /// </summary>
+    /**
+     * Type of suspension
+     */
     public String reason;
 
-    /// <summary>
-    /// Free Form user comment
-    /// </summary>
+    /**
+     * Free Form user comment
+     */
     public String comment;
 
-    /// <summary>
-    /// Extension number available
-    /// </summary>
+    /**
+     * Extension number available
+     */
     public String extensionNumber;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public ContactInfoUpdateRequest contact;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public ExtensionRegionalSettingRequest regionalSettings;
 
-    /// <summary>
-    /// Enum: NotStarted, Incomplete, Completed
-    /// </summary>
+    /**
+     * Enum: NotStarted, Incomplete, Completed
+     */
     public String setupWizardState;
 
-    /// <summary>
-    /// Extension partner identifier
-    /// </summary>
+    /**
+     * Extension partner identifier
+     */
     public String partnerId;
 
-    /// <summary>
-    /// IVR PIN
-    /// </summary>
+    /**
+     * IVR PIN
+     */
     public String ivrPin;
 
-    /// <summary>
-    /// Password for extension
-    /// </summary>
+    /**
+     * Password for extension
+     */
     public String password;
 
-    /// <summary>
-    /// For Department extension type only. Call queue settings
-    /// </summary>
+    /**
+     * For Department extension type only. Call queue settings
+     */
     public CallQueueInfoRequest callQueueInfo;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public UserTransitionInfo[] transition;
 }

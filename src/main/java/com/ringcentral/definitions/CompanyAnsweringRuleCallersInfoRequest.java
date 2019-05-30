@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class CompanyAnsweringRuleCallersInfoRequest {
-    /// <summary>
-    /// Phone number of a caller
-    /// </summary>
+    /**
+     * Phone number of a caller
+     */
     public String callerId;
 
-    /// <summary>
-    /// Displayed name for a caller ID
-    /// </summary>
+    /**
+     * Displayed name for a caller ID
+     */
     public String name;
 }

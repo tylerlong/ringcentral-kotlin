@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class CallRecordingUpdate {
-    /// <summary>
-    /// Recording status
-    /// </summary>
+    /**
+     * Recording status
+     */
     public Boolean active;
 }

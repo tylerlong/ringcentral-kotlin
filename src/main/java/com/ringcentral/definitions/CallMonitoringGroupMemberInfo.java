@@ -2,24 +2,24 @@ package com.ringcentral.definitions;
 
 
 public class CallMonitoringGroupMemberInfo {
-    /// <summary>
-    /// Link to a call monitoring group member
-    /// </summary>
+    /**
+     * Link to a call monitoring group member
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a call monitoring group member
-    /// </summary>
+    /**
+     * Internal identifier of a call monitoring group member
+     */
     public String id;
 
-    /// <summary>
-    /// Extension number of a call monitoring group member
-    /// </summary>
+    /**
+     * Extension number of a call monitoring group member
+     */
     public String extensionNumber;
 
-    /// <summary>
-    /// Call monitoring permission; mltiple values allowed: * "Monitoring" - User can monitor a group * "Monitored" - User can be monitored
-    /// Enum: Monitoring, Monitored
-    /// </summary>
+    /**
+     * Call monitoring permission; mltiple values allowed: * "Monitoring" - User can monitor a group * "Monitored" - User can be monitored
+     * Enum: Monitoring, Monitored
+     */
     public String permissions;
 }

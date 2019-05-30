@@ -2,33 +2,33 @@ package com.ringcentral.definitions;
 
 
 public class GetCountryInfoNumberParser {
-    /// <summary>
-    /// Internal identifier of a country
-    /// </summary>
+    /**
+     * Internal identifier of a country
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a country
-    /// </summary>
+    /**
+     * Canonical URI of a country
+     */
     public String uri;
 
-    /// <summary>
-    /// Country calling code defined by ITU-T recommendations E.123 and E.164, see Calling Codes
-    /// </summary>
+    /**
+     * Country calling code defined by ITU-T recommendations E.123 and E.164, see Calling Codes
+     */
     public String callingCode;
 
-    /// <summary>
-    /// Emergency calling feature availability/emergency address requirement indicator
-    /// </summary>
+    /**
+     * Emergency calling feature availability/emergency address requirement indicator
+     */
     public Boolean emergencyCalling;
 
-    /// <summary>
-    /// Country code according to the ISO standard, see ISO 3166
-    /// </summary>
+    /**
+     * Country code according to the ISO standard, see ISO 3166
+     */
     public String isoCode;
 
-    /// <summary>
-    /// Official name of a country
-    /// </summary>
+    /**
+     * Official name of a country
+     */
     public String name;
 }

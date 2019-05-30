@@ -3,21 +3,23 @@ package com.ringcentral.definitions;
 
 // resource metadata
 public class Meta {
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String created;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String lastModified;
 
-    /// <summary>
-    /// resource location URI
-    /// </summary>
+    /**
+     * resource location URI
+     */
     public String location;
 
-    /// <summary>
-    /// Enum: User, Group
-    /// </summary>
+    /**
+     * Enum: User, Group
+     */
     public String resourceType;
 }

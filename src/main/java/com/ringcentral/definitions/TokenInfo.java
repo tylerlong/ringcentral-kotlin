@@ -2,43 +2,43 @@ package com.ringcentral.definitions;
 
 
 public class TokenInfo {
-    /// <summary>
-    /// Access token to pass to subsequent API requests
-    /// </summary>
+    /**
+     * Access token to pass to subsequent API requests
+     */
     public String access_token;
 
-    /// <summary>
-    /// Issued access token TTL (time to live), in seconds
-    /// </summary>
+    /**
+     * Issued access token TTL (time to live), in seconds
+     */
     public Long expires_in;
 
-    /// <summary>
-    /// Refresh token to get a new access token, when the issued one expires
-    /// </summary>
+    /**
+     * Refresh token to get a new access token, when the issued one expires
+     */
     public String refresh_token;
 
-    /// <summary>
-    /// Issued refresh token TTL (time to live), in seconds
-    /// </summary>
+    /**
+     * Issued refresh token TTL (time to live), in seconds
+     */
     public Long refresh_token_expires_in;
 
-    /// <summary>
-    /// List of permissions allowed with this access token, white-space separated
-    /// </summary>
+    /**
+     * List of permissions allowed with this access token, white-space separated
+     */
     public String scope;
 
-    /// <summary>
-    /// Type of token. The only possible value supported is Bearer. This value should be used when specifying access token in Authorization header of subsequent API requests
-    /// </summary>
+    /**
+     * Type of token. The only possible value supported is Bearer. This value should be used when specifying access token in Authorization header of subsequent API requests
+     */
     public String token_type;
 
-    /// <summary>
-    /// Extension identifier
-    /// </summary>
+    /**
+     * Extension identifier
+     */
     public String owner_id;
 
-    /// <summary>
-    /// Application instance identifier
-    /// </summary>
+    /**
+     * Application instance identifier
+     */
     public String endpoint_id;
 }

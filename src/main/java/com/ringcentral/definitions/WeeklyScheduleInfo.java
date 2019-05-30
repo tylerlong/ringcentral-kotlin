@@ -2,38 +2,38 @@ package com.ringcentral.definitions;
 
 
 public class WeeklyScheduleInfo {
-    /// <summary>
-    /// Time intervals for a particular day
-    /// </summary>
+    /**
+     * Time intervals for a particular day
+     */
     public TimeInterval[] monday;
 
-    /// <summary>
-    /// Time intervals for a particular day
-    /// </summary>
+    /**
+     * Time intervals for a particular day
+     */
     public TimeInterval[] tuesday;
 
-    /// <summary>
-    /// Time intervals for a particular day
-    /// </summary>
+    /**
+     * Time intervals for a particular day
+     */
     public TimeInterval[] wednesday;
 
-    /// <summary>
-    /// Time intervals for a particular day
-    /// </summary>
+    /**
+     * Time intervals for a particular day
+     */
     public TimeInterval[] thursday;
 
-    /// <summary>
-    /// Time intervals for a particular day
-    /// </summary>
+    /**
+     * Time intervals for a particular day
+     */
     public TimeInterval[] friday;
 
-    /// <summary>
-    /// Time intervals for a particular day
-    /// </summary>
+    /**
+     * Time intervals for a particular day
+     */
     public TimeInterval[] saturday;
 
-    /// <summary>
-    /// Time intervals for a particular day
-    /// </summary>
+    /**
+     * Time intervals for a particular day
+     */
     public TimeInterval[] sunday;
 }

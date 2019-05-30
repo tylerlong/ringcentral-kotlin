@@ -2,9 +2,9 @@ package com.ringcentral.definitions;
 
 
 public class UserBusinessHoursUpdateRequest {
-    /// <summary>
-    /// Schedule when an answering rule is applied
-    /// Required
-    /// </summary>
+    /**
+     * Schedule when an answering rule is applied
+     * Required
+     */
     public UserBusinessHoursScheduleInfo schedule;
 }

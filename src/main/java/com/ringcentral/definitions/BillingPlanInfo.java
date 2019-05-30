@@ -2,30 +2,30 @@ package com.ringcentral.definitions;
 
 
 public class BillingPlanInfo {
-    /// <summary>
-    /// Internal identifier of a billing plan
-    /// </summary>
+    /**
+     * Internal identifier of a billing plan
+     */
     public String id;
 
-    /// <summary>
-    /// Billing plan name
-    /// </summary>
+    /**
+     * Billing plan name
+     */
     public String name;
 
-    /// <summary>
-    /// Duration period
-    /// Enum: Month, Day
-    /// </summary>
+    /**
+     * Duration period
+     * Enum: Month, Day
+     */
     public String durationUnit;
 
-    /// <summary>
-    /// Number of duration units
-    /// </summary>
+    /**
+     * Number of duration units
+     */
     public String duration;
 
-    /// <summary>
-    /// Billing plan type
-    /// Enum: Initial, Regular, Suspended, Trial, TrialNoCC, Free
-    /// </summary>
+    /**
+     * Billing plan type
+     * Enum: Initial, Regular, Suspended, Trial, TrialNoCC, Free
+     */
     public String type;
 }

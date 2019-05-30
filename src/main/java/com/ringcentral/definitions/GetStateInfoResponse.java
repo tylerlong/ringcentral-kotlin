@@ -2,28 +2,28 @@ package com.ringcentral.definitions;
 
 
 public class GetStateInfoResponse {
-    /// <summary>
-    /// Internal identifier of a state
-    /// </summary>
+    /**
+     * Internal identifier of a state
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a state
-    /// </summary>
+    /**
+     * Canonical URI of a state
+     */
     public String uri;
 
-    /// <summary>
-    /// Information on a country the state belongs to
-    /// </summary>
+    /**
+     * Information on a country the state belongs to
+     */
     public GetCountryInfoState country;
 
-    /// <summary>
-    /// Short code for a state (2-letter usually)
-    /// </summary>
+    /**
+     * Short code for a state (2-letter usually)
+     */
     public String isoCode;
 
-    /// <summary>
-    /// Official name of a state
-    /// </summary>
+    /**
+     * Official name of a state
+     */
     public String name;
 }

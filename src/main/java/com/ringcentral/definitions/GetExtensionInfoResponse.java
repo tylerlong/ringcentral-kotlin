@@ -2,105 +2,107 @@ package com.ringcentral.definitions;
 
 
 public class GetExtensionInfoResponse {
-    /// <summary>
-    /// Internal identifier of an extension
-    /// Required
-    /// </summary>
+    /**
+     * Internal identifier of an extension
+     * Required
+     */
     public Long id;
 
-    /// <summary>
-    /// Canonical URI of an extension
-    /// Required
-    /// </summary>
+    /**
+     * Canonical URI of an extension
+     * Required
+     */
     public String uri;
 
-    /// <summary>
-    /// Contact detailed information
-    /// </summary>
+    /**
+     * Contact detailed information
+     */
     public ContactInfo contact;
 
-    /// <summary>
-    /// Information on department extension(s), to which the requested extension belongs. Returned only for user extensions, members of department, requested by single extensionId
-    /// </summary>
+    /**
+     * Information on department extension(s), to which the requested extension belongs. Returned only for user extensions, members of department, requested by single extensionId
+     */
     public DepartmentInfo[] departments;
 
-    /// <summary>
-    /// Number of department extension
-    /// </summary>
+    /**
+     * Number of department extension
+     */
     public String extensionNumber;
 
-    /// <summary>
-    /// Extension user name
-    /// </summary>
+    /**
+     * Extension user name
+     */
     public String name;
 
-    /// <summary>
-    /// For Partner Applications Internal identifier of an extension created by partner. The RingCentral supports the mapping of accounts and stores the corresponding account ID/extension ID for each partner ID of a client application. In request URIs partner IDs are accepted instead of regular RingCentral native IDs as path parameters using pid = XXX clause. Though in response URIs contain the corresponding account IDs and extension IDs. In all request and response bodies these values are reflected via partnerId attributes of account and extension
-    /// </summary>
+    /**
+     * For Partner Applications Internal identifier of an extension created by partner. The RingCentral supports the mapping of accounts and stores the corresponding account ID/extension ID for each partner ID of a client application. In request URIs partner IDs are accepted instead of regular RingCentral native IDs as path parameters using pid = XXX clause. Though in response URIs contain the corresponding account IDs and extension IDs. In all request and response bodies these values are reflected via partnerId attributes of account and extension
+     */
     public String partnerId;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public ExtensionPermissions permissions;
 
-    /// <summary>
-    /// Information on profile image
-    /// Required
-    /// </summary>
+    /**
+     * Information on profile image
+     * Required
+     */
     public ProfileImageInfo profileImage;
 
-    /// <summary>
-    /// List of non-RC internal identifiers assigned to an extension
-    /// </summary>
+    /**
+     * List of non-RC internal identifiers assigned to an extension
+     */
     public ReferenceInfo[] references;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public Roles[] roles;
 
-    /// <summary>
-    /// Extension region data (timezone, home country, language)
-    /// </summary>
+    /**
+     * Extension region data (timezone, home country, language)
+     */
     public RegionalSettings regionalSettings;
 
-    /// <summary>
-    /// Extension service features returned in response only when the logged-in user requests his/her own extension info, see also Extension Service Features
-    /// </summary>
+    /**
+     * Extension service features returned in response only when the logged-in user requests his/her own extension info, see also Extension Service Features
+     */
     public ExtensionServiceFeatureInfo[] serviceFeatures;
 
-    /// <summary>
-    /// Specifies extension configuration wizard state (web service setup).
-    /// Default: NotStarted
-    /// Enum: NotStarted, Incomplete, Completed
-    /// </summary>
+    /**
+     * Specifies extension configuration wizard state (web service setup).
+     * Default: NotStarted
+     * Enum: NotStarted, Incomplete, Completed
+     */
     public String setupWizardState;
 
-    /// <summary>
-    /// Extension current state. If the status is 'Unassigned'. Returned for all extensions
-    /// Required
-    /// Enum: Enabled, Disabled, NotActivated, Unassigned
-    /// </summary>
+    /**
+     * Extension current state. If the status is 'Unassigned'. Returned for all extensions
+     * Required
+     * Enum: Enabled, Disabled, NotActivated, Unassigned
+     */
     public String status;
 
-    /// <summary>
-    /// Status information (reason, comment). Returned for 'Disabled' status only
-    /// </summary>
+    /**
+     * Status information (reason, comment). Returned for 'Disabled' status only
+     */
     public ExtensionStatusInfo statusInfo;
 
-    /// <summary>
-    /// Extension type
-    /// Required
-    /// Enum: User, FaxUser, VirtualUser, DigitalUser, Department, Announcement, Voicemail, SharedLinesGroup, PagingOnlyGroup, IvrMenu, ApplicationExtension, ParkLocation
-    /// </summary>
+    /**
+     * Extension type
+     * Required
+     * Enum: User, FaxUser, VirtualUser, DigitalUser, Department, Announcement, Voicemail, SharedLinesGroup, PagingOnlyGroup, IvrMenu, ApplicationExtension, ParkLocation
+     */
     public String type;
 
-    /// <summary>
-    /// For Department extension type only. Call queue settings
-    /// </summary>
+    /**
+     * For Department extension type only. Call queue settings
+     */
     public CallQueueExtensionInfo callQueueExtensionInfo;
 
-    /// <summary>
-    /// Hides extension from showing in company directory. Supported for extensions of User type only
-    /// </summary>
+    /**
+     * Hides extension from showing in company directory. Supported for extensions of User type only
+     */
     public Boolean hidden;
 }

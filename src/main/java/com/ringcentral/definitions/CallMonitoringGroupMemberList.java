@@ -2,27 +2,27 @@ package com.ringcentral.definitions;
 
 
 public class CallMonitoringGroupMemberList {
-    /// <summary>
-    /// Link to a call monitoring group members resource
-    /// Required
-    /// </summary>
+    /**
+     * Link to a call monitoring group members resource
+     * Required
+     */
     public String uri;
 
-    /// <summary>
-    /// List of a call monitoring group members
-    /// Required
-    /// </summary>
+    /**
+     * List of a call monitoring group members
+     * Required
+     */
     public CallMonitoringGroupMemberInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

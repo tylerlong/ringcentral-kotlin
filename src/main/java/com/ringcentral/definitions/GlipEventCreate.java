@@ -2,76 +2,76 @@ package com.ringcentral.definitions;
 
 
 public class GlipEventCreate {
-    /// <summary>
-    /// Internal identifier of an event
-    /// </summary>
+    /**
+     * Internal identifier of an event
+     */
     public String id;
 
-    /// <summary>
-    /// Internal identifier of a person created an event
-    /// </summary>
+    /**
+     * Internal identifier of a person created an event
+     */
     public String creatorId;
 
-    /// <summary>
-    /// Event title
-    /// Required
-    /// </summary>
+    /**
+     * Event title
+     * Required
+     */
     public String title;
 
-    /// <summary>
-    /// Datetime of starting an event
-    /// Required
-    /// </summary>
+    /**
+     * Datetime of starting an event
+     * Required
+     */
     public String startTime;
 
-    /// <summary>
-    /// Datetime of ending an event
-    /// Required
-    /// </summary>
+    /**
+     * Datetime of ending an event
+     * Required
+     */
     public String endTime;
 
-    /// <summary>
-    /// Indicates whether event has some specific time slot or lasts for whole day(s)
-    /// </summary>
+    /**
+     * Indicates whether event has some specific time slot or lasts for whole day(s)
+     */
     public Boolean allDay;
 
-    /// <summary>
-    /// Event recurrence settings. For non-periodic events the value is 'None'. Must be greater or equal to event duration: 1- Day/Weekday; 7 - Week; 28 - Month; 365 - Year
-    /// Enum: None, Day, Weekday, Week, Month, Year
-    /// </summary>
+    /**
+     * Event recurrence settings. For non-periodic events the value is 'None'. Must be greater or equal to event duration: 1- Day/Weekday; 7 - Week; 28 - Month; 365 - Year
+     * Enum: None, Day, Weekday, Week, Month, Year
+     */
     public String recurrence;
 
-    /// <summary>
-    /// Condition of ending
-    /// </summary>
+    /**
+     * Condition of ending
+     */
     public String endingCondition;
 
-    /// <summary>
-    /// Count of iterations. For periodic events only. Value range is 1 - 10. Must be specified if 'endingCondition' is 'Count'
-    /// </summary>
+    /**
+     * Count of iterations. For periodic events only. Value range is 1 - 10. Must be specified if 'endingCondition' is 'Count'
+     */
     public Long endingAfter;
 
-    /// <summary>
-    /// Iterations end datetime for periodic events.
-    /// Default: None
-    /// Enum: None, Count, Date
-    /// </summary>
+    /**
+     * Iterations end datetime for periodic events.
+     * Default: None
+     * Enum: None, Count, Date
+     */
     public String endingOn;
 
-    /// <summary>
-    /// Color of Event title (including its presentation in Calendar)
-    /// Default: Black
-    /// Enum: Black, Red, Orange, Yellow, Green, Blue, Purple, Magenta
-    /// </summary>
+    /**
+     * Color of Event title (including its presentation in Calendar)
+     * Default: Black
+     * Enum: Black, Red, Orange, Yellow, Green, Blue, Purple, Magenta
+     */
     public String color;
 
-    /// <summary>
-    /// Event location
-    /// </summary>
+    /**
+     * Event location
+     */
     public String location;
 
-    /// <summary>
-    /// Event details
-    /// </summary>
+    /**
+     * Event details
+     */
     public String description;
 }

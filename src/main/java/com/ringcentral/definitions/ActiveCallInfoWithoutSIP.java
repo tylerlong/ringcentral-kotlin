@@ -2,56 +2,56 @@ package com.ringcentral.definitions;
 
 
 public class ActiveCallInfoWithoutSIP {
-    /// <summary>
-    /// Internal identifier of a call
-    /// </summary>
+    /**
+     * Internal identifier of a call
+     */
     public String id;
 
-    /// <summary>
-    /// Call direction
-    /// Enum: Inbound, Outbound
-    /// </summary>
+    /**
+     * Call direction
+     * Enum: Inbound, Outbound
+     */
     public String direction;
 
-    /// <summary>
-    /// Phone number or extension number of a caller. For GCM transport type '_from' property should be used
-    /// </summary>
+    /**
+     * Phone number or extension number of a caller. For GCM transport type '_from' property should be used
+     */
     public String from;
 
-    /// <summary>
-    /// Name of a caller
-    /// </summary>
+    /**
+     * Name of a caller
+     */
     public String fromName;
 
-    /// <summary>
-    /// Phone number or extension number of a callee
-    /// </summary>
+    /**
+     * Phone number or extension number of a callee
+     */
     public String to;
 
-    /// <summary>
-    /// Name of a callee
-    /// </summary>
+    /**
+     * Name of a callee
+     */
     public String toName;
 
-    /// <summary>
-    /// Time when the call is actually started
-    /// </summary>
+    /**
+     * Time when the call is actually started
+     */
     public String startTime;
 
-    /// <summary>
-    /// Telephony call status
-    /// Enum: NoCall, CallConnected, Ringing, OnHold, ParkedCall
-    /// </summary>
+    /**
+     * Telephony call status
+     * Enum: NoCall, CallConnected, Ringing, OnHold, ParkedCall
+     */
     public String telephonyStatus;
 
-    /// <summary>
-    /// Internal identifier of a call session
-    /// </summary>
+    /**
+     * Internal identifier of a call session
+     */
     public String sessionId;
 
-    /// <summary>
-    /// Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'intermediate' it means the call is not actually ended, the connection is established on one of the devices
-    /// Enum: final, intermediate
-    /// </summary>
+    /**
+     * Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'intermediate' it means the call is not actually ended, the connection is established on one of the devices
+     * Enum: final, intermediate
+     */
     public String terminationType;
 }

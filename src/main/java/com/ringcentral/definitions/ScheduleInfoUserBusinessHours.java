@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class ScheduleInfoUserBusinessHours {
-    /// <summary>
-    /// Weekly schedule
-    /// </summary>
+    /**
+     * Weekly schedule
+     */
     public WeeklyScheduleInfo weeklyRanges;
 }

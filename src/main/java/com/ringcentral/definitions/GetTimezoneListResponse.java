@@ -2,21 +2,21 @@ package com.ringcentral.definitions;
 
 
 public class GetTimezoneListResponse {
-    /// <summary>
-    /// List of timezones
-    /// Required
-    /// </summary>
+    /**
+     * List of timezones
+     * Required
+     */
     public GetTimezoneInfoResponse[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

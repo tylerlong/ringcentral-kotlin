@@ -2,150 +2,154 @@ package com.ringcentral.definitions;
 
 
 public class PersonalContactResource {
-    /// <summary>
-    /// Canonical URI of the contact
-    /// </summary>
+    /**
+     * Canonical URI of the contact
+     */
     public String uri;
 
-    /// <summary>
-    /// This property has a special meaning only on Address Book Sync (e.g. a contact can be `Deleted`). For simple contact list reading it has always the default value - `Alive`
-    /// Enum: Alive, Deleted, Purged
-    /// </summary>
+    /**
+     * This property has a special meaning only on Address Book Sync (e.g. a contact can be `Deleted`). For simple contact list reading it has always the default value - `Alive`
+     * Enum: Alive, Deleted, Purged
+     */
     public String availability;
 
-    /// <summary>
-    /// Email of the contact
-    /// </summary>
+    /**
+     * Email of the contact
+     */
     public String email;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String id;
 
-    /// <summary>
-    /// Notes for the contact
-    /// </summary>
+    /**
+     * Notes for the contact
+     */
     public String notes;
 
-    /// <summary>
-    /// Company name of the contact
-    /// </summary>
+    /**
+     * Company name of the contact
+     */
     public String company;
 
-    /// <summary>
-    /// First name of the contact
-    /// </summary>
+    /**
+     * First name of the contact
+     */
     public String firstName;
 
-    /// <summary>
-    /// Last name of the contact
-    /// </summary>
+    /**
+     * Last name of the contact
+     */
     public String lastName;
 
-    /// <summary>
-    /// Job title of the contact
-    /// </summary>
+    /**
+     * Job title of the contact
+     */
     public String jobTitle;
 
-    /// <summary>
-    /// Date of birth of the contact
-    /// </summary>
+    /**
+     * Date of birth of the contact
+     */
     public String birthday;
 
-    /// <summary>
-    /// The contact home page URL
-    /// </summary>
+    /**
+     * The contact home page URL
+     */
     public String webPage;
 
-    /// <summary>
-    /// Middle name of the contact
-    /// </summary>
+    /**
+     * Middle name of the contact
+     */
     public String middleName;
 
-    /// <summary>
-    /// Nick name of the contact
-    /// </summary>
+    /**
+     * Nick name of the contact
+     */
     public String nickName;
 
-    /// <summary>
-    /// 2nd email of the contact
-    /// </summary>
+    /**
+     * 2nd email of the contact
+     */
     public String email2;
 
-    /// <summary>
-    /// 3rd email of the contact
-    /// </summary>
+    /**
+     * 3rd email of the contact
+     */
     public String email3;
 
-    /// <summary>
-    /// Home phone number of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Home phone number of the contact in e.164 (with "+") format
+     */
     public String homePhone;
 
-    /// <summary>
-    /// 2nd home phone number of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * 2nd home phone number of the contact in e.164 (with "+") format
+     */
     public String homePhone2;
 
-    /// <summary>
-    /// Business phone of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Business phone of the contact in e.164 (with "+") format
+     */
     public String businessPhone;
 
-    /// <summary>
-    /// 2nd business phone of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * 2nd business phone of the contact in e.164 (with "+") format
+     */
     public String businessPhone2;
 
-    /// <summary>
-    /// Mobile phone of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Mobile phone of the contact in e.164 (with "+") format
+     */
     public String mobilePhone;
 
-    /// <summary>
-    /// Business fax number of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Business fax number of the contact in e.164 (with "+") format
+     */
     public String businessFax;
 
-    /// <summary>
-    /// Company number of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Company number of the contact in e.164 (with "+") format
+     */
     public String companyPhone;
 
-    /// <summary>
-    /// Phone number of the contact assistant in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Phone number of the contact assistant in e.164 (with "+") format
+     */
     public String assistantPhone;
 
-    /// <summary>
-    /// Car phone number of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Car phone number of the contact in e.164 (with "+") format
+     */
     public String carPhone;
 
-    /// <summary>
-    /// Other phone number of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Other phone number of the contact in e.164 (with "+") format
+     */
     public String otherPhone;
 
-    /// <summary>
-    /// Other fax number of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Other fax number of the contact in e.164 (with "+") format
+     */
     public String otherFax;
 
-    /// <summary>
-    /// Callback phone number of the contact in e.164 (with "+") format
-    /// </summary>
+    /**
+     * Callback phone number of the contact in e.164 (with "+") format
+     */
     public String callbackPhone;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public ContactAddressInfo businessAddress;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public ContactAddressInfo homeAddress;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public ContactAddressInfo otherAddress;
 }

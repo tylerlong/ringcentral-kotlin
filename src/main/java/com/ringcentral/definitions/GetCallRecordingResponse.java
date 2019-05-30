@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class GetCallRecordingResponse {
-    /// <summary>
-    /// Internal identifier of a call recording
-    /// </summary>
+    /**
+     * Internal identifier of a call recording
+     */
     public String id;
 
-    /// <summary>
-    /// Link to a call recording binary content
-    /// </summary>
+    /**
+     * Link to a call recording binary content
+     */
     public String contentUri;
 
-    /// <summary>
-    /// Call recording file format. Supported format is audio/x-wav
-    /// </summary>
+    /**
+     * Call recording file format. Supported format is audio/x-wav
+     */
     public String contentType;
 
-    /// <summary>
-    /// Recorded call duration
-    /// </summary>
+    /**
+     * Recorded call duration
+     */
     public Long duration;
 }

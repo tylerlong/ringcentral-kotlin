@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class ExtensionLanguageInfoRequest {
-    /// <summary>
-    /// internal Identifier of a language
-    /// </summary>
+    /**
+     * internal Identifier of a language
+     */
     public String id;
 }

@@ -4,25 +4,25 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 
 public class GlipPostTeamBody {
-    /// <summary>
-    /// Team access level.
-    /// </summary>
+    /**
+     * Team access level.
+     */
     @JSONField(name = "public")
     public Boolean _public;
 
-    /// <summary>
-    /// Team name.
-    /// Required
-    /// </summary>
+    /**
+     * Team name.
+     * Required
+     */
     public String name;
 
-    /// <summary>
-    /// Team description.
-    /// </summary>
+    /**
+     * Team description.
+     */
     public String description;
 
-    /// <summary>
-    /// Identifier(s) of team members.
-    /// </summary>
+    /**
+     * Identifier(s) of team members.
+     */
     public Object[] members;
 }

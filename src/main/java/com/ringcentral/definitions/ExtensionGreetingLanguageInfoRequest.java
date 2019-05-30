@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class ExtensionGreetingLanguageInfoRequest {
-    /// <summary>
-    /// internal Identifier of a greeting language
-    /// </summary>
+    /**
+     * internal Identifier of a greeting language
+     */
     public String id;
 }

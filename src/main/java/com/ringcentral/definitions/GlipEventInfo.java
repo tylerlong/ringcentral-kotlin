@@ -2,73 +2,73 @@ package com.ringcentral.definitions;
 
 
 public class GlipEventInfo {
-    /// <summary>
-    /// Internal identifier of an event
-    /// </summary>
+    /**
+     * Internal identifier of an event
+     */
     public String id;
 
-    /// <summary>
-    /// Internal identifier of a person created an event
-    /// </summary>
+    /**
+     * Internal identifier of a person created an event
+     */
     public String creatorId;
 
-    /// <summary>
-    /// Event title
-    /// </summary>
+    /**
+     * Event title
+     */
     public String title;
 
-    /// <summary>
-    /// Datetime of starting an event
-    /// </summary>
+    /**
+     * Datetime of starting an event
+     */
     public String startTime;
 
-    /// <summary>
-    /// Datetime of ending an event
-    /// </summary>
+    /**
+     * Datetime of ending an event
+     */
     public String endTime;
 
-    /// <summary>
-    /// Indicates whether an event has some specific time slot or lasts for the whole day(s)
-    /// </summary>
+    /**
+     * Indicates whether an event has some specific time slot or lasts for the whole day(s)
+     */
     public Boolean allDay;
 
-    /// <summary>
-    /// Event recurrence settings
-    /// Enum: None, Day, Weekday, Week, Month, Year
-    /// </summary>
+    /**
+     * Event recurrence settings
+     * Enum: None, Day, Weekday, Week, Month, Year
+     */
     public String recurrence;
 
-    /// <summary>
-    /// Condition of ending
-    /// </summary>
+    /**
+     * Condition of ending
+     */
     public String endingCondition;
 
-    /// <summary>
-    /// Count of iterations. For periodic events only
-    /// </summary>
+    /**
+     * Count of iterations. For periodic events only
+     */
     public Long endingAfter;
 
-    /// <summary>
-    /// Iterations end datetime for periodic events
-    /// Default: None
-    /// Enum: None, Count, Date
-    /// </summary>
+    /**
+     * Iterations end datetime for periodic events
+     * Default: None
+     * Enum: None, Count, Date
+     */
     public String endingOn;
 
-    /// <summary>
-    /// Color of Event title (including its presentation in Calendar)
-    /// Default: Black
-    /// Enum: Black, Red, Orange, Yellow, Green, Blue, Purple, Magenta
-    /// </summary>
+    /**
+     * Color of Event title (including its presentation in Calendar)
+     * Default: Black
+     * Enum: Black, Red, Orange, Yellow, Green, Blue, Purple, Magenta
+     */
     public String color;
 
-    /// <summary>
-    /// Event location
-    /// </summary>
+    /**
+     * Event location
+     */
     public String location;
 
-    /// <summary>
-    /// Event details
-    /// </summary>
+    /**
+     * Event details
+     */
     public String description;
 }

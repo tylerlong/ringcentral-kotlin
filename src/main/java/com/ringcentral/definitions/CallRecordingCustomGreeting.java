@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class CallRecordingCustomGreeting {
-    /// <summary>
-    /// Enum: StartRecording, StopRecording, AutomaticRecording
-    /// </summary>
+    /**
+     * Enum: StartRecording, StopRecording, AutomaticRecording
+     */
     public String type;
 
-    /// <summary>
-    /// Custom greeting data
-    /// </summary>
+    /**
+     * Custom greeting data
+     */
     public CallRecordingCustomGreetingData custom;
 
-    /// <summary>
-    /// Custom greeting language
-    /// </summary>
+    /**
+     * Custom greeting language
+     */
     public CallRecordingCustomGreetingLanguage language;
 }

@@ -2,24 +2,24 @@ package com.ringcentral.definitions;
 
 
 public class UpdateForwardingNumberRequest {
-    /// <summary>
-    /// Forwarding/Call flip phone number
-    /// </summary>
+    /**
+     * Forwarding/Call flip phone number
+     */
     public String phoneNumber;
 
-    /// <summary>
-    /// Forwarding/Call flip number title
-    /// </summary>
+    /**
+     * Forwarding/Call flip number title
+     */
     public String label;
 
-    /// <summary>
-    /// Number assigned to the call flip phone number, corresponds to the shortcut dial number
-    /// </summary>
+    /**
+     * Number assigned to the call flip phone number, corresponds to the shortcut dial number
+     */
     public String flipNumber;
 
-    /// <summary>
-    /// Forwarding phone number type
-    /// Enum: Home, Mobile, Work, PhoneLine, Outage, Other
-    /// </summary>
+    /**
+     * Forwarding phone number type
+     * Enum: Home, Mobile, Work, PhoneLine, Outage, Other
+     */
     public String type;
 }

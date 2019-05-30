@@ -2,14 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class Photo {
-    /// <summary>
-    /// Required
-    /// Enum: photo
-    /// </summary>
+    /**
+     * Required
+     * Enum: photo
+     */
     public String type;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public String value;
 }

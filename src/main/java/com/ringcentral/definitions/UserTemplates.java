@@ -2,26 +2,26 @@ package com.ringcentral.definitions;
 
 
 public class UserTemplates {
-    /// <summary>
-    /// Link to user templates resource
-    /// </summary>
+    /**
+     * Link to user templates resource
+     */
     public String uri;
 
-    /// <summary>
-    /// List of user templates
-    /// Required
-    /// </summary>
+    /**
+     * List of user templates
+     * Required
+     */
     public TemplateInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

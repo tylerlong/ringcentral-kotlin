@@ -2,24 +2,24 @@ package com.ringcentral.definitions;
 
 
 public class GlipCreatePost {
-    /// <summary>
-    /// Title of a message. (Can be set for bot's messages only).
-    /// </summary>
+    /**
+     * Title of a message. (Can be set for bot's messages only).
+     */
     public String title;
 
-    /// <summary>
-    /// Text of a post
-    /// Maximum: 1000
-    /// </summary>
+    /**
+     * Text of a post
+     * Maximum: 1000
+     */
     public String text;
 
-    /// <summary>
-    /// Internal identifier of a group
-    /// </summary>
+    /**
+     * Internal identifier of a group
+     */
     public String groupId;
 
-    /// <summary>
-    /// List of attachments to be posted
-    /// </summary>
+    /**
+     * List of attachments to be posted
+     */
     public GlipMessageAttachmentInfoRequest[] attachments;
 }

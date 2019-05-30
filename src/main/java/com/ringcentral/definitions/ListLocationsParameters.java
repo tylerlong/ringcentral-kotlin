@@ -2,32 +2,32 @@ package com.ringcentral.definitions;
 
 
 public class ListLocationsParameters {
-    /// <summary>
-    /// Sorts results by the property specified
-    /// Default: City
-    /// Enum: Npa, City
-    /// </summary>
+    /**
+     * Sorts results by the property specified
+     * Default: City
+     * Enum: Npa, City
+     */
     public String orderBy;
 
-    /// <summary>
-    /// Indicates the page number to retrieve. Only positive number values are accepted
-    /// Default: 1
-    /// </summary>
+    /**
+     * Indicates the page number to retrieve. Only positive number values are accepted
+     * Default: 1
+     */
     public Long page;
 
-    /// <summary>
-    /// Indicates the page size (number of items)
-    /// Default: 100
-    /// </summary>
+    /**
+     * Indicates the page size (number of items)
+     * Default: 100
+     */
     public Long perPage;
 
-    /// <summary>
-    /// Internal identifier of a state
-    /// </summary>
+    /**
+     * Internal identifier of a state
+     */
     public String stateId;
 
-    /// <summary>
-    /// Specifies if nxx codes are returned
-    /// </summary>
+    /**
+     * Specifies if nxx codes are returned
+     */
     public Boolean withNxx;
 }

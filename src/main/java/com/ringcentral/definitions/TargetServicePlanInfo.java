@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class TargetServicePlanInfo {
-    /// <summary>
-    /// Internal identifier of a target service plan
-    /// </summary>
+    /**
+     * Internal identifier of a target service plan
+     */
     public String id;
 
-    /// <summary>
-    /// Name of a target service plan
-    /// </summary>
+    /**
+     * Name of a target service plan
+     */
     public String name;
 }

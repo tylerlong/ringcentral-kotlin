@@ -2,72 +2,72 @@ package com.ringcentral.definitions;
 
 
 public class CompanyCallLogRecord {
-    /// <summary>
-    /// Internal identifier of a cal log record
-    /// </summary>
+    /**
+     * Internal identifier of a cal log record
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a call log record
-    /// </summary>
+    /**
+     * Canonical URI of a call log record
+     */
     public String uri;
 
-    /// <summary>
-    /// Internal identifier of a call session
-    /// </summary>
+    /**
+     * Internal identifier of a call session
+     */
     public String sessionId;
 
-    /// <summary>
-    /// Caller information
-    /// </summary>
+    /**
+     * Caller information
+     */
     public CallLogCallerInfo from;
 
-    /// <summary>
-    /// Callee information
-    /// </summary>
+    /**
+     * Callee information
+     */
     public CallLogCallerInfo to;
 
-    /// <summary>
-    /// Call type
-    /// Enum: Voice, Fax
-    /// </summary>
+    /**
+     * Call type
+     * Enum: Voice, Fax
+     */
     public String type;
 
-    /// <summary>
-    /// Call direction
-    /// Enum: Inbound, Outbound
-    /// </summary>
+    /**
+     * Call direction
+     * Enum: Inbound, Outbound
+     */
     public String direction;
 
-    /// <summary>
-    /// Indicates whether the record is deleted. Returned for deleted records, for ISync requests
-    /// </summary>
+    /**
+     * Indicates whether the record is deleted. Returned for deleted records, for ISync requests
+     */
     public Boolean deleted;
 
-    /// <summary>
-    /// Action description of the call operation
-    /// Enum: Unknown, Phone Call, Phone Login, Incoming Fax, Accept Call, FindMe, FollowMe, Outgoing Fax, Call Return, Calling Card, Ring Directly, RingOut Web, VoIP Call, RingOut PC, RingMe, Transfer, 411 Info, Emergency, E911 Update, Support, RingOut Mobile
-    /// </summary>
+    /**
+     * Action description of the call operation
+     * Enum: Unknown, Phone Call, Phone Login, Incoming Fax, Accept Call, FindMe, FollowMe, Outgoing Fax, Call Return, Calling Card, Ring Directly, RingOut Web, VoIP Call, RingOut PC, RingMe, Transfer, 411 Info, Emergency, E911 Update, Support, RingOut Mobile
+     */
     public String action;
 
-    /// <summary>
-    /// Status description of the call operation
-    /// Enum: Unknown, ResultInProgress, Missed, Call accepted, Voicemail, Rejected, Reply, Received, Receive Error, Fax on Demand, Partial Receive, Blocked, Call connected, No Answer, International Disabled, Busy, Send Error, Sent, No fax machine, ResultEmpty, Account, Suspended, Call Failed, Call Failure, Internal Error, IP Phone offline, Restricted Number, Wrong Number, Stopped, Hang up, Poor Line Quality, Partially Sent, International Restriction, Abandoned, Declined, Fax Receipt Error, Fax Send Error
-    /// </summary>
+    /**
+     * Status description of the call operation
+     * Enum: Unknown, ResultInProgress, Missed, Call accepted, Voicemail, Rejected, Reply, Received, Receive Error, Fax on Demand, Partial Receive, Blocked, Call connected, No Answer, International Disabled, Busy, Send Error, Sent, No fax machine, ResultEmpty, Account, Suspended, Call Failed, Call Failure, Internal Error, IP Phone offline, Restricted Number, Wrong Number, Stopped, Hang up, Poor Line Quality, Partially Sent, International Restriction, Abandoned, Declined, Fax Receipt Error, Fax Send Error
+     */
     public String result;
 
-    /// <summary>
-    /// The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
-    /// </summary>
+    /**
+     * The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
+     */
     public String startTime;
 
-    /// <summary>
-    /// Call duration in seconds
-    /// </summary>
+    /**
+     * Call duration in seconds
+     */
     public Long duration;
 
-    /// <summary>
-    /// Call recording data. Returned if a call is recorded
-    /// </summary>
+    /**
+     * Call recording data. Returned if a call is recorded
+     */
     public CallLogRecordingInfo recording;
 }

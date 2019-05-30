@@ -2,28 +2,28 @@ package com.ringcentral.definitions;
 
 
 public class ServiceInfo {
-    /// <summary>
-    /// Canonical URI of a service info resource
-    /// </summary>
+    /**
+     * Canonical URI of a service info resource
+     */
     public String uri;
 
-    /// <summary>
-    /// Information on account billing plan
-    /// </summary>
+    /**
+     * Information on account billing plan
+     */
     public BillingPlanInfo billingPlan;
 
-    /// <summary>
-    /// Information on account brand
-    /// </summary>
+    /**
+     * Information on account brand
+     */
     public BrandInfo brand;
 
-    /// <summary>
-    /// Information on account service plan
-    /// </summary>
+    /**
+     * Information on account service plan
+     */
     public ServicePlanInfo servicePlan;
 
-    /// <summary>
-    /// Information on account target service plan
-    /// </summary>
+    /**
+     * Information on account target service plan
+     */
     public TargetServicePlanInfo targetServicePlan;
 }

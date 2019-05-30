@@ -2,21 +2,21 @@ package com.ringcentral.definitions;
 
 
 public class GetExtensionDevicesResponse {
-    /// <summary>
-    /// List of extension devices
-    /// Required
-    /// </summary>
+    /**
+     * List of extension devices
+     * Required
+     */
     public GetDeviceInfoResponse[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public DeviceProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public DeviceProvisioningPagingInfo paging;
 }

@@ -2,14 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class ReferenceInfo {
-    /// <summary>
-    /// Non-RC identifier of an extension
-    /// </summary>
+    /**
+     * Non-RC identifier of an extension
+     */
     public String ref;
 
-    /// <summary>
-    /// Type of external identifier
-    /// Enum: PartnerId, CustomerDirectoryId
-    /// </summary>
+    /**
+     * Type of external identifier
+     * Enum: PartnerId, CustomerDirectoryId
+     */
     public String type;
 }

@@ -2,13 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class GlipTeamsList {
-    /// <summary>
-    /// List of teams
-    /// Required
-    /// </summary>
+    /**
+     * List of teams
+     * Required
+     */
     public GlipTeamInfo[] records;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public GlipNavigationInfo navigation;
 }

@@ -2,18 +2,18 @@ package com.ringcentral.definitions;
 
 
 public class DisabledFilterInfo {
-    /// <summary>
-    /// Event filter that is disabled for the user
-    /// </summary>
+    /**
+     * Event filter that is disabled for the user
+     */
     public String filter;
 
-    /// <summary>
-    /// Reason why the filter is disabled for the user
-    /// </summary>
+    /**
+     * Reason why the filter is disabled for the user
+     */
     public String reason;
 
-    /// <summary>
-    /// Error message
-    /// </summary>
+    /**
+     * Error message
+     */
     public String message;
 }

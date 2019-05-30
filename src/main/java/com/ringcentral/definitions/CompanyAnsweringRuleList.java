@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class CompanyAnsweringRuleList {
-    /// <summary>
-    /// Link to an answering rule resource
-    /// </summary>
+    /**
+     * Link to an answering rule resource
+     */
     public String uri;
 
-    /// <summary>
-    /// List of company answering rules
-    /// </summary>
+    /**
+     * List of company answering rules
+     */
     public ListCompanyAnsweringRuleInfo[] records;
 
-    /// <summary>
-    /// Information on paging
-    /// </summary>
+    /**
+     * Information on paging
+     */
     public CallHandlingPagingInfo paging;
 
-    /// <summary>
-    /// Information on navigation
-    /// </summary>
+    /**
+     * Information on navigation
+     */
     public CallHandlingNavigationInfo navigation;
 }

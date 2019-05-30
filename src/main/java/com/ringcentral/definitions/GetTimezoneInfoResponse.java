@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class GetTimezoneInfoResponse {
-    /// <summary>
-    /// Internal identifier of a timezone
-    /// </summary>
+    /**
+     * Internal identifier of a timezone
+     */
     public String id;
 
-    /// <summary>
-    /// Canonical URI of a timezone
-    /// </summary>
+    /**
+     * Canonical URI of a timezone
+     */
     public String uri;
 
-    /// <summary>
-    /// Short name of a timezone
-    /// </summary>
+    /**
+     * Short name of a timezone
+     */
     public String name;
 
-    /// <summary>
-    /// Description of a timezone
-    /// </summary>
+    /**
+     * Description of a timezone
+     */
     public String description;
 }

@@ -2,20 +2,20 @@ package com.ringcentral.definitions;
 
 
 public class OrderBy {
-    /// <summary>
-    /// Sorting priority index, starting from '1'. Optional if only one element in `orderBy` array is specified
-    /// </summary>
+    /**
+     * Sorting priority index, starting from '1'. Optional if only one element in `orderBy` array is specified
+     */
     public Long index;
 
-    /// <summary>
-    /// Field name by which to sort the contacts
-    /// Enum: firstName, lastName, extensionNumber, phoneNumber, email
-    /// </summary>
+    /**
+     * Field name by which to sort the contacts
+     * Enum: firstName, lastName, extensionNumber, phoneNumber, email
+     */
     public String fieldName;
 
-    /// <summary>
-    /// Sorting direction
-    /// Enum: Asc, Desc
-    /// </summary>
+    /**
+     * Sorting direction
+     * Enum: Asc, Desc
+     */
     public String direction;
 }

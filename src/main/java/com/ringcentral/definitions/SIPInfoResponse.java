@@ -2,44 +2,44 @@ package com.ringcentral.definitions;
 
 
 public class SIPInfoResponse {
-    /// <summary>
-    /// User credentials
-    /// </summary>
+    /**
+     * User credentials
+     */
     public String username;
 
-    /// <summary>
-    /// User password
-    /// </summary>
+    /**
+     * User password
+     */
     public String password;
 
-    /// <summary>
-    /// Identifier for SIP authorization
-    /// </summary>
+    /**
+     * Identifier for SIP authorization
+     */
     public String authorizationId;
 
-    /// <summary>
-    /// SIP domain
-    /// </summary>
+    /**
+     * SIP domain
+     */
     public String domain;
 
-    /// <summary>
-    /// SIP outbound proxy
-    /// </summary>
+    /**
+     * SIP outbound proxy
+     */
     public String outboundProxy;
 
-    /// <summary>
-    /// Preferred transport. SIP info will be returned for this transport if supported
-    /// Enum: UDP, TCP, TLS, WS, WSS
-    /// </summary>
+    /**
+     * Preferred transport. SIP info will be returned for this transport if supported
+     * Enum: UDP, TCP, TLS, WS, WSS
+     */
     public String transport;
 
-    /// <summary>
-    /// For TLS transport only Base64 encoded certificate
-    /// </summary>
+    /**
+     * For TLS transport only Base64 encoded certificate
+     */
     public String certificate;
 
-    /// <summary>
-    /// The interval in seconds after which the app must try to switch back to primary proxy if it was previously switched to backup. If this parameter is not returned, the app must stay on backup proxy and try to switch to primary proxy after the next SIP-provision call.
-    /// </summary>
+    /**
+     * The interval in seconds after which the app must try to switch back to primary proxy if it was previously switched to backup. If this parameter is not returned, the app must stay on backup proxy and try to switch to primary proxy after the next SIP-provision call.
+     */
     public Long switchBackInterval;
 }

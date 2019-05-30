@@ -2,21 +2,21 @@ package com.ringcentral.definitions;
 
 
 public class GetStateListResponse {
-    /// <summary>
-    /// List of states
-    /// Required
-    /// </summary>
+    /**
+     * List of states
+     * Required
+     */
     public GetStateInfoResponse[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

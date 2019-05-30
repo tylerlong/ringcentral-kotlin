@@ -2,14 +2,14 @@ package com.ringcentral.definitions;
 
 
 public class GlipPostPostBody {
-    /// <summary>
-    /// Post text.
-    /// Required
-    /// </summary>
+    /**
+     * Post text.
+     * Required
+     */
     public String text;
 
-    /// <summary>
-    /// Identifier(s) of attachments.
-    /// </summary>
+    /**
+     * Identifier(s) of attachments.
+     */
     public Object[] attachments;
 }

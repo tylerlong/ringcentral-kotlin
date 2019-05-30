@@ -2,39 +2,39 @@ package com.ringcentral.definitions;
 
 
 public class AccountLimits {
-    /// <summary>
-    /// Max number of free softphone phone lines per user extension
-    /// </summary>
+    /**
+     * Max number of free softphone phone lines per user extension
+     */
     public Long freeSoftPhoneLinesPerExtension;
 
-    /// <summary>
-    /// Max number of participants in RingCentral meeting hosted by this account's user
-    /// </summary>
+    /**
+     * Max number of participants in RingCentral meeting hosted by this account's user
+     */
     public Long meetingSize;
 
-    /// <summary>
-    /// Meetings recording cloud storage limitaion in Gb
-    /// </summary>
+    /**
+     * Meetings recording cloud storage limitaion in Gb
+     */
     public Long cloudRecordingStorage;
 
-    /// <summary>
-    /// Max number of extensions which can be included in the list of users monitored for Presence
-    /// </summary>
+    /**
+     * Max number of extensions which can be included in the list of users monitored for Presence
+     */
     public Long maxMonitoredExtensionsPerUser;
 
-    /// <summary>
-    /// Max length of extension numbers of an account; the supported value is up to 8 symbols, depends on account type
-    /// Default: 5
-    /// </summary>
+    /**
+     * Max length of extension numbers of an account; the supported value is up to 8 symbols, depends on account type
+     * Default: 5
+     */
     public Long maxExtensionNumberLength;
 
-    /// <summary>
-    /// Length of a site code
-    /// </summary>
+    /**
+     * Length of a site code
+     */
     public Long siteCodeLength;
 
-    /// <summary>
-    /// Length of a short extension number
-    /// </summary>
+    /**
+     * Length of a short extension number
+     */
     public Long shortExtensionNumberLength;
 }

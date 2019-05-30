@@ -2,35 +2,35 @@ package com.ringcentral.definitions;
 
 
 public class ListExtensionsParameters {
-    /// <summary>
-    /// Extension number to retrieve
-    /// </summary>
+    /**
+     * Extension number to retrieve
+     */
     public String extensionId;
 
-    /// <summary>
-    /// Extension email address
-    /// </summary>
+    /**
+     * Extension email address
+     */
     public String email;
 
-    /// <summary>
-    /// Indicates the page number to retrieve. Only positive number values are allowed
-    /// Default: 1
-    /// </summary>
+    /**
+     * Indicates the page number to retrieve. Only positive number values are allowed
+     * Default: 1
+     */
     public Long page;
 
-    /// <summary>
-    /// Indicates the page size (number of items)
-    /// Default: 100
-    /// </summary>
+    /**
+     * Indicates the page size (number of items)
+     * Default: 100
+     */
     public Long perPage;
 
-    /// <summary>
-    /// Extension current state. Multiple values are supported. If 'Unassigned' is specified, then extensions without extensionNumber are returned. If not specified, then all extensions are returned.
-    /// </summary>
+    /**
+     * Extension current state. Multiple values are supported. If 'Unassigned' is specified, then extensions without extensionNumber are returned. If not specified, then all extensions are returned.
+     */
     public String[] status;
 
-    /// <summary>
-    /// Extension type. Multiple values are supported
-    /// </summary>
+    /**
+     * Extension type. Multiple values are supported
+     */
     public String[] type;
 }

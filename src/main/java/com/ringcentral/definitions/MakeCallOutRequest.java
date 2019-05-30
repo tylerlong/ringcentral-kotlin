@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class MakeCallOutRequest {
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public MakeCallOutCallerInfoRequestFrom from;
 
-    /// <summary>
-    /// Required
-    /// </summary>
+    /**
+     * Required
+     */
     public MakeCallOutCallerInfoRequestTo to;
 }

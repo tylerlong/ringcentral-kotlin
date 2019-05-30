@@ -2,13 +2,13 @@ package com.ringcentral.definitions;
 
 
 public class CreateIvrPromptRequest {
-    /// <summary>
-    /// Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported
-    /// </summary>
+    /**
+     * Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported
+     */
     public Attachment attachment;
 
-    /// <summary>
-    /// Description of file contents.
-    /// </summary>
+    /**
+     * Description of file contents.
+     */
     public String name;
 }

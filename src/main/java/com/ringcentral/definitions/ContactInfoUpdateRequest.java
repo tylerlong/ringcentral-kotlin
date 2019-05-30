@@ -2,55 +2,58 @@ package com.ringcentral.definitions;
 
 
 public class ContactInfoUpdateRequest {
-    /// <summary>
-    /// For User extension type only. Extension user first name
-    /// </summary>
+    /**
+     * For User extension type only. Extension user first name
+     */
     public String firstName;
 
-    /// <summary>
-    /// For User extension type only. Extension user last name
-    /// </summary>
+    /**
+     * For User extension type only. Extension user last name
+     */
     public String lastName;
 
-    /// <summary>
-    /// Extension user company name
-    /// </summary>
+    /**
+     * Extension user company name
+     */
     public String company;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public String jobTitle;
 
-    /// <summary>
-    /// Email of extension user
-    /// </summary>
+    /**
+     * Email of extension user
+     */
     public String email;
 
-    /// <summary>
-    /// Extension user contact phone number in [E.164](https://www.itu.int/rec/T-REC-E.164-201011-I) format
-    /// </summary>
+    /**
+     * Extension user contact phone number in [E.164](https://www.itu.int/rec/T-REC-E.164-201011-I) format
+     */
     public String businessPhone;
 
-    /// <summary>
-    /// Extension user mobile (**non** Toll Free) phone number in [E.164](https://www.itu.int/rec/T-REC-E.164-201011-I) (with '+' sign) format
-    /// </summary>
+    /**
+     * Extension user mobile (**non** Toll Free) phone number in [E.164](https://www.itu.int/rec/T-REC-E.164-201011-I) (with '+' sign) format
+     */
     public String mobilePhone;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public ContactBusinessAddressInfo businessAddress;
 
-    /// <summary>
-    /// If 'True' then contact email is enabled as login name for this user. Please note that email should be unique in this case. The default value is 'False'
-    /// </summary>
+    /**
+     * If 'True' then contact email is enabled as login name for this user. Please note that email should be unique in this case. The default value is 'False'
+     */
     public Boolean emailAsLoginName;
 
-    /// <summary>
-    /// </summary>
+    /**
+     *
+     */
     public PronouncedNameInfo pronouncedName;
 
-    /// <summary>
-    /// Extension user department, if any
-    /// </summary>
+    /**
+     * Extension user department, if any
+     */
     public String department;
 }

@@ -2,23 +2,23 @@ package com.ringcentral.definitions;
 
 
 public class ListAnsweringRulesParameters {
-    /// <summary>
-    /// Default: Simple
-    /// </summary>
+    /**
+     * Default: Simple
+     */
     public String view;
 
-    /// <summary>
-    /// Default: false
-    /// </summary>
+    /**
+     * Default: false
+     */
     public String enabledOnly;
 
-    /// <summary>
-    /// Default: 1
-    /// </summary>
+    /**
+     * Default: 1
+     */
     public String page;
 
-    /// <summary>
-    /// Default: 100
-    /// </summary>
+    /**
+     * Default: 100
+     */
     public String perPage;
 }

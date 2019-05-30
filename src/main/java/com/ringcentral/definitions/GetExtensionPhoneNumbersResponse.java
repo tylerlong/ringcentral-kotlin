@@ -2,21 +2,21 @@ package com.ringcentral.definitions;
 
 
 public class GetExtensionPhoneNumbersResponse {
-    /// <summary>
-    /// List of phone numbers
-    /// Required
-    /// </summary>
+    /**
+     * List of phone numbers
+     * Required
+     */
     public UserPhoneNumberInfo[] records;
 
-    /// <summary>
-    /// Information on navigation
-    /// Required
-    /// </summary>
+    /**
+     * Information on navigation
+     * Required
+     */
     public ProvisioningNavigationInfo navigation;
 
-    /// <summary>
-    /// Information on paging
-    /// Required
-    /// </summary>
+    /**
+     * Information on paging
+     * Required
+     */
     public ProvisioningPagingInfo paging;
 }

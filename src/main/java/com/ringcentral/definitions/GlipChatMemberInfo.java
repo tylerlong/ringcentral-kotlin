@@ -2,8 +2,8 @@ package com.ringcentral.definitions;
 
 
 public class GlipChatMemberInfo {
-    /// <summary>
-    /// Internal identifier of a user
-    /// </summary>
+    /**
+     * Internal identifier of a user
+     */
     public String id;
 }
