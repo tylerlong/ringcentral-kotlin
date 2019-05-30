@@ -68,7 +68,7 @@ public class RestClient {
 
     public TokenInfo authorize(GetTokenRequest getTokenRequest) throws IllegalAccessException, IOException, RestException {
         token = null;
-        ResponseBody responseBody = post("/restapi/oauth/token", null, getTokenRequest);
+        ResponseBody responseBody = post("/restapi/oauth/token", null, getTokenRequest, ContentType.FORM);
         token = JSON.parseObject(responseBody.string(), TokenInfo.class);
         return token;
     }
@@ -82,7 +82,10 @@ public class RestClient {
     }
 
     public ResponseBody post(String endpoint, Object queryParameters, Object object) throws IllegalAccessException, IOException, RestException {
-        return request(HttpMethod.POST, endpoint, queryParameters, object);
+        return request(HttpMethod.POST, endpoint, queryParameters, object, ContentType.JSON);
+    }
+    public ResponseBody post(String endpoint, Object queryParameters, Object object, ContentType contentType) throws IllegalAccessException, IOException, RestException {
+        return request(HttpMethod.POST, endpoint, queryParameters, object, contentType);
     }
 
     public ResponseBody put(String endpoint, Object queryParameters, Object object) throws IllegalAccessException, IOException, RestException {
@@ -94,6 +97,31 @@ public class RestClient {
     }
 
     public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, Object body) throws IOException, RestException, IllegalAccessException {
+        return request(httpMethod, endpoint,queryParameters, body, ContentType.JSON);
+    }
+    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, Object body, ContentType contentType)  throws IOException, RestException, IllegalAccessException {
+        RequestBody requestBody = null;
+        switch (contentType) {
+            case JSON:
+                requestBody = RequestBody.create(jsonMediaType, JSON.toJSONString(body));
+                break;
+            case FORM:
+                FormBody.Builder formBodyBuilder = new FormBody.Builder();
+                for (Field field : body.getClass().getFields()) {
+                    Object value = field.get(body);
+                    if (value != null) {
+                        formBodyBuilder = formBodyBuilder.add(field.getName(), value.toString());
+                    }
+                }
+                requestBody = formBodyBuilder.build();
+                break;
+            default:
+                break;
+        }
+        return request(httpMethod, endpoint, queryParameters, requestBody);
+    }
+
+    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, RequestBody requestBody) throws IOException, RestException, IllegalAccessException {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(server).newBuilder(endpoint);
 
         if (queryParameters != null) {
@@ -106,21 +134,6 @@ public class RestClient {
         }
 
         HttpUrl httpUrl = urlBuilder.build();
-        RequestBody requestBody = null;
-        if (body != null) {
-            if (endpoint == "/restapi/oauth/token") {
-                FormBody.Builder formBodyBuilder = new FormBody.Builder();
-                for (Field field : body.getClass().getFields()) {
-                    Object value = field.get(body);
-                    if (value != null) {
-                        formBodyBuilder = formBodyBuilder.add(field.getName(), value.toString());
-                    }
-                }
-                requestBody = formBodyBuilder.build();
-            } else {
-                requestBody = RequestBody.create(jsonMediaType, JSON.toJSONString(body));
-            }
-        }
 
         Request.Builder builder = new Request.Builder().url(httpUrl);
         switch (httpMethod) {
