@@ -2,6 +2,7 @@ package com.ringcentral;
 
 import com.alibaba.fastjson.JSON;
 import com.ringcentral.definitions.GetTokenRequest;
+import com.ringcentral.definitions.RevokeTokenRequest;
 import com.ringcentral.definitions.TokenInfo;
 import okhttp3.*;
 
@@ -55,6 +56,18 @@ public class RestClient {
             return MessageFormat.format("Bearer {0}", token.access_token);
         }
         return MessageFormat.format("Basic {0}", basicKey());
+    }
+
+    public void revoke() throws IllegalAccessException, IOException, RestException
+    {
+        if(token == null)
+        {
+            return;
+        }
+        RevokeTokenRequest revokeTokenRequest = new RevokeTokenRequest();
+        revokeTokenRequest.token = token.access_token;
+        token = null;
+        post("/restapi/oauth/revoke", null, revokeTokenRequest, ContentType.FORM);
     }
 
     public TokenInfo authorize(String username, String extension, String password) throws IllegalAccessException, IOException, RestException {
