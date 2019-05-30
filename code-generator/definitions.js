@@ -3,9 +3,9 @@ import fs from 'fs'
 import path from 'path'
 import pascalCase from 'pascal-case'
 
-const outputDir = '../RingCentral.Net/Definitions'
+const outputDir = '../src/main/java/com/ringcentral/definitions'
 
-const doc = yaml.safeLoad(fs.readFileSync('rc-platform-adjusted.yml', 'utf8'))
+const doc = yaml.safeLoad(fs.readFileSync('/Users/tyler.liu/src/dotnet/RingCentral.Net/code-generator/rc-platform-adjusted.yml', 'utf8'))
 const definitions = doc.definitions
 const models = Object.keys(definitions).map(k => ({ name: k, ...definitions[k] }))
   .filter(m => m.type !== 'array')
@@ -17,20 +17,20 @@ models.forEach(m => {
 
 const normalizeType = f => {
   if (f.type === 'integer') {
-    return 'long?'
+    return 'Long'
   } else if (f.type === 'array') {
     return `${normalizeType(f.items)}[]`
   } else if (f.type === undefined || f.type === 'object') {
     if (!f['$ref']) {
-      return 'object' // anonymous object
+      return 'Object' // anonymous object
     }
     return f['$ref'].split('/').slice(-1)[0]
   } else if (f.type === 'boolean') {
-    return 'bool?'
+    return 'Boolean'
   } else if (f.type === 'file') {
     return 'Attachment'
   } else if (f.type === 'string') {
-    return 'string'
+    return 'String'
   } else {
     throw new Error(`Unknown type ${f.type}`)
   }
@@ -38,20 +38,23 @@ const normalizeType = f => {
 
 const normalizeField = f => {
   f.type = normalizeType(f)
-  if (['event', 'delegate', 'ref', 'default', 'operator', 'public'].includes(f.name)) {
-    f.name = `@${f.name}`
-  }
+  // if (['delegate', 'operator'].includes(f.name)) {
+  //   f.name = `@${f.name}`
+  // }
   return f
 }
 
 const generateField = (m, f) => {
   let p = ''
   if (f.name.includes('-')) {
-    p += `[JsonProperty("${f.name}")]`
+    p += `@JSONField(name="${f.name}")`
     p += `\n        public ${f.type} ${f.name.replace(/-([a-z])/g, (match, p1) => p1.toUpperCase())};`
   } else if (f.name.includes(':') || f.name.includes('.')) {
-    p += `[JsonProperty("${f.name}")]`
+    p += `@JSONField(name="${f.name}")`
     p += `\n        public ${f.type} ${f.name.replace(/[:.](\w)/g, '_$1')};`
+  } else if (f.name === 'public' || f.name === 'default') {
+    p += `@JSONField(name="${f.name}")`
+    p += `\n        public ${f.type} _${f.name};`
   } else {
     p = `public ${f.type} ${f.name};`
   }
@@ -80,17 +83,16 @@ const generateField = (m, f) => {
 }
 
 const generateCode = (m, fields) => {
-  let code = `namespace RingCentral
-{${m.description ? '\n    // ' + m.description : ''}
-    public class ${m.name}
-    {
-        ${fields.join('\n\n        ')}
-    }
-}`
-  if (code.includes('[JsonProperty(')) {
-    code = 'using Newtonsoft.Json;\n\n' + code
+  let code = `${m.description ? '\n    // ' + m.description : ''}
+public class ${m.name}
+{
+    ${fields.join('\n\n        ')}
+}
+`
+  if (code.includes('@JSONField(name=')) {
+    code = 'import com.alibaba.fastjson.annotation.JSONField;\n\n' + code
   }
-  return code
+  return 'package com.ringcentral.definitions;\n\n' + code
 }
 
 models.forEach(m => {
@@ -99,7 +101,7 @@ models.forEach(m => {
     .map(k => ({ name: k, ...properties[k] }))
     .map(f => normalizeField(f))
     .map(f => generateField(m, f))
-  fs.writeFileSync(path.join(outputDir, `${m.name}.cs`), generateCode(m, fields))
+  fs.writeFileSync(path.join(outputDir, `${m.name}.java`), generateCode(m, fields))
 })
 
 // generate models for form-data objects
@@ -117,7 +119,7 @@ Object.keys(doc.paths).forEach(p => {
           }
           return generateField({}, p)
         })
-      fs.writeFileSync(path.join(outputDir, `${className}.cs`), generateCode({ name: className }, fields))
+      fs.writeFileSync(path.join(outputDir, `${className}.java`), generateCode({ name: className }, fields))
     }
   })
 })
@@ -134,29 +136,27 @@ Object.keys(doc.paths).forEach(p => {
           p = normalizeField(p)
           return generateField({}, p)
         })
-      fs.writeFileSync(path.join(outputDir, `${className}.cs`), generateCode({ name: className }, fields))
+      fs.writeFileSync(path.join(outputDir, `${className}.java`), generateCode({ name: className }, fields))
     }
   })
 })
 
 // Generate Attachment
-fs.writeFileSync(path.join(outputDir, 'Attachment.cs'), `namespace RingCentral
+fs.writeFileSync(path.join(outputDir, 'Attachment.java'), `package com.ringcentral.definitions;
+public class Attachment
 {
-    public class Attachment
-    {
-        /// <summary>
-        /// File name with extension, such as "example.png"
-        /// </summary>
-        public string fileName;
+    /// <summary>
+    /// File name with extension, such as "example.png"
+    /// </summary>
+    public String fileName;
 
-        /// <summary>
-        /// Binary content of the file
-        /// </summary>
-        public byte[] bytes;
+    /// <summary>
+    /// Binary content of the file
+    /// </summary>
+    public byte[] bytes;
 
-        /// <summary>
-        /// Content tyle of the file, such as "image/png"
-        /// </summary>
-        public string contentType;
-    }
+    /// <summary>
+    /// Content tyle of the file, such as "image/png"
+    /// </summary>
+    public String contentType;
 }`)
