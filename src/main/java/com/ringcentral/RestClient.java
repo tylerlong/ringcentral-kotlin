@@ -12,11 +12,9 @@ import java.text.MessageFormat;
 import java.util.Base64;
 
 public class RestClient {
-    private static final MediaType jsonMediaType = MediaType.parse("application/json; charset=utf-8");
-
     public static final String SANDBOX_SERVER = "https://platform.devtest.ringcentral.com";
     public static final String PRODUCTION_SERVER = "https://platform.ringcentral.com";
-
+    private static final MediaType jsonMediaType = MediaType.parse("application/json; charset=utf-8");
     public String clientId;
     public String clientSecret;
     public String server;
@@ -58,10 +56,8 @@ public class RestClient {
         return MessageFormat.format("Basic {0}", basicKey());
     }
 
-    public void revoke() throws IllegalAccessException, IOException, RestException
-    {
-        if(token == null)
-        {
+    public void revoke() throws IOException, RestException {
+        if (token == null) {
             return;
         }
         RevokeTokenRequest revokeTokenRequest = new RevokeTokenRequest();
@@ -70,7 +66,7 @@ public class RestClient {
         post("/restapi/oauth/revoke", null, revokeTokenRequest, ContentType.FORM);
     }
 
-    public TokenInfo authorize(String username, String extension, String password) throws IllegalAccessException, IOException, RestException {
+    public TokenInfo authorize(String username, String extension, String password) throws IOException, RestException {
         GetTokenRequest getTokenRequest = new GetTokenRequest();
         getTokenRequest.username = username;
         getTokenRequest.extension = extension;
@@ -79,40 +75,42 @@ public class RestClient {
         return authorize(getTokenRequest);
     }
 
-    public TokenInfo authorize(GetTokenRequest getTokenRequest) throws IllegalAccessException, IOException, RestException {
+    public TokenInfo authorize(GetTokenRequest getTokenRequest) throws IOException, RestException {
         token = null;
         ResponseBody responseBody = post("/restapi/oauth/token", null, getTokenRequest, ContentType.FORM);
         token = JSON.parseObject(responseBody.string(), TokenInfo.class);
         return token;
     }
 
-    public ResponseBody get(String endpoint, Object queryParameters) throws IllegalAccessException, IOException, RestException {
+    public ResponseBody get(String endpoint, Object queryParameters) throws IOException, RestException {
         return request(HttpMethod.GET, endpoint, queryParameters, null);
     }
 
-    public ResponseBody delete(String endpoint, Object queryParameters) throws IllegalAccessException, IOException, RestException {
+    public ResponseBody delete(String endpoint, Object queryParameters) throws IOException, RestException {
         return request(HttpMethod.DELETE, endpoint, queryParameters, null);
     }
 
-    public ResponseBody post(String endpoint, Object queryParameters, Object object) throws IllegalAccessException, IOException, RestException {
+    public ResponseBody post(String endpoint, Object queryParameters, Object object) throws IOException, RestException {
         return request(HttpMethod.POST, endpoint, queryParameters, object, ContentType.JSON);
     }
-    public ResponseBody post(String endpoint, Object queryParameters, Object object, ContentType contentType) throws IllegalAccessException, IOException, RestException {
+
+    public ResponseBody post(String endpoint, Object queryParameters, Object object, ContentType contentType) throws IOException, RestException {
         return request(HttpMethod.POST, endpoint, queryParameters, object, contentType);
     }
 
-    public ResponseBody put(String endpoint, Object queryParameters, Object object) throws IllegalAccessException, IOException, RestException {
+    public ResponseBody put(String endpoint, Object queryParameters, Object object) throws IOException, RestException {
         return request(HttpMethod.PUT, endpoint, queryParameters, object);
     }
 
-    public ResponseBody patch(String endpoint, Object queryParameters, Object object) throws IllegalAccessException, IOException, RestException {
+    public ResponseBody patch(String endpoint, Object queryParameters, Object object) throws IOException, RestException {
         return request(HttpMethod.PATCH, endpoint, queryParameters, object);
     }
 
-    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, Object body) throws IOException, RestException, IllegalAccessException {
-        return request(httpMethod, endpoint,queryParameters, body, ContentType.JSON);
+    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, Object body) throws IOException, RestException {
+        return request(httpMethod, endpoint, queryParameters, body, ContentType.JSON);
     }
-    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, Object body, ContentType contentType)  throws IOException, RestException, IllegalAccessException {
+
+    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, Object body, ContentType contentType) throws IOException, RestException {
         RequestBody requestBody = null;
         switch (contentType) {
             case JSON:
@@ -121,7 +119,12 @@ public class RestClient {
             case FORM:
                 FormBody.Builder formBodyBuilder = new FormBody.Builder();
                 for (Field field : body.getClass().getFields()) {
-                    Object value = field.get(body);
+                    Object value = null;
+                    try {
+                        value = field.get(body);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
                     if (value != null) {
                         formBodyBuilder = formBodyBuilder.add(field.getName(), value.toString());
                     }
@@ -134,12 +137,17 @@ public class RestClient {
         return request(httpMethod, endpoint, queryParameters, requestBody);
     }
 
-    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, RequestBody requestBody) throws IOException, RestException, IllegalAccessException {
+    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, RequestBody requestBody) throws IOException, RestException {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(server).newBuilder(endpoint);
 
         if (queryParameters != null) {
             for (Field field : queryParameters.getClass().getFields()) {
-                Object value = field.get(queryParameters);
+                Object value = null;
+                try {
+                    value = field.get(queryParameters);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
                 if (value != null) {
                     urlBuilder = urlBuilder.addQueryParameter(field.getName(), value.toString());
                 }
@@ -168,7 +176,6 @@ public class RestClient {
             default:
                 break;
         }
-
 
         String userAgentHeader = String.format("RC-JAVA-SDK Java %s %s", System.getProperty("java.version"), System.getProperty("os.name"));
         Request request = builder.addHeader("Authorization", authorizationHeader())

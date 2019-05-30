@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class RestClientTest {
     @Test
-    public void testAuthorize() throws IllegalAccessException, IOException, RestException {
+    public void testAuthorize() throws IOException, RestException {
         RestClient rc = new RestClient(
                 System.getenv("RINGCENTRAL_CLIENT_ID"),
                 System.getenv("RINGCENTRAL_CLIENT_SECRET"),
