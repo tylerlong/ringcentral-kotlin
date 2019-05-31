@@ -192,11 +192,11 @@ const generate = (prefix = '/') => {
 ` : ''}`
       if (formUrlEncoded) {
         code += `
-        return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}, com.ringcentral.ContentType.FORM).string(), ${responseType}::class.java)
+        return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.FORM).string(), ${responseType}::class.java)
         }`
       } else if (multipart) {
         code += `
-        return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}, com.ringcentral.ContentType.MULTIPART).string(), ${responseType}::class.java)
+        return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.MULTIPART).string(), ${responseType}::class.java)
         }`
       } else {
         code += `
