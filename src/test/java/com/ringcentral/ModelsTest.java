@@ -19,7 +19,7 @@ public class ModelsTest {
                 System.getenv("RINGCENTRAL_SERVER_URL")
         );
 
-        TokenInfo token = rc.authorize(
+        rc.authorize(
                 System.getenv("RINGCENTRAL_USERNAME"),
                 System.getenv("RINGCENTRAL_EXTENSION"),
                 System.getenv("RINGCENTRAL_PASSWORD")
