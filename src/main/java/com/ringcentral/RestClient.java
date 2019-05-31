@@ -1,15 +1,17 @@
 package com.ringcentral;
 
 import com.alibaba.fastjson.JSON;
+import com.ringcentral.definitions.Attachment;
 import com.ringcentral.definitions.GetTokenRequest;
 import com.ringcentral.definitions.RevokeTokenRequest;
 import com.ringcentral.definitions.TokenInfo;
 import okhttp3.*;
+import okio.BufferedSink;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.text.MessageFormat;
-import java.util.Base64;
+import java.util.*;
 
 public class RestClient {
     public static final String SANDBOX_SERVER = "https://platform.devtest.ringcentral.com";
@@ -126,6 +128,10 @@ public class RestClient {
         return request(HttpMethod.PUT, endpoint, queryParameters, object);
     }
 
+    public ResponseBody put(String endpoint, Object object, Object queryParameters, ContentType contentType) throws IOException, RestException {
+        return request(HttpMethod.PUT, endpoint, queryParameters, object, contentType);
+    }
+
     public ResponseBody patch(String endpoint, Object object) throws IOException, RestException {
         return request(HttpMethod.PATCH, endpoint, null, object);
     }
@@ -160,6 +166,46 @@ public class RestClient {
                 requestBody = formBodyBuilder.build();
                 break;
             case MULTIPART:
+                MultipartBody.Builder multipartBodyBuilder = new MultipartBody.Builder();
+                List<Attachment> attachments = new ArrayList<Attachment>();
+                Map<String, Object> dict = new HashMap<String, Object>();
+                for (Field field : body.getClass().getFields()) {
+                    Object value = null;
+                    try {
+                        value = field.get(body);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                    if (value != null) {
+                        if (field.getType() == Attachment.class) {
+                            attachments.add((Attachment) value);
+                        } else if (field.getType() == Attachment[].class) {
+                            for (Attachment a : (Attachment[]) value) {
+                                attachments.add(a);
+                            }
+                        } else {
+                            dict.put(field.getName(), value);
+                        }
+                    }
+                }
+                multipartBodyBuilder.addPart(RequestBody.create(jsonMediaType, JSON.toJSONString(dict)));
+                for (Attachment attachment : attachments) {
+                    multipartBodyBuilder.addPart(new RequestBody() {
+                        @Override
+                        public MediaType contentType() {
+                            if (attachment.contentType == null) {
+                                return null;
+                            }
+                            return MediaType.parse(attachment.contentType);
+                        }
+
+                        @Override
+                        public void writeTo(BufferedSink sink) throws IOException {
+                            sink.write(attachment.bytes);
+                        }
+                    });
+                }
+                requestBody = multipartBodyBuilder.build();
                 break;
             default:
                 break;
@@ -167,7 +213,8 @@ public class RestClient {
         return request(httpMethod, endpoint, queryParameters, requestBody);
     }
 
-    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, RequestBody requestBody) throws IOException, RestException {
+    public ResponseBody request(HttpMethod httpMethod, String endpoint, Object queryParameters, RequestBody
+            requestBody) throws IOException, RestException {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(server).newBuilder(endpoint);
 
         if (queryParameters != null) {

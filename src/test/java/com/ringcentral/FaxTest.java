@@ -1,6 +1,9 @@
 package com.ringcentral;
 
-import com.ringcentral.definitions.*;
+import com.ringcentral.definitions.Attachment;
+import com.ringcentral.definitions.CreateFaxMessageRequest;
+import com.ringcentral.definitions.FaxResponse;
+import com.ringcentral.definitions.MessageStoreCallerInfoRequest;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -27,12 +30,18 @@ public class FaxTest {
 
         FaxResponse r = rc.restapi().account().extension().fax().post(
                 new CreateFaxMessageRequest()
-                    .to(new MessageStoreCallerInfoRequest[] { new MessageStoreCallerInfoRequest().phoneNumber(System.getenv("RINGCENTRAL_USERNAME")) })
-                    .attachments(
-                            new Attachment[]{
-                                    new Attachment().fileName("test.txt").bytes("hello world".getBytes(StandardCharsets.UTF_8)),
-                                    new Attachment().fileName("test.png").bytes(Files.readAllBytes(Paths.get("./src/test/resources/test.png")))
-                            })
+                        .to(new MessageStoreCallerInfoRequest[]{
+                                new MessageStoreCallerInfoRequest()
+                                    .phoneNumber(System.getenv("RINGCENTRAL_USERNAME")) })
+                        .attachments(
+                                new Attachment[]{
+                                        new Attachment().fileName("test.txt")
+                                                .bytes("hello world".getBytes(StandardCharsets.UTF_8))
+                                                .contentType("text/plain"),
+                                        new Attachment().fileName("test.png")
+                                                .bytes(Files.readAllBytes(Paths.get("./src/test/resources/test.png")))
+                                                .contentType("image/png")
+                                })
         );
 
         assertNotNull(r);

@@ -17,7 +17,7 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val promptI
      * Http Post /restapi/v1.0/account/{accountId}/ivr-prompts
      */
     fun post(createIVRPromptRequest: com.ringcentral.definitions.CreateIvrPromptRequest): com.ringcentral.definitions.PromptInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createIVRPromptRequest, com.ringcentral.ContentType.MULTIPART).string(), com.ringcentral.definitions.PromptInfo::class.java)
+        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createIVRPromptRequest, null, com.ringcentral.ContentType.MULTIPART).string(), com.ringcentral.definitions.PromptInfo::class.java)
     }
 
     /**

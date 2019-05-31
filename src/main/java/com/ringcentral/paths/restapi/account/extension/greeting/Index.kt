@@ -17,7 +17,7 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting
      */
     fun post(createCustomUserGreetingRequest: com.ringcentral.definitions.CreateCustomUserGreetingRequest): com.ringcentral.definitions.CustomUserGreetingInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createCustomUserGreetingRequest, com.ringcentral.ContentType.MULTIPART).string(), com.ringcentral.definitions.CustomUserGreetingInfo::class.java)
+        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createCustomUserGreetingRequest, null, com.ringcentral.ContentType.MULTIPART).string(), com.ringcentral.definitions.CustomUserGreetingInfo::class.java)
     }
 
     /**

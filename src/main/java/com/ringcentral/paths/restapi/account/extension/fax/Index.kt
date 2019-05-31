@@ -13,6 +13,6 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/fax
      */
     fun post(createFaxMessageRequest: com.ringcentral.definitions.CreateFaxMessageRequest): com.ringcentral.definitions.FaxResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), createFaxMessageRequest, com.ringcentral.ContentType.MULTIPART).string(), com.ringcentral.definitions.FaxResponse::class.java)
+        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), createFaxMessageRequest, null, com.ringcentral.ContentType.MULTIPART).string(), com.ringcentral.definitions.FaxResponse::class.java)
     }
 }

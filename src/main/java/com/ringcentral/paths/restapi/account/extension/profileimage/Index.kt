@@ -25,7 +25,7 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image
      */
     fun post(createUserProfileImageRequest: com.ringcentral.definitions.CreateUserProfileImageRequest): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createUserProfileImageRequest, com.ringcentral.ContentType.MULTIPART).string(), String::class.java)
+        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createUserProfileImageRequest, null, com.ringcentral.ContentType.MULTIPART).string(), String::class.java)
     }
 
     /**
@@ -33,7 +33,7 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image
      */
     fun put(updateUserProfileImageRequest: com.ringcentral.definitions.UpdateUserProfileImageRequest): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(false), updateUserProfileImageRequest, com.ringcentral.ContentType.MULTIPART).string(), String::class.java)
+        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(false), updateUserProfileImageRequest, null, com.ringcentral.ContentType.MULTIPART).string(), String::class.java)
     }
 
     /**
