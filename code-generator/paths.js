@@ -72,39 +72,60 @@ const generate = (prefix = '/') => {
       defaultParamValue = '~'
     }
 
-    let code = `package com.ringcentral.paths.${routes.join('.').toLowerCase()}
+    let code = `package com.ringcentral.paths.${routes.join('.').toLowerCase()}\n\n`
 
-    public class Index
-    {
-        public RestClient rc;`
-
+    code += `class Index(val ${routes.length > 1 ? `parent: com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index` : 'rc: com.ringcentral.RestClient'}`
     if (paramName) {
-      code += `
-        public string ${paramName};`
+      code += `, val ${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : null}`
     }
-    if (routes.length > 1) {
-      code += `
-        public ${R.init(routes).join('.')}.Index parent;`
-    }
+    code += `) {
+      ${routes.length > 1 ? 'var rc: RestClient = parent.rc' : ''}
+    `
 
-    if (paramName) {
-      code += `
+    // code += `public class Index
+    // {
+    //     public RestClient rc;`
 
-        public Index(${routes.length > 1 ? `${R.init(routes).join('.')}.Index parent` : 'RestClient rc'}, string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : null})
-        {
-          ${routes.length > 1 ? `  this.parent = parent;
-            this.rc = parent.rc;` : '  this.rc = rc;'}
-            this.${paramName} = ${paramName};
-        }`
-    } else {
-      code += `
+    // if (paramName) {
+    //   code += `
+    //   class Index(val ${routes.length > 1 ? `parent: com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index` : 'rc: com.ringcentral.RestClient'}, val ${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : null}) {
+    //     ${routes.length > 1 ? 'var rc: RestClient = parent.rc' : ''}
+    //   `
+    // } else {
+    //   code += `
+    //   class Index(val ${routes.length > 1 ? `parent: com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index` : 'rc: com.ringcentral.RestClient'}) {
+    //     ${routes.length > 1 ? 'var rc: RestClient = parent.rc' : ''}
+    //   `
+    // }
 
-        public Index(${routes.length > 1 ? `${R.init(routes).join('.')}.Index parent` : 'RestClient rc'})
-        {
-            ${routes.length > 1 ? `this.parent = parent;
-            this.rc = parent.rc;` : '  this.rc = rc;'}
-        }`
-    }
+    // if (paramName) {
+    //   code += `
+    //     public string ${paramName};`
+    // }
+    // if (routes.length > 1) {
+    //   code += `
+    //     public ${R.init(routes).join('.')}.Index parent;`
+    // }
+
+    // todo: merge following into constructor
+    // if (paramName) {
+    //   code += `
+
+    //     public Index(${routes.length > 1 ? `${R.init(routes).join('.')}.Index parent` : 'RestClient rc'}, string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : null})
+    //     {
+    //       ${routes.length > 1 ? `  this.parent = parent;
+    //         this.rc = parent.rc;` : '  this.rc = rc;'}
+    //         this.${paramName} = ${paramName};
+    //     }`
+    // } else {
+    //   code += `
+
+    //     public Index(${routes.length > 1 ? `${R.init(routes).join('.')}.Index parent` : 'RestClient rc'})
+    //     {
+    //         ${routes.length > 1 ? `this.parent = parent;
+    //         this.rc = parent.rc;` : '  this.rc = rc;'}
+    //     }`
+    // }
 
     if (paramName) {
       code += `
