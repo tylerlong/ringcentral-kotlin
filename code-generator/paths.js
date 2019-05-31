@@ -4,7 +4,7 @@ import * as R from 'ramda'
 import changeCase from 'change-case'
 import path from 'path'
 
-import { normalizePath, deNormalizePath, getResponseType } from './utils'
+import { normalizePath, deNormalizePath, getResponseType, appendCodeToFile } from './utils'
 
 const outputDir = '../src/main/java/com/ringcentral/paths'
 
@@ -271,22 +271,22 @@ const generate = (prefix = '/') => {
     })
 
     // generate parent path method
-    if (routes.length === 1) {
-      code += `
-      fun com.ringcentral.RestClient.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
-      `
-    } else {
-      code += `
-      fun com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
-      `
-    }
-    code += `{
-      return Index(this${paramName ? `, ${paramName}` : ''})
-  }`
+    // if (routes.length === 1) {
+    //   code += `
+    //   fun com.ringcentral.RestClient.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
+    //   `
+    // } else {
 
     code += `
 }
 `
+
+    // todo: append code to file
+    //     code += `
+    // fun com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
+    // {
+    // return Index(this${paramName ? `, ${paramName}` : ''})
+    // }`
 
     //     if (routes.length === 1) { // top level path, such as /restapi & /scim
     //       code = `${code}
@@ -317,6 +317,17 @@ const generate = (prefix = '/') => {
     //     }
 
     fs.writeFileSync(path.join(folderPath, 'Index.kt'), code)
+
+    if (routes.length > 1) {
+      const parentFolder = R.init(folderPath.split(path.sep)).join(path.sep)
+      console.log(parentFolder)
+      appendCodeToFile(path.join(parentFolder, 'Index.kt'), `
+      fun ${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : com.ringcentral.paths.${routes.join('.').toLowerCase()}.Index
+      {
+        return com.ringcentral.paths.${routes.join('.').toLowerCase()}.Index(this${paramName ? `, ${paramName}` : ''})
+      }
+    `)
+    }
 
     generate(`${prefix}${name}/`)
     if (paramName) {

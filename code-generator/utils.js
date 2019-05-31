@@ -1,4 +1,5 @@
 import * as R from 'ramda'
+import fs from 'fs'
 
 export const normalizePath = path => {
   return path
@@ -12,6 +13,12 @@ export const deNormalizePath = path => {
     .replace(/\/restapi\/\{apiVersion\}\//, '/restapi/v1.0/')
     .replace(/\/scim\/\{version\}/, '/scim/v2')
     .replace(/\/dotSearch/, '/.search')
+}
+
+export const appendCodeToFile = (filePath, content) => {
+  let data = fs.readFileSync(filePath, 'utf8')
+  data = `${R.init(data.trim().split('\n')).join('\n')}\n\n${content}\n}`
+  fs.writeFileSync(filePath, data)
 }
 
 export const getResponseType = responses => {
