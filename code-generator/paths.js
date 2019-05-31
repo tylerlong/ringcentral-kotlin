@@ -79,7 +79,7 @@ const generate = (prefix = '/') => {
       code += `, val ${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : null}`
     }
     code += `) {
-      ${routes.length > 1 ? 'var rc: RestClient = parent.rc' : ''}
+      ${routes.length > 1 ? 'var rc: com.ringcentral.RestClient = parent.rc' : ''}
     `
 
     // code += `public class Index
@@ -134,17 +134,17 @@ const generate = (prefix = '/') => {
         {
             if (withParameter && ${paramName} != null)
             {
-                return "${routes.length > 1 ? '$' + '{parent.Path()}' : ''}/${name}/` + '$' + `{${paramName}}"
+                return "${routes.length > 1 ? '$' + '{parent.path()}' : ''}/${name}/` + '$' + `{${paramName}}"
             }
 
-            return ${routes.length > 1 ? '"${parent.Path()}' : '"'}/${name}"
+            return ${routes.length > 1 ? '"${parent.path()}' : '"'}/${name}"
         }`
     } else {
       code += `
 
         fun path(): String
         {
-            return ${routes.length > 1 ? '"${parent.Path()}' : '"'}/${name.replace('dotSearch', '.search')}"
+            return ${routes.length > 1 ? '"${parent.path()}' : '"'}/${name.replace('dotSearch', '.search')}"
         }`
     }
 
@@ -184,7 +184,7 @@ const generate = (prefix = '/') => {
       const responses = operation.detail.responses
       let responseType = getResponseType(responses)
       if (!responseType) {
-        responseType = 'string'
+        responseType = 'String'
       }
 
       let body, bodyClass, bodyParam, formUrlEncoded, multipart
@@ -193,28 +193,28 @@ const generate = (prefix = '/') => {
       } else if (operation.detail.consumes && operation.detail.consumes[0].startsWith('multipart/')) {
         multipart = true
       } else if (operation.detail.consumes && !operation.detail.consumes.some(c => c === 'application/json') && !operation.detail.consumes.some(c => c.startsWith('text/'))) {
-        throw new Error(`Unsupported consume content type: ${operation.detail.consumes.join(', ')}`)
+        throw Error(`Unsupported consume content type: ${operation.detail.consumes.join(', ')}`)
       } else {
         body = (operation.detail.parameters || []).filter(p => p.in === 'body')[0]
         if (body) {
           if (body.schema.type === 'string') {
-            bodyClass = 'string'
+            bodyClass = 'String'
             bodyParam = 'body'
           } else {
             bodyClass = R.last(body.schema['$ref'].split('/'))
             bodyParam = changeCase.lowerCaseFirst(bodyClass)
-            bodyClass = 'RingCentral.' + bodyClass
+            bodyClass = 'com.ringcentral.definitions.' + bodyClass
           }
         }
       }
       if (formUrlEncoded || multipart) {
-        bodyClass = `${changeCase.pascalCase(operation.detail.operationId)}Request`
+        bodyClass = `com.ringcentral.definitions.${changeCase.pascalCase(operation.detail.operationId)}Request`
         bodyParam = `${operation.detail.operationId}Request`
         body = (operation.detail.parameters || []).filter(p => p.in === 'body' && p.schema && p.schema['$ref'])[0]
         if (body) {
           bodyClass = R.last(body.schema['$ref'].split('/'))
           bodyParam = changeCase.lowerCaseFirst(bodyClass)
-          bodyClass = 'RingCentral.' + bodyClass
+          bodyClass = 'com.ringcentral.definitions.' + bodyClass
         }
       }
 
@@ -222,10 +222,10 @@ const generate = (prefix = '/') => {
       const withParam = paramName && operation.endpoint.endsWith('}')
       const methodParams = []
       if (bodyParam) {
-        methodParams.push(`${bodyClass} ${bodyParam}`)
+        methodParams.push(`${bodyParam}: ${bodyClass}`)
       }
       if (queryParams.length > 0) {
-        methodParams.push(`${changeCase.pascalCase(operation.detail.operationId)}Parameters queryParams = null`)
+        methodParams.push(`queryParams: com.ringcentral.definitions.${changeCase.pascalCase(operation.detail.operationId)}Parameters? = null`)
       }
       code += `
 
@@ -233,42 +233,51 @@ const generate = (prefix = '/') => {
       /// Operation: ${operation.detail.summary || changeCase.titleCase(operation.detail.operationId)}
       /// Http ${method} ${operation.endpoint}
       /// </summary>
-      public async Task<${responseType}> ${smartMethod}(${methodParams.join(', ')})
+      fun ${smartMethod.toLowerCase()}(${methodParams.join(', ')}) : ${responseType}
+      // public async Task<${responseType}> ${smartMethod}(${methodParams.join(', ')})
       {${withParam ? `
           if (this.${paramName} == null)
           {
-              throw new System.ArgumentNullException("${paramName}");
+              throw NullPointerException("${paramName}");
           }
 ` : ''}`
       if (formUrlEncoded) {
-        code = `using System.Linq;
-using System.Net.Http;
-${code}`
         code += `
-          var dict = new System.Collections.Generic.Dictionary<string, string>();
-          RingCentral.Utils.GetPairs(${bodyParam})
-            .ToList().ForEach(t => dict.Add(t.name, t.value.ToString()));
-          return await rc.Post<${responseType}>(this.Path(${(!withParam && paramName) ? 'false' : ''}), new FormUrlEncodedContent(dict)${queryParams.length > 0 ? `, queryParams` : ''});
-      }`
+        return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}, com.ringcentral.ContentType.FORM).string(), ${responseType}::class.java)
+        }`
+        //         code = `using System.Linq;
+        // using System.Net.Http;
+        // ${code}`
+        //         code += `
+        //           var dict = System.Collections.Generic.Dictionary<string, string>();
+        //           RingCentral.Utils.GetPairs(${bodyParam})
+        //             .ToList().ForEach(t => dict.Add(t.name, t.value.ToString()));
+        //           return await rc.Post<${responseType}>(this.path(${(!withParam && paramName) ? 'false' : ''}), FormUrlEncodedContent(dict)${queryParams.length > 0 ? `, queryParams` : ''});
+        //       }`
       } else if (multipart) {
         code += `
-          var multipartFormDataContent = Utils.GetMultipartFormDataContent(${bodyParam});
-          return await rc.Post<${responseType}>(this.Path(${(!withParam && paramName) ? 'false' : ''}), multipartFormDataContent${queryParams.length > 0 ? `, queryParams` : ''});
-      }`
+        return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}, com.ringcentral.ContentType.MULTIPART).string(), ${responseType}::class.java)
+        }`
+      //   code += `
+      //     var multipartFormDataContent = Utils.GetMultipartFormDataContent(${bodyParam});
+      //     return await rc.Post<${responseType}>(this.path(${(!withParam && paramName) ? 'false' : ''}), multipartFormDataContent${queryParams.length > 0 ? `, queryParams` : ''});
+      // }`
       } else {
         code += `
-          return await rc.${method}<${responseType}>(this.Path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''});
+          return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}).string(), ${responseType}::class.java)
+          // return await rc.${method}<${responseType}>(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''});
       }`
       }
     })
 
+    // generate parent path method
     if (routes.length === 1) {
       code += `
-      fun com.ringcentral.RestClient.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
+      fun com.ringcentral.RestClient.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
       `
     } else {
       code += `
-      fun com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
+      fun com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
       `
     }
     code += `{

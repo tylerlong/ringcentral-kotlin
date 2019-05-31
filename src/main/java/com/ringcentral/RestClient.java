@@ -98,6 +98,10 @@ public class RestClient {
         return request(HttpMethod.DELETE, endpoint, queryParameters, null);
     }
 
+    public ResponseBody post(String endpoint) throws IOException, RestException {
+        return request(HttpMethod.POST, endpoint, null, null, ContentType.JSON);
+    }
+
     public ResponseBody post(String endpoint, Object object) throws IOException, RestException {
         return request(HttpMethod.POST, endpoint, null, object, ContentType.JSON);
     }
@@ -108,6 +112,10 @@ public class RestClient {
 
     public ResponseBody post(String endpoint, Object object, Object queryParameters, ContentType contentType) throws IOException, RestException {
         return request(HttpMethod.POST, endpoint, queryParameters, object, contentType);
+    }
+
+    public ResponseBody put(String endpoint) throws IOException, RestException {
+        return request(HttpMethod.PUT, endpoint, null, null);
     }
 
     public ResponseBody put(String endpoint, Object object) throws IOException, RestException {
