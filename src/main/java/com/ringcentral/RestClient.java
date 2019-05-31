@@ -190,7 +190,7 @@ public class RestClient {
                 }
                 multipartBodyBuilder.addPart(RequestBody.create(jsonMediaType, JSON.toJSONString(dict)));
                 for (Attachment attachment : attachments) {
-                    multipartBodyBuilder.addPart(new RequestBody() {
+                    multipartBodyBuilder.addFormDataPart("attachment", attachment.fileName, new RequestBody() {
                         @Override
                         public MediaType contentType() {
                             if (attachment.contentType == null) {

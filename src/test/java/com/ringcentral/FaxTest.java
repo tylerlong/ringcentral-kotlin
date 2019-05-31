@@ -32,15 +32,18 @@ public class FaxTest {
                 new CreateFaxMessageRequest()
                         .to(new MessageStoreCallerInfoRequest[]{
                                 new MessageStoreCallerInfoRequest()
-                                    .phoneNumber(System.getenv("RINGCENTRAL_USERNAME")) })
+                                        .phoneNumber(System.getenv("RINGCENTRAL_USERNAME"))
+                        })
                         .attachments(
                                 new Attachment[]{
-                                        new Attachment().fileName("test.txt")
-                                                .bytes("hello world".getBytes(StandardCharsets.UTF_8))
-                                                .contentType("text/plain"),
-                                        new Attachment().fileName("test.png")
-                                                .bytes(Files.readAllBytes(Paths.get("./src/test/resources/test.png")))
+                                        new Attachment()
+                                                .fileName("test.txt")
+                                                .contentType("text/plain")
+                                                .bytes("hello world".getBytes(StandardCharsets.UTF_8)),
+                                        new Attachment()
+                                                .fileName("test.png")
                                                 .contentType("image/png")
+                                                .bytes(Files.readAllBytes(Paths.get("./src/test/resources/test.png")))
                                 })
         );
 
