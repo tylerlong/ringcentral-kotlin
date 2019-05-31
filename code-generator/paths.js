@@ -262,37 +262,51 @@ ${code}`
       }
     })
 
+    if (routes.length === 1) {
+      code += `
+      fun com.ringcentral.RestClient.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
+      `
+    } else {
+      code += `
+      fun com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
+      `
+    }
+    code += `{
+      return Index(this${paramName ? `, ${paramName}` : ''})
+  }`
+
     code += `
 }
 `
 
-    if (routes.length === 1) { // top level path, such as /restapi & /scim
-      code = `${code}
+    //     if (routes.length === 1) { // top level path, such as /restapi & /scim
+    //       code = `${code}
 
-namespace RingCentral
-{
-    public partial class RestClient
-    {
-        public Paths.${R.last(routes)}.Index ${R.last(routes)}(${paramName ? `string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''})
-        {
-            return new Paths.${R.last(routes)}.Index(this${paramName ? `, ${paramName}` : ''});
-        }
-    }
-}`
-    } else {
-      code = `${code}
+    // namespace RingCentral
+    // {
+    //     public partial class RestClient
+    //     {
+    //         public Paths.${R.last(routes)}.Index ${R.last(routes)}(${paramName ? `string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''})
+    //         {
+    //             return new Paths.${R.last(routes)}.Index(this${paramName ? `, ${paramName}` : ''});
+    //         }
+    //     }
+    // }`
+    //     } else {
+    //       code = `${code}
 
-namespace RingCentral.Paths.${R.init(routes).join('.')}
-{
-    public partial class Index
-    {
-        public ${routes.join('.')}.Index ${R.last(routes)}(${paramName ? `string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''})
-        {
-            return new ${routes.join('.')}.Index(this${paramName ? `, ${paramName}` : ''});
-        }
-    }
-}`
-    }
+    // namespace RingCentral.Paths.${R.init(routes).join('.')}
+    // {
+    //     public partial class Index
+    //     {
+    //         public ${routes.join('.')}.Index ${R.last(routes)}(${paramName ? `string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''})
+    //         {
+    //             return new ${routes.join('.')}.Index(this${paramName ? `, ${paramName}` : ''});
+    //         }
+    //     }
+    // }`
+    //     }
+
     fs.writeFileSync(path.join(folderPath, 'Index.kt'), code)
 
     generate(`${prefix}${name}/`)
