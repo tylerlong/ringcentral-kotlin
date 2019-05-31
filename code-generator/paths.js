@@ -233,7 +233,7 @@ const generate = (prefix = '/') => {
       /// Operation: ${operation.detail.summary || changeCase.titleCase(operation.detail.operationId)}
       /// Http ${method} ${operation.endpoint}
       /// </summary>
-      fun ${smartMethod.toLowerCase()}(${methodParams.join(', ')}) : ${responseType}
+      ${methodParams.join(', ').includes(' = ') ? '@JvmOverloads ' : ''}fun ${smartMethod.toLowerCase()}(${methodParams.join(', ')}) : ${responseType}
       // public async Task<${responseType}> ${smartMethod}(${methodParams.join(', ')})
       {${withParam ? `
           if (this.${paramName} == null)
@@ -322,7 +322,7 @@ const generate = (prefix = '/') => {
       const parentFolder = R.init(folderPath.split(path.sep)).join(path.sep)
       console.log(parentFolder)
       appendCodeToFile(path.join(parentFolder, 'Index.kt'), `
-      fun ${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : com.ringcentral.paths.${routes.join('.').toLowerCase()}.Index
+      ${paramName ? '@JvmOverloads ' : ''}fun ${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : com.ringcentral.paths.${routes.join('.').toLowerCase()}.Index
       {
         return com.ringcentral.paths.${routes.join('.').toLowerCase()}.Index(this${paramName ? `, ${paramName}` : ''})
       }
