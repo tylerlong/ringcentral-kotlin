@@ -8,7 +8,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
         return "${parent.path()}/address-book"
     }
 
-    fun com.ringcentral.paths.restapi.account.extension.Index.addressbook(): Index {
-        return Index(this)
+
+    @JvmOverloads
+    fun contact(contactId: String? = null): com.ringcentral.paths.restapi.account.extension.addressbook.contact.Index {
+        return com.ringcentral.paths.restapi.account.extension.addressbook.contact.Index(this, contactId)
     }
+
 }

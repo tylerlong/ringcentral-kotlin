@@ -12,22 +12,15 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.dataexport.Index, val
         return "${parent.path()}/archive"
     }
 
-    /// <summary>
-    /// Operation: Get Glip Data Archive
-    /// Http Get /restapi/v1.0/glip/data-export/{taskId}/archive/{archiveId}
-    /// </summary>
-    fun get(): String
-    // public async Task<String> Get()
-    {
+    /**
+     * Operation: Get Glip Data Archive
+     * Http Get /restapi/v1.0/glip/data-export/{taskId}/archive/{archiveId}
+     */
+    fun get(): String {
         if (this.archiveId == null) {
-            throw NullPointerException("archiveId");
+            throw NullPointerException("archiveId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), String::class.java)
-        // return await rc.Get<String>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.glip.dataexport.Index.archive(archiveId: String? = null): Index {
-        return Index(this, archiveId)
     }
 }

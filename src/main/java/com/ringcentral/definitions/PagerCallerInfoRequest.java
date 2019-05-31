@@ -7,4 +7,10 @@ public class PagerCallerInfoRequest {
      * Required
      */
     public String extensionId;
+
+    public PagerCallerInfoRequest extensionId(String extensionId) {
+        this.extensionId = extensionId;
+        return this;
+    }
+
 }

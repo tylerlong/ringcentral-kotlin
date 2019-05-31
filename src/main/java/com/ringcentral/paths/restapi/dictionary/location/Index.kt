@@ -8,18 +8,12 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index) {
         return "${parent.path()}/location"
     }
 
-    /// <summary>
-    /// Operation: Get Location List
-    /// Http Get /restapi/v1.0/dictionary/location
-    /// </summary>
-    fun get(queryParams: com.ringcentral.definitions.ListLocationsParameters? = null): com.ringcentral.definitions.GetLocationListResponse
-    // public async Task<com.ringcentral.definitions.GetLocationListResponse> Get(queryParams: com.ringcentral.definitions.ListLocationsParameters? = null)
-    {
+    /**
+     * Operation: Get Location List
+     * Http Get /restapi/v1.0/dictionary/location
+     */
+    @JvmOverloads
+    fun get(queryParams: com.ringcentral.definitions.ListLocationsParameters? = null): com.ringcentral.definitions.GetLocationListResponse {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.GetLocationListResponse::class.java)
-        // return await rc.Get<com.ringcentral.definitions.GetLocationListResponse>(this.path(), queryParams);
-    }
-
-    fun com.ringcentral.paths.restapi.dictionary.Index.location(): Index {
-        return Index(this)
     }
 }

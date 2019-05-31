@@ -7,16 +7,30 @@ public class GetCountryListResponse {
      * Required
      */
     public GetCountryInfoDictionaryResponse[] records;
-
     /**
      * Information on navigation
      * Required
      */
     public ProvisioningNavigationInfo navigation;
-
     /**
      * Information on paging
      * Required
      */
     public ProvisioningPagingInfo paging;
+
+    public GetCountryListResponse records(GetCountryInfoDictionaryResponse[] records) {
+        this.records = records;
+        return this;
+    }
+
+    public GetCountryListResponse navigation(ProvisioningNavigationInfo navigation) {
+        this.navigation = navigation;
+        return this;
+    }
+
+    public GetCountryListResponse paging(ProvisioningPagingInfo paging) {
+        this.paging = paging;
+        return this;
+    }
+
 }

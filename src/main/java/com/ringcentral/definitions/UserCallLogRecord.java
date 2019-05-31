@@ -6,71 +6,58 @@ public class UserCallLogRecord {
      * Internal identifier of a cal log record
      */
     public String id;
-
     /**
      * Canonical URI of a call log record
      */
     public String uri;
-
     /**
      * Internal identifier of a call session
      */
     public String sessionId;
-
     /**
      *
      */
     public CallLogCallerInfo from;
-
     /**
      *
      */
     public CallLogCallerInfo to;
-
     /**
      * Call type
      * Enum: Voice, Fax
      */
     public String type;
-
     /**
      * Call direction
      * Enum: Inbound, Outbound
      */
     public String direction;
-
     /**
      * The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
      */
     public String startTime;
-
     /**
      * Indicates whether the record is deleted. Returned for deleted records, for ISync requests
      */
     public Boolean deleted;
-
     /**
      * Call duration in seconds
      */
     public Long duration;
-
     /**
      *
      */
     public CallLogRecordingInfo recording;
-
     /**
      * Action description of the call operation
      * Enum: Unknown, Phone Call, Phone Login, Incoming Fax, Accept Call, FindMe, FollowMe, Outgoing Fax, Call Return, Calling Card, Ring Directly, RingOut Web, VoIP Call, RingOut PC, RingMe, Transfer, 411 Info, Emergency, E911 Update, Support, RingOut Mobile
      */
     public String action;
-
     /**
      * Status description of the call operation
      * Enum: Unknown, ResultInProgress, Missed, Call accepted, Voicemail, Rejected, Reply, Received, Receive Error, Fax on Demand, Partial Receive, Blocked, Call connected, No Answer, International Disabled, Busy, Send Error, Sent, No fax machine, ResultEmpty, Account, Suspended, Call Failed, Call Failure, Internal Error, IP Phone offline, Restricted Number, Wrong Number, Stopped, Hang up, Poor Line Quality, Partially Sent, International Restriction, Abandoned, Declined, Fax Receipt Error, Fax Send Error
      */
     public String result;
-
     /**
      * Reason of a call result:
      * * `Accepted` - The call was connected to and accepted by this number
@@ -109,4 +96,75 @@ public class UserCallLogRecord {
      * Enum: Accepted, Connected, line Busy, Not Answered, No Answer, Hang Up, Stopped, Internal Error, No Credit, Restricted Number, Wrong Number, International Restricted, Bad Number, Info 411 Restricted, Customer 611 Restricted, No Digital Line, Failed Try Again, Max Call Limit, Too Many Calls, Calls Not Accepted, Number Not Allowed, Number Blocked, Number Disabled, Resource Error, Call Loop, Fax Not Received, Fax Partially Sent, Fax Not Sent, Fax Poor Line, Fax Prepare Error, Fax Save Error, Fax Send Error
      */
     public String reason;
+
+    public UserCallLogRecord id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    public UserCallLogRecord uri(String uri) {
+        this.uri = uri;
+        return this;
+    }
+
+    public UserCallLogRecord sessionId(String sessionId) {
+        this.sessionId = sessionId;
+        return this;
+    }
+
+    public UserCallLogRecord from(CallLogCallerInfo from) {
+        this.from = from;
+        return this;
+    }
+
+    public UserCallLogRecord to(CallLogCallerInfo to) {
+        this.to = to;
+        return this;
+    }
+
+    public UserCallLogRecord type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    public UserCallLogRecord direction(String direction) {
+        this.direction = direction;
+        return this;
+    }
+
+    public UserCallLogRecord startTime(String startTime) {
+        this.startTime = startTime;
+        return this;
+    }
+
+    public UserCallLogRecord deleted(Boolean deleted) {
+        this.deleted = deleted;
+        return this;
+    }
+
+    public UserCallLogRecord duration(Long duration) {
+        this.duration = duration;
+        return this;
+    }
+
+    public UserCallLogRecord recording(CallLogRecordingInfo recording) {
+        this.recording = recording;
+        return this;
+    }
+
+    public UserCallLogRecord action(String action) {
+        this.action = action;
+        return this;
+    }
+
+    public UserCallLogRecord result(String result) {
+        this.result = result;
+        return this;
+    }
+
+    public UserCallLogRecord reason(String reason) {
+        this.reason = reason;
+        return this;
+    }
+
 }

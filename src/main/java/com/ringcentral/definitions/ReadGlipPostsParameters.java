@@ -8,9 +8,19 @@ public class ReadGlipPostsParameters {
      * Default: 30
      */
     public Long recordCount;
-
     /**
      * Pagination token.
      */
     public String pageToken;
+
+    public ReadGlipPostsParameters recordCount(Long recordCount) {
+        this.recordCount = recordCount;
+        return this;
+    }
+
+    public ReadGlipPostsParameters pageToken(String pageToken) {
+        this.pageToken = pageToken;
+        return this;
+    }
+
 }

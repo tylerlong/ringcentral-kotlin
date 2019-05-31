@@ -7,4 +7,10 @@ public class UpdateMessageRequest {
      * Enum: Read, Unread
      */
     public String readStatus;
+
+    public UpdateMessageRequest readStatus(String readStatus) {
+        this.readStatus = readStatus;
+        return this;
+    }
+
 }

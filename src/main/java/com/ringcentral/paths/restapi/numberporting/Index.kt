@@ -8,7 +8,9 @@ class Index(val parent: com.ringcentral.paths.restapi.Index) {
         return "${parent.path()}/number-porting"
     }
 
-    fun com.ringcentral.paths.restapi.Index.numberporting(): Index {
-        return Index(this)
+
+    fun verifynumber(): com.ringcentral.paths.restapi.numberporting.verifynumber.Index {
+        return com.ringcentral.paths.restapi.numberporting.verifynumber.Index(this)
     }
+
 }

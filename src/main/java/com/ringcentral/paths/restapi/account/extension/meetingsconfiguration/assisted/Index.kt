@@ -8,18 +8,11 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.meetings
         return "${parent.path()}/assisted"
     }
 
-    /// <summary>
-    /// Operation: Get Assisted Users
-    /// Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/meetings-configuration/assisted
-    /// </summary>
-    fun get(): com.ringcentral.definitions.AssistedUsersResource
-    // public async Task<com.ringcentral.definitions.AssistedUsersResource> Get()
-    {
+    /**
+     * Operation: Get Assisted Users
+     * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/meetings-configuration/assisted
+     */
+    fun get(): com.ringcentral.definitions.AssistedUsersResource {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.AssistedUsersResource::class.java)
-        // return await rc.Get<com.ringcentral.definitions.AssistedUsersResource>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.account.extension.meetingsconfiguration.Index.assisted(): Index {
-        return Index(this)
     }
 }

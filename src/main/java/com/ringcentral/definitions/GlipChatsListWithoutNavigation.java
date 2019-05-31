@@ -7,4 +7,10 @@ public class GlipChatsListWithoutNavigation {
      * Required
      */
     public GlipChatInfo[] records;
+
+    public GlipChatsListWithoutNavigation records(GlipChatInfo[] records) {
+        this.records = records;
+        return this;
+    }
+
 }

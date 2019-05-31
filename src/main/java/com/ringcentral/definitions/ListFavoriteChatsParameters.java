@@ -8,4 +8,10 @@ public class ListFavoriteChatsParameters {
      * Default: 30
      */
     public Long recordCount;
+
+    public ListFavoriteChatsParameters recordCount(Long recordCount) {
+        this.recordCount = recordCount;
+        return this;
+    }
+
 }

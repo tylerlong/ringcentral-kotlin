@@ -7,4 +7,10 @@ public class MakeCallOutCallerInfoRequestFrom {
      * Internal identifier of a device
      */
     public String deviceId;
+
+    public MakeCallOutCallerInfoRequestFrom deviceId(String deviceId) {
+        this.deviceId = deviceId;
+        return this;
+    }
+
 }

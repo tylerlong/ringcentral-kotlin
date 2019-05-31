@@ -12,7 +12,19 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val pagingO
         return "${parent.path()}/paging-only-groups"
     }
 
-    fun com.ringcentral.paths.restapi.account.Index.pagingonlygroups(pagingOnlyGroupId: String? = null): Index {
-        return Index(this, pagingOnlyGroupId)
+
+    fun users(): com.ringcentral.paths.restapi.account.pagingonlygroups.users.Index {
+        return com.ringcentral.paths.restapi.account.pagingonlygroups.users.Index(this)
     }
+
+
+    fun devices(): com.ringcentral.paths.restapi.account.pagingonlygroups.devices.Index {
+        return com.ringcentral.paths.restapi.account.pagingonlygroups.devices.Index(this)
+    }
+
+
+    fun bulkassign(): com.ringcentral.paths.restapi.account.pagingonlygroups.bulkassign.Index {
+        return com.ringcentral.paths.restapi.account.pagingonlygroups.bulkassign.Index(this)
+    }
+
 }

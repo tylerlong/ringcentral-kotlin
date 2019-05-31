@@ -2,8 +2,8 @@ package com.ringcentral;
 
 import com.ringcentral.definitions.GetCountryInfoDictionaryResponse;
 import com.ringcentral.definitions.GetCountryListResponse;
-import com.ringcentral.definitions.TokenInfo;
 import org.junit.Test;
+
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;

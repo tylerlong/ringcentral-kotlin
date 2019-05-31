@@ -12,33 +12,23 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val lang
         return "${parent.path()}/language"
     }
 
-    /// <summary>
-    /// Operation: Get Language List
-    /// Http Get /restapi/v1.0/dictionary/language
-    /// </summary>
-    fun list(): com.ringcentral.definitions.LanguageList
-    // public async Task<com.ringcentral.definitions.LanguageList> List()
-    {
+    /**
+     * Operation: Get Language List
+     * Http Get /restapi/v1.0/dictionary/language
+     */
+    fun list(): com.ringcentral.definitions.LanguageList {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false)).string(), com.ringcentral.definitions.LanguageList::class.java)
-        // return await rc.Get<com.ringcentral.definitions.LanguageList>(this.path(false));
     }
 
-    /// <summary>
-    /// Operation: Get Language
-    /// Http Get /restapi/v1.0/dictionary/language/{languageId}
-    /// </summary>
-    fun get(): com.ringcentral.definitions.LanguageInfo
-    // public async Task<com.ringcentral.definitions.LanguageInfo> Get()
-    {
+    /**
+     * Operation: Get Language
+     * Http Get /restapi/v1.0/dictionary/language/{languageId}
+     */
+    fun get(): com.ringcentral.definitions.LanguageInfo {
         if (this.languageId == null) {
-            throw NullPointerException("languageId");
+            throw NullPointerException("languageId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.LanguageInfo::class.java)
-        // return await rc.Get<com.ringcentral.definitions.LanguageInfo>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.dictionary.Index.language(languageId: String? = null): Index {
-        return Index(this, languageId)
     }
 }

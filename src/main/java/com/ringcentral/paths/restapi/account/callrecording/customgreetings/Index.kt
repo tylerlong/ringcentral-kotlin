@@ -12,33 +12,24 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callrecording.Inde
         return "${parent.path()}/custom-greetings"
     }
 
-    /// <summary>
-    /// Operation: Get Call Recording Custom Greeting List
-    /// Http Get /restapi/v1.0/account/{accountId}/call-recording/custom-greetings
-    /// </summary>
-    fun get(queryParams: com.ringcentral.definitions.ListCallRecordingCustomGreetingsParameters? = null): com.ringcentral.definitions.CallRecordingCustomGreetings
-    // public async Task<com.ringcentral.definitions.CallRecordingCustomGreetings> Get(queryParams: com.ringcentral.definitions.ListCallRecordingCustomGreetingsParameters? = null)
-    {
+    /**
+     * Operation: Get Call Recording Custom Greeting List
+     * Http Get /restapi/v1.0/account/{accountId}/call-recording/custom-greetings
+     */
+    @JvmOverloads
+    fun get(queryParams: com.ringcentral.definitions.ListCallRecordingCustomGreetingsParameters? = null): com.ringcentral.definitions.CallRecordingCustomGreetings {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.CallRecordingCustomGreetings::class.java)
-        // return await rc.Get<com.ringcentral.definitions.CallRecordingCustomGreetings>(this.path(false), queryParams);
     }
 
-    /// <summary>
-    /// Operation: Delete Call Recording Custom Greeting
-    /// Http Delete /restapi/v1.0/account/{accountId}/call-recording/custom-greetings/{greetingId}
-    /// </summary>
-    fun delete(): String
-    // public async Task<String> Delete()
-    {
+    /**
+     * Operation: Delete Call Recording Custom Greeting
+     * Http Delete /restapi/v1.0/account/{accountId}/call-recording/custom-greetings/{greetingId}
+     */
+    fun delete(): String {
         if (this.greetingId == null) {
-            throw NullPointerException("greetingId");
+            throw NullPointerException("greetingId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
-        // return await rc.Delete<String>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.account.callrecording.Index.customgreetings(greetingId: String? = null): Index {
-        return Index(this, greetingId)
     }
 }

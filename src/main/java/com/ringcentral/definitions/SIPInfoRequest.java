@@ -7,4 +7,10 @@ public class SIPInfoRequest {
      * Enum: UDP, TCP, TLS, WS, WSS
      */
     public String transport;
+
+    public SIPInfoRequest transport(String transport) {
+        this.transport = transport;
+        return this;
+    }
+
 }

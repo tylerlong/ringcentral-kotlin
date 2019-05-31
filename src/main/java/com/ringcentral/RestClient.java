@@ -221,20 +221,19 @@ public class RestClient {
     }
 
     // top level paths
-    public com.ringcentral.paths.restapi.Index restapi(String apiVersion)
-    {
+    public com.ringcentral.paths.restapi.Index restapi(String apiVersion) {
         return new com.ringcentral.paths.restapi.Index(this, apiVersion);
     }
-    public com.ringcentral.paths.restapi.Index restapi()
-    {
+
+    public com.ringcentral.paths.restapi.Index restapi() {
         return new com.ringcentral.paths.restapi.Index(this, "v1.0");
     }
-    public com.ringcentral.paths.scim.Index scim(String version)
-    {
+
+    public com.ringcentral.paths.scim.Index scim(String version) {
         return new com.ringcentral.paths.scim.Index(this, version);
     }
-    public com.ringcentral.paths.scim.Index scim()
-    {
+
+    public com.ringcentral.paths.scim.Index scim() {
         return new com.ringcentral.paths.scim.Index(this, "v2");
     }
 }

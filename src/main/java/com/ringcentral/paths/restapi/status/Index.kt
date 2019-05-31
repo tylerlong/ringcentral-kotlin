@@ -8,18 +8,11 @@ class Index(val parent: com.ringcentral.paths.restapi.Index) {
         return "${parent.path()}/status"
     }
 
-    /// <summary>
-    /// Operation: Get Service Status
-    /// Http Get /restapi/v1.0/status
-    /// </summary>
-    fun get(): String
-    // public async Task<String> Get()
-    {
+    /**
+     * Operation: Get Service Status
+     * Http Get /restapi/v1.0/status
+     */
+    fun get(): String {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), String::class.java)
-        // return await rc.Get<String>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.Index.status(): Index {
-        return Index(this)
     }
 }

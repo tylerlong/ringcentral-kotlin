@@ -8,18 +8,12 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.recent.Index) {
         return "${parent.path()}/chats"
     }
 
-    /// <summary>
-    /// Operation: Get Recent Chats
-    /// Http Get /restapi/v1.0/glip/recent/chats
-    /// </summary>
-    fun get(queryParams: com.ringcentral.definitions.ListRecentChatsParameters? = null): com.ringcentral.definitions.GlipChatsListWithoutNavigation
-    // public async Task<com.ringcentral.definitions.GlipChatsListWithoutNavigation> Get(queryParams: com.ringcentral.definitions.ListRecentChatsParameters? = null)
-    {
+    /**
+     * Operation: Get Recent Chats
+     * Http Get /restapi/v1.0/glip/recent/chats
+     */
+    @JvmOverloads
+    fun get(queryParams: com.ringcentral.definitions.ListRecentChatsParameters? = null): com.ringcentral.definitions.GlipChatsListWithoutNavigation {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.GlipChatsListWithoutNavigation::class.java)
-        // return await rc.Get<com.ringcentral.definitions.GlipChatsListWithoutNavigation>(this.path(), queryParams);
-    }
-
-    fun com.ringcentral.paths.restapi.glip.recent.Index.chats(): Index {
-        return Index(this)
     }
 }

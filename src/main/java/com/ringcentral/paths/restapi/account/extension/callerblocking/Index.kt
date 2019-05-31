@@ -8,29 +8,26 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
         return "${parent.path()}/caller-blocking"
     }
 
-    /// <summary>
-    /// Operation: Get Caller Blocking Settings
-    /// Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking
-    /// </summary>
-    fun get(): com.ringcentral.definitions.CallerBlockingSettings
-    // public async Task<com.ringcentral.definitions.CallerBlockingSettings> Get()
-    {
+    /**
+     * Operation: Get Caller Blocking Settings
+     * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking
+     */
+    fun get(): com.ringcentral.definitions.CallerBlockingSettings {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.CallerBlockingSettings::class.java)
-        // return await rc.Get<com.ringcentral.definitions.CallerBlockingSettings>(this.path());
     }
 
-    /// <summary>
-    /// Operation: Update Caller Blocking Settings
-    /// Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking
-    /// </summary>
-    fun put(callerBlockingSettingsUpdate: com.ringcentral.definitions.CallerBlockingSettingsUpdate): com.ringcentral.definitions.CallerBlockingSettings
-    // public async Task<com.ringcentral.definitions.CallerBlockingSettings> Put(callerBlockingSettingsUpdate: com.ringcentral.definitions.CallerBlockingSettingsUpdate)
-    {
+    /**
+     * Operation: Update Caller Blocking Settings
+     * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking
+     */
+    fun put(callerBlockingSettingsUpdate: com.ringcentral.definitions.CallerBlockingSettingsUpdate): com.ringcentral.definitions.CallerBlockingSettings {
         return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), callerBlockingSettingsUpdate).string(), com.ringcentral.definitions.CallerBlockingSettings::class.java)
-        // return await rc.Put<com.ringcentral.definitions.CallerBlockingSettings>(this.path(), callerBlockingSettingsUpdate);
     }
 
-    fun com.ringcentral.paths.restapi.account.extension.Index.callerblocking(): Index {
-        return Index(this)
+
+    @JvmOverloads
+    fun phonenumbers(blockedNumberId: String? = null): com.ringcentral.paths.restapi.account.extension.callerblocking.phonenumbers.Index {
+        return com.ringcentral.paths.restapi.account.extension.callerblocking.phonenumbers.Index(this, blockedNumberId)
     }
+
 }

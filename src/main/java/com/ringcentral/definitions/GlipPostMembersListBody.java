@@ -7,4 +7,10 @@ public class GlipPostMembersListBody {
      * Required
      */
     public Object[] members;
+
+    public GlipPostMembersListBody members(Object[] members) {
+        this.members = members;
+        return this;
+    }
+
 }

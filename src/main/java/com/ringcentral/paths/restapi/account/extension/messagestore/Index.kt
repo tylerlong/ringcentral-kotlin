@@ -12,63 +12,56 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
         return "${parent.path()}/message-store"
     }
 
-    /// <summary>
-    /// Operation: Get Message List
-    /// Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store
-    /// </summary>
-    fun list(queryParams: com.ringcentral.definitions.ListMessagesParameters? = null): com.ringcentral.definitions.GetMessageList
-    // public async Task<com.ringcentral.definitions.GetMessageList> List(queryParams: com.ringcentral.definitions.ListMessagesParameters? = null)
-    {
+    /**
+     * Operation: Get Message List
+     * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store
+     */
+    @JvmOverloads
+    fun list(queryParams: com.ringcentral.definitions.ListMessagesParameters? = null): com.ringcentral.definitions.GetMessageList {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GetMessageList::class.java)
-        // return await rc.Get<com.ringcentral.definitions.GetMessageList>(this.path(false), queryParams);
     }
 
-    /// <summary>
-    /// Operation: Get Message
-    /// Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}
-    /// </summary>
-    fun get(): com.ringcentral.definitions.GetMessageInfoResponse
-    // public async Task<com.ringcentral.definitions.GetMessageInfoResponse> Get()
-    {
+    /**
+     * Operation: Get Message
+     * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}
+     */
+    fun get(): com.ringcentral.definitions.GetMessageInfoResponse {
         if (this.messageId == null) {
-            throw NullPointerException("messageId");
+            throw NullPointerException("messageId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GetMessageInfoResponse::class.java)
-        // return await rc.Get<com.ringcentral.definitions.GetMessageInfoResponse>(this.path());
     }
 
-    /// <summary>
-    /// Operation: Update Message(s)
-    /// Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}
-    /// </summary>
-    fun put(updateMessageRequest: com.ringcentral.definitions.UpdateMessageRequest): com.ringcentral.definitions.GetMessageInfoResponse
-    // public async Task<com.ringcentral.definitions.GetMessageInfoResponse> Put(updateMessageRequest: com.ringcentral.definitions.UpdateMessageRequest)
-    {
+    /**
+     * Operation: Update Message(s)
+     * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}
+     */
+    fun put(updateMessageRequest: com.ringcentral.definitions.UpdateMessageRequest): com.ringcentral.definitions.GetMessageInfoResponse {
         if (this.messageId == null) {
-            throw NullPointerException("messageId");
+            throw NullPointerException("messageId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), updateMessageRequest).string(), com.ringcentral.definitions.GetMessageInfoResponse::class.java)
-        // return await rc.Put<com.ringcentral.definitions.GetMessageInfoResponse>(this.path(), updateMessageRequest);
     }
 
-    /// <summary>
-    /// Operation: Delete Message
-    /// Http Delete /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}
-    /// </summary>
-    fun delete(queryParams: com.ringcentral.definitions.DeleteMessageParameters? = null): String
-    // public async Task<String> Delete(queryParams: com.ringcentral.definitions.DeleteMessageParameters? = null)
-    {
+    /**
+     * Operation: Delete Message
+     * Http Delete /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}
+     */
+    @JvmOverloads
+    fun delete(queryParams: com.ringcentral.definitions.DeleteMessageParameters? = null): String {
         if (this.messageId == null) {
-            throw NullPointerException("messageId");
+            throw NullPointerException("messageId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path(), queryParams).string(), String::class.java)
-        // return await rc.Delete<String>(this.path(), queryParams);
     }
 
-    fun com.ringcentral.paths.restapi.account.extension.Index.messagestore(messageId: String? = null): Index {
-        return Index(this, messageId)
+
+    @JvmOverloads
+    fun content(attachmentId: String? = null): com.ringcentral.paths.restapi.account.extension.messagestore.content.Index {
+        return com.ringcentral.paths.restapi.account.extension.messagestore.content.Index(this, attachmentId)
     }
+
 }

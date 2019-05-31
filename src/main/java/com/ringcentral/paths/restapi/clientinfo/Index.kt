@@ -8,7 +8,9 @@ class Index(val parent: com.ringcentral.paths.restapi.Index) {
         return "${parent.path()}/client-info"
     }
 
-    fun com.ringcentral.paths.restapi.Index.clientinfo(): Index {
-        return Index(this)
+
+    fun sipprovision(): com.ringcentral.paths.restapi.clientinfo.sipprovision.Index {
+        return com.ringcentral.paths.restapi.clientinfo.sipprovision.Index(this)
     }
+
 }

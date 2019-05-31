@@ -11,7 +11,20 @@ class Index(val rc: com.ringcentral.RestClient, val version: String? = "v2") {
         return "/scim"
     }
 
-    fun com.ringcentral.RestClient.scim(version: String? = "v2"): Index {
-        return Index(this, version)
+
+    fun health(): com.ringcentral.paths.scim.health.Index {
+        return com.ringcentral.paths.scim.health.Index(this)
     }
+
+
+    fun serviceproviderconfig(): com.ringcentral.paths.scim.serviceproviderconfig.Index {
+        return com.ringcentral.paths.scim.serviceproviderconfig.Index(this)
+    }
+
+
+    @JvmOverloads
+    fun users(id: String? = null): com.ringcentral.paths.scim.users.Index {
+        return com.ringcentral.paths.scim.users.Index(this, id)
+    }
+
 }

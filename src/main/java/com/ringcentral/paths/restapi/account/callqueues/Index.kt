@@ -12,18 +12,23 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val groupId
         return "${parent.path()}/call-queues"
     }
 
-    /// <summary>
-    /// Operation: Get Call Queues
-    /// Http Get /restapi/v1.0/account/{accountId}/call-queues
-    /// </summary>
-    fun get(queryParams: com.ringcentral.definitions.ListCallQueuesParameters? = null): com.ringcentral.definitions.CallQueues
-    // public async Task<com.ringcentral.definitions.CallQueues> Get(queryParams: com.ringcentral.definitions.ListCallQueuesParameters? = null)
-    {
+    /**
+     * Operation: Get Call Queues
+     * Http Get /restapi/v1.0/account/{accountId}/call-queues
+     */
+    @JvmOverloads
+    fun get(queryParams: com.ringcentral.definitions.ListCallQueuesParameters? = null): com.ringcentral.definitions.CallQueues {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.CallQueues::class.java)
-        // return await rc.Get<com.ringcentral.definitions.CallQueues>(this.path(false), queryParams);
     }
 
-    fun com.ringcentral.paths.restapi.account.Index.callqueues(groupId: String? = null): Index {
-        return Index(this, groupId)
+
+    fun members(): com.ringcentral.paths.restapi.account.callqueues.members.Index {
+        return com.ringcentral.paths.restapi.account.callqueues.members.Index(this)
     }
+
+
+    fun bulkassign(): com.ringcentral.paths.restapi.account.callqueues.bulkassign.Index {
+        return com.ringcentral.paths.restapi.account.callqueues.bulkassign.Index(this)
+    }
+
 }

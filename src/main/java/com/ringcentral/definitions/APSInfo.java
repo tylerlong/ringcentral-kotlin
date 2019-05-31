@@ -10,4 +10,10 @@ public class APSInfo {
      */
     @JSONField(name = "content-available")
     public Long contentAvailable;
+
+    public APSInfo contentAvailable(Long contentAvailable) {
+        this.contentAvailable = contentAvailable;
+        return this;
+    }
+
 }

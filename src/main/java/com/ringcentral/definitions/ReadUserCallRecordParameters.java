@@ -8,4 +8,10 @@ public class ReadUserCallRecordParameters {
      * Enum: Simple, Detailed
      */
     public String view;
+
+    public ReadUserCallRecordParameters view(String view) {
+        this.view = view;
+        return this;
+    }
+
 }

@@ -8,4 +8,10 @@ public class ReadMessageContentParameters {
      * Enum: Inline, Attachment
      */
     public String contentDisposition;
+
+    public ReadMessageContentParameters contentDisposition(String contentDisposition) {
+        this.contentDisposition = contentDisposition;
+        return this;
+    }
+
 }

@@ -12,33 +12,24 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val templat
         return "${parent.path()}/templates"
     }
 
-    /// <summary>
-    /// Operation: Get User Template List
-    /// Http Get /restapi/v1.0/account/{accountId}/templates
-    /// </summary>
-    fun list(queryParams: com.ringcentral.definitions.ListUserTemplatesParameters? = null): com.ringcentral.definitions.UserTemplates
-    // public async Task<com.ringcentral.definitions.UserTemplates> List(queryParams: com.ringcentral.definitions.ListUserTemplatesParameters? = null)
-    {
+    /**
+     * Operation: Get User Template List
+     * Http Get /restapi/v1.0/account/{accountId}/templates
+     */
+    @JvmOverloads
+    fun list(queryParams: com.ringcentral.definitions.ListUserTemplatesParameters? = null): com.ringcentral.definitions.UserTemplates {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.UserTemplates::class.java)
-        // return await rc.Get<com.ringcentral.definitions.UserTemplates>(this.path(false), queryParams);
     }
 
-    /// <summary>
-    /// Operation: Get User Template
-    /// Http Get /restapi/v1.0/account/{accountId}/templates/{templateId}
-    /// </summary>
-    fun get(): com.ringcentral.definitions.TemplateInfo
-    // public async Task<com.ringcentral.definitions.TemplateInfo> Get()
-    {
+    /**
+     * Operation: Get User Template
+     * Http Get /restapi/v1.0/account/{accountId}/templates/{templateId}
+     */
+    fun get(): com.ringcentral.definitions.TemplateInfo {
         if (this.templateId == null) {
-            throw NullPointerException("templateId");
+            throw NullPointerException("templateId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.TemplateInfo::class.java)
-        // return await rc.Get<com.ringcentral.definitions.TemplateInfo>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.account.Index.templates(templateId: String? = null): Index {
-        return Index(this, templateId)
     }
 }

@@ -8,9 +8,19 @@ public class ListGlipConversationsParameters {
      * Default: 30
      */
     public Long recordCount;
-
     /**
      * Pagination token.
      */
     public String pageToken;
+
+    public ListGlipConversationsParameters recordCount(Long recordCount) {
+        this.recordCount = recordCount;
+        return this;
+    }
+
+    public ListGlipConversationsParameters pageToken(String pageToken) {
+        this.pageToken = pageToken;
+        return this;
+    }
+
 }

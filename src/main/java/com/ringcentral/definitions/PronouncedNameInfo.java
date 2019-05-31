@@ -7,9 +7,19 @@ public class PronouncedNameInfo {
      * Enum: Default, TextToSpeech, Recorded
      */
     public String type;
-
     /**
      * Custom text
      */
     public String text;
+
+    public PronouncedNameInfo type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    public PronouncedNameInfo text(String text) {
+        this.text = text;
+        return this;
+    }
+
 }

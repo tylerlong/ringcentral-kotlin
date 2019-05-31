@@ -12,63 +12,48 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val cardId: St
         return "${parent.path()}/cards"
     }
 
-    /// <summary>
-    /// Operation: Create Card
-    /// Http Post /restapi/v1.0/glip/cards
-    /// </summary>
-    fun post(glipMessageAttachmentInfoRequest: com.ringcentral.definitions.GlipMessageAttachmentInfoRequest, queryParams: com.ringcentral.definitions.CreateGlipCardParameters? = null): com.ringcentral.definitions.GlipMessageAttachmentInfo
-    // public async Task<com.ringcentral.definitions.GlipMessageAttachmentInfo> Post(glipMessageAttachmentInfoRequest: com.ringcentral.definitions.GlipMessageAttachmentInfoRequest, queryParams: com.ringcentral.definitions.CreateGlipCardParameters? = null)
-    {
+    /**
+     * Operation: Create Card
+     * Http Post /restapi/v1.0/glip/cards
+     */
+    @JvmOverloads
+    fun post(glipMessageAttachmentInfoRequest: com.ringcentral.definitions.GlipMessageAttachmentInfoRequest, queryParams: com.ringcentral.definitions.CreateGlipCardParameters? = null): com.ringcentral.definitions.GlipMessageAttachmentInfo {
         return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), glipMessageAttachmentInfoRequest, queryParams).string(), com.ringcentral.definitions.GlipMessageAttachmentInfo::class.java)
-        // return await rc.Post<com.ringcentral.definitions.GlipMessageAttachmentInfo>(this.path(false), glipMessageAttachmentInfoRequest, queryParams);
     }
 
-    /// <summary>
-    /// Operation: Get Card
-    /// Http Get /restapi/v1.0/glip/cards/{cardId}
-    /// </summary>
-    fun get(): com.ringcentral.definitions.GlipMessageAttachmentInfo
-    // public async Task<com.ringcentral.definitions.GlipMessageAttachmentInfo> Get()
-    {
+    /**
+     * Operation: Get Card
+     * Http Get /restapi/v1.0/glip/cards/{cardId}
+     */
+    fun get(): com.ringcentral.definitions.GlipMessageAttachmentInfo {
         if (this.cardId == null) {
-            throw NullPointerException("cardId");
+            throw NullPointerException("cardId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GlipMessageAttachmentInfo::class.java)
-        // return await rc.Get<com.ringcentral.definitions.GlipMessageAttachmentInfo>(this.path());
     }
 
-    /// <summary>
-    /// Operation: Update Card
-    /// Http Put /restapi/v1.0/glip/cards/{cardId}
-    /// </summary>
-    fun put(glipMessageAttachmentInfoRequest: com.ringcentral.definitions.GlipMessageAttachmentInfoRequest): String
-    // public async Task<String> Put(glipMessageAttachmentInfoRequest: com.ringcentral.definitions.GlipMessageAttachmentInfoRequest)
-    {
+    /**
+     * Operation: Update Card
+     * Http Put /restapi/v1.0/glip/cards/{cardId}
+     */
+    fun put(glipMessageAttachmentInfoRequest: com.ringcentral.definitions.GlipMessageAttachmentInfoRequest): String {
         if (this.cardId == null) {
-            throw NullPointerException("cardId");
+            throw NullPointerException("cardId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), glipMessageAttachmentInfoRequest).string(), String::class.java)
-        // return await rc.Put<String>(this.path(), glipMessageAttachmentInfoRequest);
     }
 
-    /// <summary>
-    /// Operation: Delete Card
-    /// Http Delete /restapi/v1.0/glip/cards/{cardId}
-    /// </summary>
-    fun delete(): String
-    // public async Task<String> Delete()
-    {
+    /**
+     * Operation: Delete Card
+     * Http Delete /restapi/v1.0/glip/cards/{cardId}
+     */
+    fun delete(): String {
         if (this.cardId == null) {
-            throw NullPointerException("cardId");
+            throw NullPointerException("cardId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
-        // return await rc.Delete<String>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.glip.Index.cards(cardId: String? = null): Index {
-        return Index(this, cardId)
     }
 }

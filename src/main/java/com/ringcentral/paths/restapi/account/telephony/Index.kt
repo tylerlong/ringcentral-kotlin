@@ -8,7 +8,15 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index) {
         return "${parent.path()}/telephony"
     }
 
-    fun com.ringcentral.paths.restapi.account.Index.telephony(): Index {
-        return Index(this)
+
+    fun callout(): com.ringcentral.paths.restapi.account.telephony.callout.Index {
+        return com.ringcentral.paths.restapi.account.telephony.callout.Index(this)
     }
+
+
+    @JvmOverloads
+    fun sessions(sessionId: String? = null): com.ringcentral.paths.restapi.account.telephony.sessions.Index {
+        return com.ringcentral.paths.restapi.account.telephony.sessions.Index(this, sessionId)
+    }
+
 }

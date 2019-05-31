@@ -8,7 +8,14 @@ class Index(val parent: com.ringcentral.paths.restapi.Index) {
         return "${parent.path()}/oauth"
     }
 
-    fun com.ringcentral.paths.restapi.Index.oauth(): Index {
-        return Index(this)
+
+    fun token(): com.ringcentral.paths.restapi.oauth.token.Index {
+        return com.ringcentral.paths.restapi.oauth.token.Index(this)
     }
+
+
+    fun revoke(): com.ringcentral.paths.restapi.oauth.revoke.Index {
+        return com.ringcentral.paths.restapi.oauth.revoke.Index(this)
+    }
+
 }

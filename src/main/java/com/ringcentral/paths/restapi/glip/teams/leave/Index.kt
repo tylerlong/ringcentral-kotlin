@@ -8,18 +8,11 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.teams.Index) {
         return "${parent.path()}/leave"
     }
 
-    /// <summary>
-    /// Operation: Leave Team
-    /// Http Post /restapi/v1.0/glip/teams/{chatId}/leave
-    /// </summary>
-    fun post(): String
-    // public async Task<String> Post()
-    {
+    /**
+     * Operation: Leave Team
+     * Http Post /restapi/v1.0/glip/teams/{chatId}/leave
+     */
+    fun post(): String {
         return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path()).string(), String::class.java)
-        // return await rc.Post<String>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.glip.teams.Index.leave(): Index {
-        return Index(this)
     }
 }

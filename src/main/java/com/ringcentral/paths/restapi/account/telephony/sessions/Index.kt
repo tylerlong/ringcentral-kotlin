@@ -12,37 +12,40 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.Index, v
         return "${parent.path()}/sessions"
     }
 
-    /// <summary>
-    /// Operation: Get Call Session Status
-    /// Http Get /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}
-    /// </summary>
-    fun get(queryParams: com.ringcentral.definitions.ReadCallSessionStatusParameters? = null): com.ringcentral.definitions.CallSessionObject
-    // public async Task<com.ringcentral.definitions.CallSessionObject> Get(queryParams: com.ringcentral.definitions.ReadCallSessionStatusParameters? = null)
-    {
+    /**
+     * Operation: Get Call Session Status
+     * Http Get /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}
+     */
+    @JvmOverloads
+    fun get(queryParams: com.ringcentral.definitions.ReadCallSessionStatusParameters? = null): com.ringcentral.definitions.CallSessionObject {
         if (this.sessionId == null) {
-            throw NullPointerException("sessionId");
+            throw NullPointerException("sessionId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.CallSessionObject::class.java)
-        // return await rc.Get<com.ringcentral.definitions.CallSessionObject>(this.path(), queryParams);
     }
 
-    /// <summary>
-    /// Operation: Drop Call Session
-    /// Http Delete /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}
-    /// </summary>
-    fun delete(): String
-    // public async Task<String> Delete()
-    {
+    /**
+     * Operation: Drop Call Session
+     * Http Delete /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}
+     */
+    fun delete(): String {
         if (this.sessionId == null) {
-            throw NullPointerException("sessionId");
+            throw NullPointerException("sessionId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
-        // return await rc.Delete<String>(this.path());
     }
 
-    fun com.ringcentral.paths.restapi.account.telephony.Index.sessions(sessionId: String? = null): Index {
-        return Index(this, sessionId)
+
+    @JvmOverloads
+    fun parties(partyId: String? = null): com.ringcentral.paths.restapi.account.telephony.sessions.parties.Index {
+        return com.ringcentral.paths.restapi.account.telephony.sessions.parties.Index(this, partyId)
     }
+
+
+    fun supervise(): com.ringcentral.paths.restapi.account.telephony.sessions.supervise.Index {
+        return com.ringcentral.paths.restapi.account.telephony.sessions.supervise.Index(this)
+    }
+
 }

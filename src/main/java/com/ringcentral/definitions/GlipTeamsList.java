@@ -7,9 +7,19 @@ public class GlipTeamsList {
      * Required
      */
     public GlipTeamInfo[] records;
-
     /**
      *
      */
     public GlipNavigationInfo navigation;
+
+    public GlipTeamsList records(GlipTeamInfo[] records) {
+        this.records = records;
+        return this;
+    }
+
+    public GlipTeamsList navigation(GlipNavigationInfo navigation) {
+        this.navigation = navigation;
+        return this;
+    }
+
 }

@@ -6,51 +6,42 @@ public class CallLogRecord {
      * Internal identifier of a cal log record
      */
     public String id;
-
     /**
      * Canonical URI of a call log record
      */
     public String uri;
-
     /**
      * Internal identifier of a call session
      */
     public String sessionId;
-
     /**
      * Caller information
      */
     public CallLogCallerInfo from;
-
     /**
      * Callee information
      */
     public CallLogCallerInfo to;
-
     /**
      * Call type
      * Enum: Voice, Fax
      */
     public String type;
-
     /**
      * Call direction
      * Enum: Inbound, Outbound
      */
     public String direction;
-
     /**
      * Action description of the call operation
      * Enum: Unknown, Phone Call, Phone Login, Incoming Fax, Accept Call, FindMe, FollowMe, Outgoing Fax, Call Return, Calling Card, Ring Directly, RingOut Web, VoIP Call, RingOut PC, RingMe, Transfer, 411 Info, Emergency, E911 Update, Support, RingOut Mobile
      */
     public String action;
-
     /**
      * Status description of the call operation
      * Enum: Unknown, ResultInProgress, Missed, Call accepted, Voicemail, Rejected, Reply, Received, Receive Error, Fax on Demand, Partial Receive, Blocked, Call connected, No Answer, International Disabled, Busy, Send Error, Sent, No fax machine, ResultEmpty, Account, Suspended, Call Failed, Call Failure, Internal Error, IP Phone offline, Restricted Number, Wrong Number, Stopped, Hang up, Poor Line Quality, Partially Sent, International Restriction, Abandoned, Declined, Fax Receipt Error, Fax Send Error
      */
     public String result;
-
     /**
      * Reason of a call result:
      * * `Accepted` - The call was connected to and accepted by this number
@@ -89,56 +80,147 @@ public class CallLogRecord {
      * Enum: Accepted, Connected, line Busy, Not Answered, No Answer, Hang Up, Stopped, Internal Error, No Credit, Restricted Number, Wrong Number, International Restricted, Bad Number, Info 411 Restricted, Customer 611 Restricted, No Digital Line, Failed Try Again, Max Call Limit, Too Many Calls, Calls Not Accepted, Number Not Allowed, Number Blocked, Number Disabled, Resource Error, Call Loop, Fax Not Received, Fax Partially Sent, Fax Not Sent, Fax Poor Line, Fax Prepare Error, Fax Save Error, Fax Send Error
      */
     public String reason;
-
     /**
      * The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
      */
     public String startTime;
-
     /**
      * Call duration in seconds
      */
     public Long duration;
-
     /**
      * Call recording data. Returned if the call is recorded, the withRecording parameter is set to 'True' in this case
      */
     public CallLogRecordingInfo recording;
-
     /**
      * For 'Detailed' view only. The datetime when the call log record was modified in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
      */
     public String lastModifiedTime;
-
     /**
      * For 'Detailed' view only. Call transport
      * Enum: PSTN, VoIP
      */
     public String transport;
-
     /**
      * Information about extension on whose behalf a call is initiated. For Secretary call log the Boss extension info is returned
      */
     public ActiveCallsRecordExtensionInfo extension;
-
     /**
      * Information on a delegate extension that actually implemented a call action. For Secretary call log the field is returned if the current extension implemented a call. For Boss call log the field contains information on a Secretary extension which actually implemented a call on behalf of the current extension
      */
     public DelegateInfo delegate;
-
     /**
      * For 'Detailed' view only. Leg description
      * Required
      */
     public CallLogRecordLegInfo[] legs;
-
     /**
      *
      */
     public CallLogRecordMessage message;
-
     /**
      * Returned only if this call was deleted. Value is set to 'True' in this case
      */
     public Boolean deleted;
+
+    public CallLogRecord id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    public CallLogRecord uri(String uri) {
+        this.uri = uri;
+        return this;
+    }
+
+    public CallLogRecord sessionId(String sessionId) {
+        this.sessionId = sessionId;
+        return this;
+    }
+
+    public CallLogRecord from(CallLogCallerInfo from) {
+        this.from = from;
+        return this;
+    }
+
+    public CallLogRecord to(CallLogCallerInfo to) {
+        this.to = to;
+        return this;
+    }
+
+    public CallLogRecord type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    public CallLogRecord direction(String direction) {
+        this.direction = direction;
+        return this;
+    }
+
+    public CallLogRecord action(String action) {
+        this.action = action;
+        return this;
+    }
+
+    public CallLogRecord result(String result) {
+        this.result = result;
+        return this;
+    }
+
+    public CallLogRecord reason(String reason) {
+        this.reason = reason;
+        return this;
+    }
+
+    public CallLogRecord startTime(String startTime) {
+        this.startTime = startTime;
+        return this;
+    }
+
+    public CallLogRecord duration(Long duration) {
+        this.duration = duration;
+        return this;
+    }
+
+    public CallLogRecord recording(CallLogRecordingInfo recording) {
+        this.recording = recording;
+        return this;
+    }
+
+    public CallLogRecord lastModifiedTime(String lastModifiedTime) {
+        this.lastModifiedTime = lastModifiedTime;
+        return this;
+    }
+
+    public CallLogRecord transport(String transport) {
+        this.transport = transport;
+        return this;
+    }
+
+    public CallLogRecord extension(ActiveCallsRecordExtensionInfo extension) {
+        this.extension = extension;
+        return this;
+    }
+
+    public CallLogRecord delegate(DelegateInfo delegate) {
+        this.delegate = delegate;
+        return this;
+    }
+
+    public CallLogRecord legs(CallLogRecordLegInfo[] legs) {
+        this.legs = legs;
+        return this;
+    }
+
+    public CallLogRecord message(CallLogRecordMessage message) {
+        this.message = message;
+        return this;
+    }
+
+    public CallLogRecord deleted(Boolean deleted) {
+        this.deleted = deleted;
+        return this;
+    }
+
 }

@@ -8,7 +8,9 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index) {
         return "${parent.path()}/recent"
     }
 
-    fun com.ringcentral.paths.restapi.glip.Index.recent(): Index {
-        return Index(this)
+
+    fun chats(): com.ringcentral.paths.restapi.glip.recent.chats.Index {
+        return com.ringcentral.paths.restapi.glip.recent.chats.Index(this)
     }
+
 }

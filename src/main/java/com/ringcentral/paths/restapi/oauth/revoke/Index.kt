@@ -8,17 +8,11 @@ class Index(val parent: com.ringcentral.paths.restapi.oauth.Index) {
         return "${parent.path()}/revoke"
     }
 
-    /// <summary>
-    /// Operation: Revoke Token
-    /// Http Post /restapi/oauth/revoke
-    /// </summary>
-    fun post(revokeTokenRequest: com.ringcentral.definitions.RevokeTokenRequest): String
-    // public async Task<String> Post(revokeTokenRequest: com.ringcentral.definitions.RevokeTokenRequest)
-    {
+    /**
+     * Operation: Revoke Token
+     * Http Post /restapi/oauth/revoke
+     */
+    fun post(revokeTokenRequest: com.ringcentral.definitions.RevokeTokenRequest): String {
         return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), revokeTokenRequest, com.ringcentral.ContentType.FORM).string(), String::class.java)
-    }
-
-    fun com.ringcentral.paths.restapi.oauth.Index.revoke(): Index {
-        return Index(this)
     }
 }

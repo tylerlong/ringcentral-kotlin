@@ -7,4 +7,10 @@ public class CreateGlipConversationRequest {
      * Required
      */
     public Object[] members;
+
+    public CreateGlipConversationRequest members(Object[] members) {
+        this.members = members;
+        return this;
+    }
+
 }

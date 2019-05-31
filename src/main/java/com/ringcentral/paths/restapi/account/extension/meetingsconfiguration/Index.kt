@@ -8,7 +8,14 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
         return "${parent.path()}/meetings-configuration"
     }
 
-    fun com.ringcentral.paths.restapi.account.extension.Index.meetingsconfiguration(): Index {
-        return Index(this)
+
+    fun assistants(): com.ringcentral.paths.restapi.account.extension.meetingsconfiguration.assistants.Index {
+        return com.ringcentral.paths.restapi.account.extension.meetingsconfiguration.assistants.Index(this)
     }
+
+
+    fun assisted(): com.ringcentral.paths.restapi.account.extension.meetingsconfiguration.assisted.Index {
+        return com.ringcentral.paths.restapi.account.extension.meetingsconfiguration.assisted.Index(this)
+    }
+
 }

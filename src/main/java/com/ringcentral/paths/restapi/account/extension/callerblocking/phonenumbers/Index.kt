@@ -12,74 +12,56 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.callerbl
         return "${parent.path()}/phone-numbers"
     }
 
-    /// <summary>
-    /// Operation: Get Blocked/Allowed Phone Numbers
-    /// Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers
-    /// </summary>
-    fun list(queryParams: com.ringcentral.definitions.ListBlockedAllowedNumbersParameters? = null): com.ringcentral.definitions.BlockedAllowedPhoneNumbersList
-    // public async Task<com.ringcentral.definitions.BlockedAllowedPhoneNumbersList> List(queryParams: com.ringcentral.definitions.ListBlockedAllowedNumbersParameters? = null)
-    {
+    /**
+     * Operation: Get Blocked/Allowed Phone Numbers
+     * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers
+     */
+    @JvmOverloads
+    fun list(queryParams: com.ringcentral.definitions.ListBlockedAllowedNumbersParameters? = null): com.ringcentral.definitions.BlockedAllowedPhoneNumbersList {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.BlockedAllowedPhoneNumbersList::class.java)
-        // return await rc.Get<com.ringcentral.definitions.BlockedAllowedPhoneNumbersList>(this.path(false), queryParams);
     }
 
-    /// <summary>
-    /// Operation: Add Blocked/Allowed Number
-    /// Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers
-    /// </summary>
-    fun post(addBlockedAllowedPhoneNumber: com.ringcentral.definitions.AddBlockedAllowedPhoneNumber): com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo
-    // public async Task<com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo> Post(addBlockedAllowedPhoneNumber: com.ringcentral.definitions.AddBlockedAllowedPhoneNumber)
-    {
+    /**
+     * Operation: Add Blocked/Allowed Number
+     * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers
+     */
+    fun post(addBlockedAllowedPhoneNumber: com.ringcentral.definitions.AddBlockedAllowedPhoneNumber): com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo {
         return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), addBlockedAllowedPhoneNumber).string(), com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
-        // return await rc.Post<com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo>(this.path(false), addBlockedAllowedPhoneNumber);
     }
 
-    /// <summary>
-    /// Operation: Get Blocked/Allowed Number
-    /// Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers/{blockedNumberId}
-    /// </summary>
-    fun get(): com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo
-    // public async Task<com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo> Get()
-    {
+    /**
+     * Operation: Get Blocked/Allowed Number
+     * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers/{blockedNumberId}
+     */
+    fun get(): com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo {
         if (this.blockedNumberId == null) {
-            throw NullPointerException("blockedNumberId");
+            throw NullPointerException("blockedNumberId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
-        // return await rc.Get<com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo>(this.path());
     }
 
-    /// <summary>
-    /// Operation: Delete Blocked/Allowed Number
-    /// Http Delete /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers/{blockedNumberId}
-    /// </summary>
-    fun delete(): String
-    // public async Task<String> Delete()
-    {
+    /**
+     * Operation: Delete Blocked/Allowed Number
+     * Http Delete /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers/{blockedNumberId}
+     */
+    fun delete(): String {
         if (this.blockedNumberId == null) {
-            throw NullPointerException("blockedNumberId");
+            throw NullPointerException("blockedNumberId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
-        // return await rc.Delete<String>(this.path());
     }
 
-    /// <summary>
-    /// Operation: Update Blocked/Allowed Number
-    /// Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers/{blockedNumberId}
-    /// </summary>
-    fun put(addBlockedAllowedPhoneNumber: com.ringcentral.definitions.AddBlockedAllowedPhoneNumber): com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo
-    // public async Task<com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo> Put(addBlockedAllowedPhoneNumber: com.ringcentral.definitions.AddBlockedAllowedPhoneNumber)
-    {
+    /**
+     * Operation: Update Blocked/Allowed Number
+     * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers/{blockedNumberId}
+     */
+    fun put(addBlockedAllowedPhoneNumber: com.ringcentral.definitions.AddBlockedAllowedPhoneNumber): com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo {
         if (this.blockedNumberId == null) {
-            throw NullPointerException("blockedNumberId");
+            throw NullPointerException("blockedNumberId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), addBlockedAllowedPhoneNumber).string(), com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
-        // return await rc.Put<com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo>(this.path(), addBlockedAllowedPhoneNumber);
-    }
-
-    fun com.ringcentral.paths.restapi.account.extension.callerblocking.Index.phonenumbers(blockedNumberId: String? = null): Index {
-        return Index(this, blockedNumberId)
     }
 }

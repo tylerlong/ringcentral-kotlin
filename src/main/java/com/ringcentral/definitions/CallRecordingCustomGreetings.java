@@ -7,4 +7,10 @@ public class CallRecordingCustomGreetings {
      *
      */
     public CallRecordingCustomGreeting[] records;
+
+    public CallRecordingCustomGreetings records(CallRecordingCustomGreeting[] records) {
+        this.records = records;
+        return this;
+    }
+
 }

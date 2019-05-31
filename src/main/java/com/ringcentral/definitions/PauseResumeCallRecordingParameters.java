@@ -7,4 +7,10 @@ public class PauseResumeCallRecordingParameters {
      * Default: ~
      */
     public String brandId;
+
+    public PauseResumeCallRecordingParameters brandId(String brandId) {
+        this.brandId = brandId;
+        return this;
+    }
+
 }

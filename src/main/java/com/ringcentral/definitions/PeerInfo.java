@@ -7,9 +7,19 @@ public class PeerInfo {
      *
      */
     public String sessionId;
-
     /**
      *
      */
     public String partyId;
+
+    public PeerInfo sessionId(String sessionId) {
+        this.sessionId = sessionId;
+        return this;
+    }
+
+    public PeerInfo partyId(String partyId) {
+        this.partyId = partyId;
+        return this;
+    }
+
 }

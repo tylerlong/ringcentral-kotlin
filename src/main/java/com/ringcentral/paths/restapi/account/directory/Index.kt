@@ -8,7 +8,15 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index) {
         return "${parent.path()}/directory"
     }
 
-    fun com.ringcentral.paths.restapi.account.Index.directory(): Index {
-        return Index(this)
+
+    @JvmOverloads
+    fun entries(entryId: String? = null): com.ringcentral.paths.restapi.account.directory.entries.Index {
+        return com.ringcentral.paths.restapi.account.directory.entries.Index(this, entryId)
     }
+
+
+    fun federation(): com.ringcentral.paths.restapi.account.directory.federation.Index {
+        return com.ringcentral.paths.restapi.account.directory.federation.Index(this)
+    }
+
 }

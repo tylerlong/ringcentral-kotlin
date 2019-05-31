@@ -8,9 +8,19 @@ public class ReadGlipEventsParameters {
      * Default: 30
      */
     public Long recordCount;
-
     /**
      * Token of a page to be returned
      */
     public String pageToken;
+
+    public ReadGlipEventsParameters recordCount(Long recordCount) {
+        this.recordCount = recordCount;
+        return this;
+    }
+
+    public ReadGlipEventsParameters pageToken(String pageToken) {
+        this.pageToken = pageToken;
+        return this;
+    }
+
 }

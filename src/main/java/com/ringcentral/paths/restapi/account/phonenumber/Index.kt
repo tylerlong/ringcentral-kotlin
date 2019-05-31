@@ -12,33 +12,24 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val phoneNu
         return "${parent.path()}/phone-number"
     }
 
-    /// <summary>
-    /// Operation: Get Company Phone Number List
-    /// Http Get /restapi/v1.0/account/{accountId}/phone-number
-    /// </summary>
-    fun list(queryParams: com.ringcentral.definitions.ListAccountPhoneNumbersParameters? = null): com.ringcentral.definitions.AccountPhoneNumbers
-    // public async Task<com.ringcentral.definitions.AccountPhoneNumbers> List(queryParams: com.ringcentral.definitions.ListAccountPhoneNumbersParameters? = null)
-    {
+    /**
+     * Operation: Get Company Phone Number List
+     * Http Get /restapi/v1.0/account/{accountId}/phone-number
+     */
+    @JvmOverloads
+    fun list(queryParams: com.ringcentral.definitions.ListAccountPhoneNumbersParameters? = null): com.ringcentral.definitions.AccountPhoneNumbers {
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.AccountPhoneNumbers::class.java)
-        // return await rc.Get<com.ringcentral.definitions.AccountPhoneNumbers>(this.path(false), queryParams);
     }
 
-    /// <summary>
-    /// Operation: Get Phone Number
-    /// Http Get /restapi/v1.0/account/{accountId}/phone-number/{phoneNumberId}
-    /// </summary>
-    fun get(): com.ringcentral.definitions.CompanyPhoneNumberInfo
-    // public async Task<com.ringcentral.definitions.CompanyPhoneNumberInfo> Get()
-    {
+    /**
+     * Operation: Get Phone Number
+     * Http Get /restapi/v1.0/account/{accountId}/phone-number/{phoneNumberId}
+     */
+    fun get(): com.ringcentral.definitions.CompanyPhoneNumberInfo {
         if (this.phoneNumberId == null) {
-            throw NullPointerException("phoneNumberId");
+            throw NullPointerException("phoneNumberId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.CompanyPhoneNumberInfo::class.java)
-        // return await rc.Get<com.ringcentral.definitions.CompanyPhoneNumberInfo>(this.path());
-    }
-
-    fun com.ringcentral.paths.restapi.account.Index.phonenumber(phoneNumberId: String? = null): Index {
-        return Index(this, phoneNumberId)
     }
 }

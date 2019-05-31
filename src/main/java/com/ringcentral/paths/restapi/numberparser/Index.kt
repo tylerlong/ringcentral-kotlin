@@ -8,7 +8,9 @@ class Index(val parent: com.ringcentral.paths.restapi.Index) {
         return "${parent.path()}/number-parser"
     }
 
-    fun com.ringcentral.paths.restapi.Index.numberparser(): Index {
-        return Index(this)
+
+    fun parse(): com.ringcentral.paths.restapi.numberparser.parse.Index {
+        return com.ringcentral.paths.restapi.numberparser.parse.Index(this)
     }
+
 }

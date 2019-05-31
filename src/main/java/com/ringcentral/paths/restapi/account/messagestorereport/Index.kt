@@ -12,33 +12,30 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val taskId:
         return "${parent.path()}/message-store-report"
     }
 
-    /// <summary>
-    /// Operation: Create Message Store Report
-    /// Http Post /restapi/v1.0/account/{accountId}/message-store-report
-    /// </summary>
-    fun post(createMessageStoreReportRequest: com.ringcentral.definitions.CreateMessageStoreReportRequest): com.ringcentral.definitions.MessageStoreReport
-    // public async Task<com.ringcentral.definitions.MessageStoreReport> Post(createMessageStoreReportRequest: com.ringcentral.definitions.CreateMessageStoreReportRequest)
-    {
+    /**
+     * Operation: Create Message Store Report
+     * Http Post /restapi/v1.0/account/{accountId}/message-store-report
+     */
+    fun post(createMessageStoreReportRequest: com.ringcentral.definitions.CreateMessageStoreReportRequest): com.ringcentral.definitions.MessageStoreReport {
         return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createMessageStoreReportRequest).string(), com.ringcentral.definitions.MessageStoreReport::class.java)
-        // return await rc.Post<com.ringcentral.definitions.MessageStoreReport>(this.path(false), createMessageStoreReportRequest);
     }
 
-    /// <summary>
-    /// Operation: Get Message Store Report Task
-    /// Http Get /restapi/v1.0/account/{accountId}/message-store-report/{taskId}
-    /// </summary>
-    fun get(): com.ringcentral.definitions.MessageStoreReport
-    // public async Task<com.ringcentral.definitions.MessageStoreReport> Get()
-    {
+    /**
+     * Operation: Get Message Store Report Task
+     * Http Get /restapi/v1.0/account/{accountId}/message-store-report/{taskId}
+     */
+    fun get(): com.ringcentral.definitions.MessageStoreReport {
         if (this.taskId == null) {
-            throw NullPointerException("taskId");
+            throw NullPointerException("taskId")
         }
 
         return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.MessageStoreReport::class.java)
-        // return await rc.Get<com.ringcentral.definitions.MessageStoreReport>(this.path());
     }
 
-    fun com.ringcentral.paths.restapi.account.Index.messagestorereport(taskId: String? = null): Index {
-        return Index(this, taskId)
+
+    @JvmOverloads
+    fun archive(archiveId: String? = null): com.ringcentral.paths.restapi.account.messagestorereport.archive.Index {
+        return com.ringcentral.paths.restapi.account.messagestorereport.archive.Index(this, archiveId)
     }
+
 }

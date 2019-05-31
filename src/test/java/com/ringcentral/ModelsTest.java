@@ -2,7 +2,6 @@ package com.ringcentral;
 
 import com.alibaba.fastjson.JSON;
 import com.ringcentral.definitions.GetExtensionInfoResponse;
-import com.ringcentral.definitions.TokenInfo;
 import okhttp3.ResponseBody;
 import org.junit.Test;
 

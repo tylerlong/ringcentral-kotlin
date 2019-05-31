@@ -7,10 +7,20 @@ public class ReadTimezoneParameters {
      * Default: 1
      */
     public String page;
-
     /**
      * Indicates the page size (number of items)
      * Default: 100
      */
     public String perPage;
+
+    public ReadTimezoneParameters page(String page) {
+        this.page = page;
+        return this;
+    }
+
+    public ReadTimezoneParameters perPage(String perPage) {
+        this.perPage = perPage;
+        return this;
+    }
+
 }

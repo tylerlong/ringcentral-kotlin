@@ -12,7 +12,14 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val departm
         return "${parent.path()}/department"
     }
 
-    fun com.ringcentral.paths.restapi.account.Index.department(departmentId: String? = null): Index {
-        return Index(this, departmentId)
+
+    fun bulkassign(): com.ringcentral.paths.restapi.account.department.bulkassign.Index {
+        return com.ringcentral.paths.restapi.account.department.bulkassign.Index(this)
     }
+
+
+    fun members(): com.ringcentral.paths.restapi.account.department.members.Index {
+        return com.ringcentral.paths.restapi.account.department.members.Index(this)
+    }
+
 }

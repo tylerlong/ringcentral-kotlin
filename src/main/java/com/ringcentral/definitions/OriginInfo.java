@@ -7,4 +7,10 @@ public class OriginInfo {
      * Enum: RingOut, RingMe, Conference, GreetingRecording, VerificartionCall, Call
      */
     public String type;
+
+    public OriginInfo type(String type) {
+        this.type = type;
+        return this;
+    }
+
 }

@@ -8,4 +8,10 @@ public class MessageStoreConfiguration {
      * Minimum: 7
      */
     public Long retentionPeriod;
+
+    public MessageStoreConfiguration retentionPeriod(Long retentionPeriod) {
+        this.retentionPeriod = retentionPeriod;
+        return this;
+    }
+
 }

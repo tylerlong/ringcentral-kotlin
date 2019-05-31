@@ -8,18 +8,11 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
         return "${parent.path()}/flip"
     }
 
-    /// <summary>
-    /// Operation: Call Flip on Party
-    /// Http Post /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}/flip
-    /// </summary>
-    fun post(callPartyFlip: com.ringcentral.definitions.CallPartyFlip): String
-    // public async Task<String> Post(callPartyFlip: com.ringcentral.definitions.CallPartyFlip)
-    {
+    /**
+     * Operation: Call Flip on Party
+     * Http Post /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}/flip
+     */
+    fun post(callPartyFlip: com.ringcentral.definitions.CallPartyFlip): String {
         return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), callPartyFlip).string(), String::class.java)
-        // return await rc.Post<String>(this.path(), callPartyFlip);
-    }
-
-    fun com.ringcentral.paths.restapi.account.telephony.sessions.parties.Index.flip(): Index {
-        return Index(this)
     }
 }
