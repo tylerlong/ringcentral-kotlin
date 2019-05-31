@@ -62,25 +62,23 @@ public class RestClient {
         if (token == null) {
             return;
         }
-        RevokeTokenRequest revokeTokenRequest = new RevokeTokenRequest();
-        revokeTokenRequest.token = token.access_token;
+        RevokeTokenRequest revokeTokenRequest = new RevokeTokenRequest().token(token.access_token);
         token = null;
-        post("/restapi/oauth/revoke", revokeTokenRequest, null, ContentType.FORM);
+        this.restapi(null).oauth().revoke().post(revokeTokenRequest);
     }
 
     public TokenInfo authorize(String username, String extension, String password) throws IOException, RestException {
-        GetTokenRequest getTokenRequest = new GetTokenRequest();
-        getTokenRequest.username = username;
-        getTokenRequest.extension = extension;
-        getTokenRequest.password = password;
-        getTokenRequest.grant_type = "password";
+        GetTokenRequest getTokenRequest = new GetTokenRequest()
+                .grant_type("password")
+                .username(username)
+                .extension(extension)
+                .password(password);
         return authorize(getTokenRequest);
     }
 
     public TokenInfo authorize(GetTokenRequest getTokenRequest) throws IOException, RestException {
         token = null;
-        ResponseBody responseBody = post("/restapi/oauth/token", getTokenRequest, null, ContentType.FORM);
-        token = JSON.parseObject(responseBody.string(), TokenInfo.class);
+        token = this.restapi(null).oauth().token().post(getTokenRequest);
         return token;
     }
 

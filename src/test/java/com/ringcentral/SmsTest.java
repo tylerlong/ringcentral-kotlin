@@ -29,7 +29,9 @@ public class SmsTest {
                 new CreateSMSMessage()
                         .text("hello world")
                         .from(new MessageStoreCallerInfoRequest().phoneNumber(System.getenv("RINGCENTRAL_USERNAME")))
-                        .to(new MessageStoreCallerInfoRequest[]{new MessageStoreCallerInfoRequest().phoneNumber(System.getenv("RINGCENTRAL_RECEIVER"))})
+                        .to(new MessageStoreCallerInfoRequest[]{
+                                new MessageStoreCallerInfoRequest().phoneNumber(System.getenv("RINGCENTRAL_RECEIVER"))
+                        })
         );
         assertNotNull(response);
         assertNotNull(response.subject);

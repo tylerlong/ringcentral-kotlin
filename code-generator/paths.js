@@ -183,7 +183,7 @@ const generate = (prefix = '/') => {
        * Operation: ${operation.detail.summary || changeCase.titleCase(operation.detail.operationId)}
        * Http ${method} ${operation.endpoint}
        */
-      ${methodParams.join(', ').includes(' = ') ? '@JvmOverloads ' : ''}fun ${smartMethod.toLowerCase()}(${methodParams.join(', ')}) : ${responseType}
+      ${methodParams.join(', ').includes(' = ') ? '@JvmOverloads ' : ''}fun ${smartMethod.toLowerCase()}(${methodParams.join(', ')}) : ${responseType}?
       {${withParam ? `
           if (this.${paramName} == null)
           {
@@ -192,17 +192,23 @@ const generate = (prefix = '/') => {
 ` : ''}`
       if (formUrlEncoded) {
         code += `
-        return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.FORM).string(), ${responseType}::class.java)
-        }`
+        val str: String? = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.FORM).string()
+        `
       } else if (multipart) {
         code += `
-        return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.MULTIPART).string(), ${responseType}::class.java)
-        }`
+        val str: String? = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.MULTIPART).string()
+        `
       } else {
         code += `
-          return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}).string(), ${responseType}::class.java)
-      }`
+        val str: String? = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}).string()
+        `
       }
+      code += `if(str == null) {
+          return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, ${responseType}::class.java)
+      }
+      `
     })
     code += `
 }
