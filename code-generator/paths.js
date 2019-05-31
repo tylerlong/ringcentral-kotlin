@@ -82,51 +82,6 @@ const generate = (prefix = '/') => {
       ${routes.length > 1 ? 'var rc: com.ringcentral.RestClient = parent.rc' : ''}
     `
 
-    // code += `public class Index
-    // {
-    //     public RestClient rc;`
-
-    // if (paramName) {
-    //   code += `
-    //   class Index(val ${routes.length > 1 ? `parent: com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index` : 'rc: com.ringcentral.RestClient'}, val ${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : null}) {
-    //     ${routes.length > 1 ? 'var rc: RestClient = parent.rc' : ''}
-    //   `
-    // } else {
-    //   code += `
-    //   class Index(val ${routes.length > 1 ? `parent: com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index` : 'rc: com.ringcentral.RestClient'}) {
-    //     ${routes.length > 1 ? 'var rc: RestClient = parent.rc' : ''}
-    //   `
-    // }
-
-    // if (paramName) {
-    //   code += `
-    //     public string ${paramName};`
-    // }
-    // if (routes.length > 1) {
-    //   code += `
-    //     public ${R.init(routes).join('.')}.Index parent;`
-    // }
-
-    // todo: merge following into constructor
-    // if (paramName) {
-    //   code += `
-
-    //     public Index(${routes.length > 1 ? `${R.init(routes).join('.')}.Index parent` : 'RestClient rc'}, string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : null})
-    //     {
-    //       ${routes.length > 1 ? `  this.parent = parent;
-    //         this.rc = parent.rc;` : '  this.rc = rc;'}
-    //         this.${paramName} = ${paramName};
-    //     }`
-    // } else {
-    //   code += `
-
-    //     public Index(${routes.length > 1 ? `${R.init(routes).join('.')}.Index parent` : 'RestClient rc'})
-    //     {
-    //         ${routes.length > 1 ? `this.parent = parent;
-    //         this.rc = parent.rc;` : '  this.rc = rc;'}
-    //     }`
-    // }
-
     if (paramName) {
       code += `
 
@@ -171,11 +126,6 @@ const generate = (prefix = '/') => {
         })
       }
     })
-    //     if (operations.length > 0) {
-    //       code = `using System.Threading.Tasks;
-
-    // ${code}`
-    //     }
 
     operations.forEach(operation => {
       const method = changeCase.pascalCase(operation.method)
@@ -229,12 +179,11 @@ const generate = (prefix = '/') => {
       }
       code += `
 
-      /// <summary>
-      /// Operation: ${operation.detail.summary || changeCase.titleCase(operation.detail.operationId)}
-      /// Http ${method} ${operation.endpoint}
-      /// </summary>
+      /**
+       * Operation: ${operation.detail.summary || changeCase.titleCase(operation.detail.operationId)}
+       * Http ${method} ${operation.endpoint}
+       */
       ${methodParams.join(', ').includes(' = ') ? '@JvmOverloads ' : ''}fun ${smartMethod.toLowerCase()}(${methodParams.join(', ')}) : ${responseType}
-      // public async Task<${responseType}> ${smartMethod}(${methodParams.join(', ')})
       {${withParam ? `
           if (this.${paramName} == null)
           {
@@ -245,77 +194,19 @@ const generate = (prefix = '/') => {
         code += `
         return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}, com.ringcentral.ContentType.FORM).string(), ${responseType}::class.java)
         }`
-        //         code = `using System.Linq;
-        // using System.Net.Http;
-        // ${code}`
-        //         code += `
-        //           var dict = System.Collections.Generic.Dictionary<string, string>();
-        //           RingCentral.Utils.GetPairs(${bodyParam})
-        //             .ToList().ForEach(t => dict.Add(t.name, t.value.ToString()));
-        //           return await rc.Post<${responseType}>(this.path(${(!withParam && paramName) ? 'false' : ''}), FormUrlEncodedContent(dict)${queryParams.length > 0 ? `, queryParams` : ''});
-        //       }`
       } else if (multipart) {
         code += `
         return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}, com.ringcentral.ContentType.MULTIPART).string(), ${responseType}::class.java)
         }`
-      //   code += `
-      //     var multipartFormDataContent = Utils.GetMultipartFormDataContent(${bodyParam});
-      //     return await rc.Post<${responseType}>(this.path(${(!withParam && paramName) ? 'false' : ''}), multipartFormDataContent${queryParams.length > 0 ? `, queryParams` : ''});
-      // }`
       } else {
         code += `
           return com.alibaba.fastjson.JSON.parseObject(rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}).string(), ${responseType}::class.java)
-          // return await rc.${method}<${responseType}>(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''});
       }`
       }
     })
-
-    // generate parent path method
-    // if (routes.length === 1) {
-    //   code += `
-    //   fun com.ringcentral.RestClient.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
-    //   `
-    // } else {
-
     code += `
 }
 `
-
-    // todo: append code to file
-    //     code += `
-    // fun com.ringcentral.paths.${R.init(routes).join('.').toLowerCase()}.Index.${R.last(routes).toLowerCase()}(${paramName ? `${paramName}: String? = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''}) : Index
-    // {
-    // return Index(this${paramName ? `, ${paramName}` : ''})
-    // }`
-
-    //     if (routes.length === 1) { // top level path, such as /restapi & /scim
-    //       code = `${code}
-
-    // namespace RingCentral
-    // {
-    //     public partial class RestClient
-    //     {
-    //         public Paths.${R.last(routes)}.Index ${R.last(routes)}(${paramName ? `string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''})
-    //         {
-    //             return new Paths.${R.last(routes)}.Index(this${paramName ? `, ${paramName}` : ''});
-    //         }
-    //     }
-    // }`
-    //     } else {
-    //       code = `${code}
-
-    // namespace RingCentral.Paths.${R.init(routes).join('.')}
-    // {
-    //     public partial class Index
-    //     {
-    //         public ${routes.join('.')}.Index ${R.last(routes)}(${paramName ? `string ${paramName} = ${defaultParamValue ? `"${defaultParamValue}"` : 'null'}` : ''})
-    //         {
-    //             return new ${routes.join('.')}.Index(this${paramName ? `, ${paramName}` : ''});
-    //         }
-    //     }
-    // }`
-    //     }
-
     fs.writeFileSync(path.join(folderPath, 'Index.kt'), code)
 
     if (routes.length > 1) {
