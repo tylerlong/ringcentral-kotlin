@@ -130,21 +130,21 @@ const generate = (prefix = '/') => {
     if (paramName) {
       code += `
 
-        public string Path(bool withParameter = true)
+        fun path(withParameter: Boolean = true): String
         {
             if (withParameter && ${paramName} != null)
             {
-                return $"${routes.length > 1 ? '{parent.Path()}' : ''}/${name}/{${paramName}}";
+                return "${routes.length > 1 ? '$' + '{parent.Path()}' : ''}/${name}/` + '$' + `{${paramName}}"
             }
 
-            return ${routes.length > 1 ? '$"{parent.Path()}' : '"'}/${name}";
+            return ${routes.length > 1 ? '"${parent.Path()}' : '"'}/${name}"
         }`
     } else {
       code += `
 
-        public string Path()
+        fun path(): String
         {
-            return ${routes.length > 1 ? '$"{parent.Path()}' : '"'}/${name.replace('dotSearch', '.search')}";
+            return ${routes.length > 1 ? '"${parent.Path()}' : '"'}/${name.replace('dotSearch', '.search')}"
         }`
     }
 
