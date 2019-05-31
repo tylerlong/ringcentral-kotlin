@@ -13,7 +13,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/phone-number
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ListExtensionPhoneNumbersParameters? = null): com.ringcentral.definitions.GetExtensionPhoneNumbersResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.GetExtensionPhoneNumbersResponse::class.java)
+    fun get(queryParams: com.ringcentral.definitions.ListExtensionPhoneNumbersParameters? = null): com.ringcentral.definitions.GetExtensionPhoneNumbersResponse? {
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetExtensionPhoneNumbersResponse::class.java)
     }
+
 }

@@ -12,16 +12,25 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Operation: Get Caller Blocking Settings
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking
      */
-    fun get(): com.ringcentral.definitions.CallerBlockingSettings {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.CallerBlockingSettings::class.java)
+    fun get(): com.ringcentral.definitions.CallerBlockingSettings? {
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallerBlockingSettings::class.java)
     }
+
 
     /**
      * Operation: Update Caller Blocking Settings
      * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking
      */
-    fun put(callerBlockingSettingsUpdate: com.ringcentral.definitions.CallerBlockingSettingsUpdate): com.ringcentral.definitions.CallerBlockingSettings {
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), callerBlockingSettingsUpdate).string(), com.ringcentral.definitions.CallerBlockingSettings::class.java)
+    fun put(callerBlockingSettingsUpdate: com.ringcentral.definitions.CallerBlockingSettingsUpdate): com.ringcentral.definitions.CallerBlockingSettings? {
+        val str: String? = rc.put(this.path(), callerBlockingSettingsUpdate).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallerBlockingSettings::class.java)
     }
 
 

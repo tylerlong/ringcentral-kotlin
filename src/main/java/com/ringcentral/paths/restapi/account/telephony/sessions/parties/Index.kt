@@ -16,24 +16,33 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
      * Operation: Get Call Party Status
      * Http Get /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}
      */
-    fun get(): com.ringcentral.definitions.CallParty {
+    fun get(): com.ringcentral.definitions.CallParty? {
         if (this.partyId == null) {
             throw NullPointerException("partyId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.CallParty::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallParty::class.java)
     }
+
 
     /**
      * Operation: Update Call Party
      * Http Patch /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}
      */
-    fun patch(partyUpdateRequest: com.ringcentral.definitions.PartyUpdateRequest): com.ringcentral.definitions.CallParty {
+    fun patch(partyUpdateRequest: com.ringcentral.definitions.PartyUpdateRequest): com.ringcentral.definitions.CallParty? {
         if (this.partyId == null) {
             throw NullPointerException("partyId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.patch(this.path(), partyUpdateRequest).string(), com.ringcentral.definitions.CallParty::class.java)
+        val str: String? = rc.patch(this.path(), partyUpdateRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallParty::class.java)
     }
 
 

@@ -16,20 +16,29 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val taskId:
      * Operation: Create Message Store Report
      * Http Post /restapi/v1.0/account/{accountId}/message-store-report
      */
-    fun post(createMessageStoreReportRequest: com.ringcentral.definitions.CreateMessageStoreReportRequest): com.ringcentral.definitions.MessageStoreReport {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createMessageStoreReportRequest).string(), com.ringcentral.definitions.MessageStoreReport::class.java)
+    fun post(createMessageStoreReportRequest: com.ringcentral.definitions.CreateMessageStoreReportRequest): com.ringcentral.definitions.MessageStoreReport? {
+        val str: String? = rc.post(this.path(false), createMessageStoreReportRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MessageStoreReport::class.java)
     }
+
 
     /**
      * Operation: Get Message Store Report Task
      * Http Get /restapi/v1.0/account/{accountId}/message-store-report/{taskId}
      */
-    fun get(): com.ringcentral.definitions.MessageStoreReport {
+    fun get(): com.ringcentral.definitions.MessageStoreReport? {
         if (this.taskId == null) {
             throw NullPointerException("taskId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.MessageStoreReport::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MessageStoreReport::class.java)
     }
 
 

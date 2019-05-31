@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callrecording.Inde
      * Operation: Update Call Recording Extension List
      * Http Post /restapi/v1.0/account/{accountId}/call-recording/bulk-assign
      */
-    fun post(bulkAccountCallRecordingsResource: com.ringcentral.definitions.BulkAccountCallRecordingsResource): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), bulkAccountCallRecordingsResource).string(), String::class.java)
+    fun post(bulkAccountCallRecordingsResource: com.ringcentral.definitions.BulkAccountCallRecordingsResource): String? {
+        val str: String? = rc.post(this.path(), bulkAccountCallRecordingsResource).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

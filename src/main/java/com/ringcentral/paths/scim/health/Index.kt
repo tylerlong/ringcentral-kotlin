@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.scim.Index) {
      * Operation: check health
      * Http Get /scim/v2/health
      */
-    fun get(): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), String::class.java)
+    fun get(): String? {
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

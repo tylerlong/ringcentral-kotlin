@@ -16,32 +16,46 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val webhookId:
      * Operation: Get Webhooks
      * Http Get /restapi/v1.0/glip/webhooks
      */
-    fun list(): com.ringcentral.definitions.GlipWebhookList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false)).string(), com.ringcentral.definitions.GlipWebhookList::class.java)
+    fun list(): com.ringcentral.definitions.GlipWebhookList? {
+        val str: String? = rc.get(this.path(false)).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipWebhookList::class.java)
     }
+
 
     /**
      * Operation: Get Webhook
      * Http Get /restapi/v1.0/glip/webhooks/{webhookId}
      */
-    fun get(): com.ringcentral.definitions.GlipWebhookList {
+    fun get(): com.ringcentral.definitions.GlipWebhookList? {
         if (this.webhookId == null) {
             throw NullPointerException("webhookId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GlipWebhookList::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipWebhookList::class.java)
     }
+
 
     /**
      * Operation: Delete Webhook
      * Http Delete /restapi/v1.0/glip/webhooks/{webhookId}
      */
-    fun delete(): String {
+    fun delete(): String? {
         if (this.webhookId == null) {
             throw NullPointerException("webhookId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
+        val str: String? = rc.delete(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
 
 

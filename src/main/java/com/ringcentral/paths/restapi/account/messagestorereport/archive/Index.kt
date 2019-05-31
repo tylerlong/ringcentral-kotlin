@@ -16,19 +16,29 @@ class Index(val parent: com.ringcentral.paths.restapi.account.messagestorereport
      * Operation: Get Message Store Report Archive
      * Http Get /restapi/v1.0/account/{accountId}/message-store-report/{taskId}/archive
      */
-    fun list(): com.ringcentral.definitions.MessageStoreReportArchive {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false)).string(), com.ringcentral.definitions.MessageStoreReportArchive::class.java)
+    fun list(): com.ringcentral.definitions.MessageStoreReportArchive? {
+        val str: String? = rc.get(this.path(false)).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MessageStoreReportArchive::class.java)
     }
+
 
     /**
      * Operation: Get Message Store Report Archive Content
      * Http Get /restapi/v1.0/account/{accountId}/message-store-report/{taskId}/archive/{archiveId}
      */
-    fun get(): String {
+    fun get(): String? {
         if (this.archiveId == null) {
             throw NullPointerException("archiveId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), String::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

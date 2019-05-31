@@ -12,16 +12,25 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index) {
      * Operation: Get Call Recording Settings
      * Http Get /restapi/v1.0/account/{accountId}/call-recording
      */
-    fun get(): com.ringcentral.definitions.CallRecordingSettingsResource {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.CallRecordingSettingsResource::class.java)
+    fun get(): com.ringcentral.definitions.CallRecordingSettingsResource? {
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallRecordingSettingsResource::class.java)
     }
+
 
     /**
      * Operation: Update Call Recording Settings
      * Http Put /restapi/v1.0/account/{accountId}/call-recording
      */
-    fun put(callRecordingSettingsResource: com.ringcentral.definitions.CallRecordingSettingsResource): com.ringcentral.definitions.CallRecordingSettingsResource {
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), callRecordingSettingsResource).string(), com.ringcentral.definitions.CallRecordingSettingsResource::class.java)
+    fun put(callRecordingSettingsResource: com.ringcentral.definitions.CallRecordingSettingsResource): com.ringcentral.definitions.CallRecordingSettingsResource? {
+        val str: String? = rc.put(this.path(), callRecordingSettingsResource).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallRecordingSettingsResource::class.java)
     }
 
 

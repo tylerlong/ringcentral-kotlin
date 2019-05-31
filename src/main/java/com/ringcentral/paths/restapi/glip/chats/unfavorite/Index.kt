@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.chats.Index) {
      * Operation: Remove Chat from Favorites
      * Http Post /restapi/v1.0/glip/chats/{chatId}/unfavorite
      */
-    fun post(): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path()).string(), String::class.java)
+    fun post(): String? {
+        val str: String? = rc.post(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

@@ -17,19 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callrecording.Inde
      * Http Get /restapi/v1.0/account/{accountId}/call-recording/custom-greetings
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ListCallRecordingCustomGreetingsParameters? = null): com.ringcentral.definitions.CallRecordingCustomGreetings {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.CallRecordingCustomGreetings::class.java)
+    fun get(queryParams: com.ringcentral.definitions.ListCallRecordingCustomGreetingsParameters? = null): com.ringcentral.definitions.CallRecordingCustomGreetings? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallRecordingCustomGreetings::class.java)
     }
+
 
     /**
      * Operation: Delete Call Recording Custom Greeting
      * Http Delete /restapi/v1.0/account/{accountId}/call-recording/custom-greetings/{greetingId}
      */
-    fun delete(): String {
+    fun delete(): String? {
         if (this.greetingId == null) {
             throw NullPointerException("greetingId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
+        val str: String? = rc.delete(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

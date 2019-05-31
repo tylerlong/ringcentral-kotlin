@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.groups.posts.Index) {
      * Operation: Update Post
      * Http Put /restapi/v1.0/glip/groups/{groupId}/posts/{postId}/text
      */
-    fun put(body: String): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), body).string(), String::class.java)
+    fun put(body: String): String? {
+        val str: String? = rc.put(this.path(), body).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

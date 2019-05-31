@@ -13,7 +13,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.pagingonlygroups.I
      * Http Get /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/devices
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ListPagingGroupDevicesParameters? = null): com.ringcentral.definitions.PagingOnlyGroupDevices {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.PagingOnlyGroupDevices::class.java)
+    fun get(queryParams: com.ringcentral.definitions.ListPagingGroupDevicesParameters? = null): com.ringcentral.definitions.PagingOnlyGroupDevices? {
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PagingOnlyGroupDevices::class.java)
     }
+
 }

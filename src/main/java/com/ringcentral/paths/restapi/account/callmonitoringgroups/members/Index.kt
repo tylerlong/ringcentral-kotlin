@@ -13,7 +13,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callmonitoringgrou
      * Http Get /restapi/v1.0/account/{accountId}/call-monitoring-groups/{groupId}/members
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ListCallMonitoringGroupMembersParameters? = null): com.ringcentral.definitions.CallMonitoringGroupMemberList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.CallMonitoringGroupMemberList::class.java)
+    fun get(queryParams: com.ringcentral.definitions.ListCallMonitoringGroupMembersParameters? = null): com.ringcentral.definitions.CallMonitoringGroupMemberList? {
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallMonitoringGroupMemberList::class.java)
     }
+
 }

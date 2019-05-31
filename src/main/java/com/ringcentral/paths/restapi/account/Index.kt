@@ -16,12 +16,16 @@ class Index(val parent: com.ringcentral.paths.restapi.Index, val accountId: Stri
      * Operation: Get Account Info
      * Http Get /restapi/v1.0/account/{accountId}
      */
-    fun get(): com.ringcentral.definitions.GetAccountInfoResponse {
+    fun get(): com.ringcentral.definitions.GetAccountInfoResponse? {
         if (this.accountId == null) {
             throw NullPointerException("accountId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GetAccountInfoResponse::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetAccountInfoResponse::class.java)
     }
 
 

@@ -13,15 +13,25 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/conferencing
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ReadConferencingSettingsParameters? = null): com.ringcentral.definitions.GetConferencingInfoResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.GetConferencingInfoResponse::class.java)
+    fun get(queryParams: com.ringcentral.definitions.ReadConferencingSettingsParameters? = null): com.ringcentral.definitions.GetConferencingInfoResponse? {
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetConferencingInfoResponse::class.java)
     }
+
 
     /**
      * Operation: Update User Conferencing Settings
      * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/conferencing
      */
-    fun put(updateConferencingInfoRequest: com.ringcentral.definitions.UpdateConferencingInfoRequest): com.ringcentral.definitions.GetConferencingInfoResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), updateConferencingInfoRequest).string(), com.ringcentral.definitions.GetConferencingInfoResponse::class.java)
+    fun put(updateConferencingInfoRequest: com.ringcentral.definitions.UpdateConferencingInfoRequest): com.ringcentral.definitions.GetConferencingInfoResponse? {
+        val str: String? = rc.put(this.path(), updateConferencingInfoRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetConferencingInfoResponse::class.java)
     }
+
 }

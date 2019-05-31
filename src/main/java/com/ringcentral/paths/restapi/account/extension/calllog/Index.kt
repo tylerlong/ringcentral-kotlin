@@ -17,29 +17,44 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ReadUserCallLogParameters? = null): com.ringcentral.definitions.UserCallLogResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.UserCallLogResponse::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ReadUserCallLogParameters? = null): com.ringcentral.definitions.UserCallLogResponse? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserCallLogResponse::class.java)
     }
+
 
     /**
      * Operation: Delete User Call Log
      * Http Delete /restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log
      */
     @JvmOverloads
-    fun delete(queryParams: com.ringcentral.definitions.DeleteUserCallLogParameters? = null): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path(false), queryParams).string(), String::class.java)
+    fun delete(queryParams: com.ringcentral.definitions.DeleteUserCallLogParameters? = null): String? {
+        val str: String? = rc.delete(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 
     /**
      * Operation: Get User Call Record
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log/{callRecordId}
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ReadUserCallRecordParameters? = null): com.ringcentral.definitions.UserCallLogRecord {
+    fun get(queryParams: com.ringcentral.definitions.ReadUserCallRecordParameters? = null): com.ringcentral.definitions.UserCallLogRecord? {
         if (this.callRecordId == null) {
             throw NullPointerException("callRecordId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.UserCallLogRecord::class.java)
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserCallLogRecord::class.java)
     }
+
 }

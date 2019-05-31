@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.teams.Index) {
      * Operation: Remove Team Members
      * Http Post /restapi/v1.0/glip/teams/{chatId}/remove
      */
-    fun post(glipPostMembersIdsListBody: com.ringcentral.definitions.GlipPostMembersIdsListBody): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), glipPostMembersIdsListBody).string(), String::class.java)
+    fun post(glipPostMembersIdsListBody: com.ringcentral.definitions.GlipPostMembersIdsListBody): String? {
+        val str: String? = rc.post(this.path(), glipPostMembersIdsListBody).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

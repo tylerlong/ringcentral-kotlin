@@ -17,20 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.account.directory.Index, v
      * Http Get /restapi/v1.0/account/{accountId}/directory/entries
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListDirectoryEntriesParameters? = null): com.ringcentral.definitions.DirectoryResource {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.DirectoryResource::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListDirectoryEntriesParameters? = null): com.ringcentral.definitions.DirectoryResource? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DirectoryResource::class.java)
     }
+
 
     /**
      * Operation: Get Corporate Directory Entry
      * Http Get /restapi/v1.0/account/{accountId}/directory/entries/{entryId}
      */
-    fun get(): com.ringcentral.definitions.ContactResource {
+    fun get(): com.ringcentral.definitions.ContactResource? {
         if (this.entryId == null) {
             throw NullPointerException("entryId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.ContactResource::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ContactResource::class.java)
     }
 
 

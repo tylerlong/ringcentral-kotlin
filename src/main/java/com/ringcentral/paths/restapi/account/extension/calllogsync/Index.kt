@@ -13,7 +13,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log-sync
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.SyncUserCallLogParameters? = null): com.ringcentral.definitions.CallLogSync {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.CallLogSync::class.java)
+    fun get(queryParams: com.ringcentral.definitions.SyncUserCallLogParameters? = null): com.ringcentral.definitions.CallLogSync? {
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallLogSync::class.java)
     }
+
 }

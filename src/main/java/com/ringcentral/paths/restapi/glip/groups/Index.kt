@@ -17,28 +17,42 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val groupId: S
      * Http Get /restapi/v1.0/glip/groups
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListGlipGroupsParameters? = null): com.ringcentral.definitions.GlipGroupList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GlipGroupList::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListGlipGroupsParameters? = null): com.ringcentral.definitions.GlipGroupList? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipGroupList::class.java)
     }
+
 
     /**
      * Operation: Create Group
      * Http Post /restapi/v1.0/glip/groups
      */
-    fun post(glipCreateGroup: com.ringcentral.definitions.GlipCreateGroup): com.ringcentral.definitions.GlipGroupInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), glipCreateGroup).string(), com.ringcentral.definitions.GlipGroupInfo::class.java)
+    fun post(glipCreateGroup: com.ringcentral.definitions.GlipCreateGroup): com.ringcentral.definitions.GlipGroupInfo? {
+        val str: String? = rc.post(this.path(false), glipCreateGroup).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipGroupInfo::class.java)
     }
+
 
     /**
      * Operation: Get Group
      * Http Get /restapi/v1.0/glip/groups/{groupId}
      */
-    fun get(): com.ringcentral.definitions.GlipGroupInfo {
+    fun get(): com.ringcentral.definitions.GlipGroupInfo? {
         if (this.groupId == null) {
             throw NullPointerException("groupId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GlipGroupInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipGroupInfo::class.java)
     }
 
 

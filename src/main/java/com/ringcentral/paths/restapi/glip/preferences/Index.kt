@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index) {
      * Operation: Get Preferences
      * Http Get /restapi/v1.0/glip/preferences
      */
-    fun get(): com.ringcentral.definitions.GlipPreferencesInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GlipPreferencesInfo::class.java)
+    fun get(): com.ringcentral.definitions.GlipPreferencesInfo? {
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipPreferencesInfo::class.java)
     }
+
 }

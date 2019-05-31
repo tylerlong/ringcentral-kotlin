@@ -17,52 +17,76 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val extensi
      * Http Get /restapi/v1.0/account/{accountId}/extension
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListExtensionsParameters? = null): com.ringcentral.definitions.GetExtensionListResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GetExtensionListResponse::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListExtensionsParameters? = null): com.ringcentral.definitions.GetExtensionListResponse? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetExtensionListResponse::class.java)
     }
+
 
     /**
      * Operation: Create Extension
      * Http Post /restapi/v1.0/account/{accountId}/extension
      */
-    fun post(extensionCreationRequest: com.ringcentral.definitions.ExtensionCreationRequest): com.ringcentral.definitions.ExtensionCreationResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), extensionCreationRequest).string(), com.ringcentral.definitions.ExtensionCreationResponse::class.java)
+    fun post(extensionCreationRequest: com.ringcentral.definitions.ExtensionCreationRequest): com.ringcentral.definitions.ExtensionCreationResponse? {
+        val str: String? = rc.post(this.path(false), extensionCreationRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ExtensionCreationResponse::class.java)
     }
+
 
     /**
      * Operation: Get Extension
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}
      */
-    fun get(): com.ringcentral.definitions.GetExtensionInfoResponse {
+    fun get(): com.ringcentral.definitions.GetExtensionInfoResponse? {
         if (this.extensionId == null) {
             throw NullPointerException("extensionId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GetExtensionInfoResponse::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetExtensionInfoResponse::class.java)
     }
+
 
     /**
      * Operation: Update Extension
      * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}
      */
-    fun put(extensionUpdateRequest: com.ringcentral.definitions.ExtensionUpdateRequest): com.ringcentral.definitions.GetExtensionInfoResponse {
+    fun put(extensionUpdateRequest: com.ringcentral.definitions.ExtensionUpdateRequest): com.ringcentral.definitions.GetExtensionInfoResponse? {
         if (this.extensionId == null) {
             throw NullPointerException("extensionId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), extensionUpdateRequest).string(), com.ringcentral.definitions.GetExtensionInfoResponse::class.java)
+        val str: String? = rc.put(this.path(), extensionUpdateRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetExtensionInfoResponse::class.java)
     }
+
 
     /**
      * Operation: Delete Extension
      * Http Delete /restapi/v1.0/account/{accountId}/extension/{extensionId}
      */
-    fun delete(): String {
+    fun delete(): String? {
         if (this.extensionId == null) {
             throw NullPointerException("extensionId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
+        val str: String? = rc.delete(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
 
 

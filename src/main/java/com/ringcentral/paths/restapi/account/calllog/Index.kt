@@ -17,19 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val callRec
      * Http Get /restapi/v1.0/account/{accountId}/call-log
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ReadCompanyCallLogParameters? = null): com.ringcentral.definitions.AccountCallLogResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.AccountCallLogResponse::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ReadCompanyCallLogParameters? = null): com.ringcentral.definitions.AccountCallLogResponse? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AccountCallLogResponse::class.java)
     }
+
 
     /**
      * Operation: Get Company Call Log Record(s)
      * Http Get /restapi/v1.0/account/{accountId}/call-log/{callRecordId}
      */
-    fun get(): com.ringcentral.definitions.CompanyCallLogRecord {
+    fun get(): com.ringcentral.definitions.CompanyCallLogRecord? {
         if (this.callRecordId == null) {
             throw NullPointerException("callRecordId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.CompanyCallLogRecord::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyCallLogRecord::class.java)
     }
+
 }

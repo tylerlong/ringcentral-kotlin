@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index) {
      * Operation: Get Account Service Info
      * Http Get /restapi/v1.0/account/{accountId}/service-info
      */
-    fun get(): com.ringcentral.definitions.GetServiceInfoResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GetServiceInfoResponse::class.java)
+    fun get(): com.ringcentral.definitions.GetServiceInfoResponse? {
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetServiceInfoResponse::class.java)
     }
+
 }

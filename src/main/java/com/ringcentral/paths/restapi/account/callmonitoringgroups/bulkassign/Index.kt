@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callmonitoringgrou
      * Operation: Update Call Monitoring Group List
      * Http Post /restapi/v1.0/account/{accountId}/call-monitoring-groups/{groupId}/bulk-assign
      */
-    fun post(callMonitoringBulkAssign: com.ringcentral.definitions.CallMonitoringBulkAssign): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), callMonitoringBulkAssign).string(), String::class.java)
+    fun post(callMonitoringBulkAssign: com.ringcentral.definitions.CallMonitoringBulkAssign): String? {
+        val str: String? = rc.post(this.path(), callMonitoringBulkAssign).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.directory.entries.
      * Operation: Search Company Directory Entries
      * Http Post /restapi/v1.0/account/{accountId}/directory/entries/search
      */
-    fun post(searchDirectoryEntriesRequest: com.ringcentral.definitions.SearchDirectoryEntriesRequest): com.ringcentral.definitions.DirectoryResource {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), searchDirectoryEntriesRequest).string(), com.ringcentral.definitions.DirectoryResource::class.java)
+    fun post(searchDirectoryEntriesRequest: com.ringcentral.definitions.SearchDirectoryEntriesRequest): com.ringcentral.definitions.DirectoryResource? {
+        val str: String? = rc.post(this.path(), searchDirectoryEntriesRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DirectoryResource::class.java)
     }
+
 }

@@ -13,7 +13,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.authzpro
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/authz-profile/check
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.CheckUserPermissionParameters? = null): com.ringcentral.definitions.AuthProfileCheckResource {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.AuthProfileCheckResource::class.java)
+    fun get(queryParams: com.ringcentral.definitions.CheckUserPermissionParameters? = null): com.ringcentral.definitions.AuthProfileCheckResource? {
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AuthProfileCheckResource::class.java)
     }
+
 }

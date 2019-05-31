@@ -17,19 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val coun
      * Http Get /restapi/v1.0/dictionary/country
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListCountriesParameters? = null): com.ringcentral.definitions.GetCountryListResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GetCountryListResponse::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListCountriesParameters? = null): com.ringcentral.definitions.GetCountryListResponse? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetCountryListResponse::class.java)
     }
+
 
     /**
      * Operation: Get Country
      * Http Get /restapi/v1.0/dictionary/country/{countryId}
      */
-    fun get(): com.ringcentral.definitions.GetCountryInfoDictionaryResponse {
+    fun get(): com.ringcentral.definitions.GetCountryInfoDictionaryResponse? {
         if (this.countryId == null) {
             throw NullPointerException("countryId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GetCountryInfoDictionaryResponse::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetCountryInfoDictionaryResponse::class.java)
     }
+
 }

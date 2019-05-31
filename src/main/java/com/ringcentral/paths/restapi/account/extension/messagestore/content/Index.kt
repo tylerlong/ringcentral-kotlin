@@ -17,11 +17,16 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.messages
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId}
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ReadMessageContentParameters? = null): ByteArray {
+    fun get(queryParams: com.ringcentral.definitions.ReadMessageContentParameters? = null): ByteArray? {
         if (this.attachmentId == null) {
             throw NullPointerException("attachmentId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), ByteArray::class.java)
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, ByteArray::class.java)
     }
+
 }

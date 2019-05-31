@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Operation: Create Internal Text Message
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/company-pager
      */
-    fun post(createInternalTextMessageRequest: com.ringcentral.definitions.CreateInternalTextMessageRequest): com.ringcentral.definitions.GetMessageInfoResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), createInternalTextMessageRequest).string(), com.ringcentral.definitions.GetMessageInfoResponse::class.java)
+    fun post(createInternalTextMessageRequest: com.ringcentral.definitions.CreateInternalTextMessageRequest): com.ringcentral.definitions.GetMessageInfoResponse? {
+        val str: String? = rc.post(this.path(), createInternalTextMessageRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetMessageInfoResponse::class.java)
     }
+
 }

@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.department.Index) 
      * Operation: Assign Multiple Department Members
      * Http Post /restapi/v1.0/account/{accountId}/department/bulk-assign
      */
-    fun post(departmentBulkAssignResource: com.ringcentral.definitions.DepartmentBulkAssignResource): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), departmentBulkAssignResource).string(), String::class.java)
+    fun post(departmentBulkAssignResource: com.ringcentral.definitions.DepartmentBulkAssignResource): String? {
+        val str: String? = rc.post(this.path(), departmentBulkAssignResource).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

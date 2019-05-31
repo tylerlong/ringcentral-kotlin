@@ -16,20 +16,30 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
      * Operation: Create Recording
      * Http Post /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}/recordings
      */
-    fun post(): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false)).string(), String::class.java)
+    fun post(): String? {
+        val str: String? = rc.post(this.path(false)).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 
     /**
      * Operation: Pause/Resume Recording
      * Http Patch /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}/recordings/{recordingId}
      */
     @JvmOverloads
-    fun patch(callRecordingUpdate: com.ringcentral.definitions.CallRecordingUpdate, queryParams: com.ringcentral.definitions.PauseResumeCallRecordingParameters? = null): com.ringcentral.definitions.CallRecording {
+    fun patch(callRecordingUpdate: com.ringcentral.definitions.CallRecordingUpdate, queryParams: com.ringcentral.definitions.PauseResumeCallRecordingParameters? = null): com.ringcentral.definitions.CallRecording? {
         if (this.recordingId == null) {
             throw NullPointerException("recordingId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.patch(this.path(), callRecordingUpdate, queryParams).string(), com.ringcentral.definitions.CallRecording::class.java)
+        val str: String? = rc.patch(this.path(), callRecordingUpdate, queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallRecording::class.java)
     }
+
 }

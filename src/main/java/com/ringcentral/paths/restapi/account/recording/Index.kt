@@ -16,12 +16,16 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val recordi
      * Operation: Get Call Recording
      * Http Get /restapi/v1.0/account/{accountId}/recording/{recordingId}
      */
-    fun get(): com.ringcentral.definitions.GetCallRecordingResponse {
+    fun get(): com.ringcentral.definitions.GetCallRecordingResponse? {
         if (this.recordingId == null) {
             throw NullPointerException("recordingId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GetCallRecordingResponse::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetCallRecordingResponse::class.java)
     }
 
 

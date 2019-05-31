@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
      * Operation: Call Flip on Party
      * Http Post /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}/flip
      */
-    fun post(callPartyFlip: com.ringcentral.definitions.CallPartyFlip): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), callPartyFlip).string(), String::class.java)
+    fun post(callPartyFlip: com.ringcentral.definitions.CallPartyFlip): String? {
+        val str: String? = rc.post(this.path(), callPartyFlip).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

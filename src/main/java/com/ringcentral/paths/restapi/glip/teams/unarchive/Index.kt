@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.teams.Index) {
      * Operation: Unarchive Team
      * Http Post /restapi/v1.0/glip/teams/{chatId}/unarchive
      */
-    fun post(): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path()).string(), String::class.java)
+    fun post(): String? {
+        val str: String? = rc.post(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

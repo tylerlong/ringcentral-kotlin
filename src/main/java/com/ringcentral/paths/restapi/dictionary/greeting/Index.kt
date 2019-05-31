@@ -17,19 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val gree
      * Http Get /restapi/v1.0/dictionary/greeting
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListStandardGreetingsParameters? = null): com.ringcentral.definitions.DictionaryGreetingList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.DictionaryGreetingList::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListStandardGreetingsParameters? = null): com.ringcentral.definitions.DictionaryGreetingList? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DictionaryGreetingList::class.java)
     }
+
 
     /**
      * Operation: Get Standard Greeting
      * Http Get /restapi/v1.0/dictionary/greeting/{greetingId}
      */
-    fun get(): com.ringcentral.definitions.DictionaryGreetingInfo {
+    fun get(): com.ringcentral.definitions.DictionaryGreetingInfo? {
         if (this.greetingId == null) {
             throw NullPointerException("greetingId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.DictionaryGreetingInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DictionaryGreetingInfo::class.java)
     }
+
 }

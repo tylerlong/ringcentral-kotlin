@@ -17,27 +17,42 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val chatId: St
      * Http Get /restapi/v1.0/glip/conversations
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListGlipConversationsParameters? = null): com.ringcentral.definitions.GlipConversationsList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GlipConversationsList::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListGlipConversationsParameters? = null): com.ringcentral.definitions.GlipConversationsList? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipConversationsList::class.java)
     }
+
 
     /**
      * Operation: Create/Open Conversation
      * Http Post /restapi/v1.0/glip/conversations
      */
-    fun post(createGlipConversationRequest: com.ringcentral.definitions.CreateGlipConversationRequest): com.ringcentral.definitions.GlipConversationInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createGlipConversationRequest).string(), com.ringcentral.definitions.GlipConversationInfo::class.java)
+    fun post(createGlipConversationRequest: com.ringcentral.definitions.CreateGlipConversationRequest): com.ringcentral.definitions.GlipConversationInfo? {
+        val str: String? = rc.post(this.path(false), createGlipConversationRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipConversationInfo::class.java)
     }
+
 
     /**
      * Operation: Get Conversation
      * Http Get /restapi/v1.0/glip/conversations/{chatId}
      */
-    fun get(): com.ringcentral.definitions.GlipConversationInfo {
+    fun get(): com.ringcentral.definitions.GlipConversationInfo? {
         if (this.chatId == null) {
             throw NullPointerException("chatId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GlipConversationInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipConversationInfo::class.java)
     }
+
 }

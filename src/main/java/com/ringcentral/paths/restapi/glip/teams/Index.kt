@@ -17,52 +17,76 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val chatId: St
      * Http Get /restapi/v1.0/glip/teams
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListGlipTeamsParameters? = null): com.ringcentral.definitions.GlipTeamsList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GlipTeamsList::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListGlipTeamsParameters? = null): com.ringcentral.definitions.GlipTeamsList? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipTeamsList::class.java)
     }
+
 
     /**
      * Operation: Create Team
      * Http Post /restapi/v1.0/glip/teams
      */
-    fun post(glipPostTeamBody: com.ringcentral.definitions.GlipPostTeamBody): com.ringcentral.definitions.GlipTeamInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), glipPostTeamBody).string(), com.ringcentral.definitions.GlipTeamInfo::class.java)
+    fun post(glipPostTeamBody: com.ringcentral.definitions.GlipPostTeamBody): com.ringcentral.definitions.GlipTeamInfo? {
+        val str: String? = rc.post(this.path(false), glipPostTeamBody).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipTeamInfo::class.java)
     }
+
 
     /**
      * Operation: Get Team
      * Http Get /restapi/v1.0/glip/teams/{chatId}
      */
-    fun get(): com.ringcentral.definitions.GlipTeamInfo {
+    fun get(): com.ringcentral.definitions.GlipTeamInfo? {
         if (this.chatId == null) {
             throw NullPointerException("chatId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GlipTeamInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipTeamInfo::class.java)
     }
+
 
     /**
      * Operation: Update Team
      * Http Patch /restapi/v1.0/glip/teams/{chatId}
      */
-    fun patch(glipPatchTeamBody: com.ringcentral.definitions.GlipPatchTeamBody): com.ringcentral.definitions.GlipTeamInfo {
+    fun patch(glipPatchTeamBody: com.ringcentral.definitions.GlipPatchTeamBody): com.ringcentral.definitions.GlipTeamInfo? {
         if (this.chatId == null) {
             throw NullPointerException("chatId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.patch(this.path(), glipPatchTeamBody).string(), com.ringcentral.definitions.GlipTeamInfo::class.java)
+        val str: String? = rc.patch(this.path(), glipPatchTeamBody).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipTeamInfo::class.java)
     }
+
 
     /**
      * Operation: Delete Team
      * Http Delete /restapi/v1.0/glip/teams/{chatId}
      */
-    fun delete(): String {
+    fun delete(): String? {
         if (this.chatId == null) {
             throw NullPointerException("chatId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
+        val str: String? = rc.delete(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
 
 

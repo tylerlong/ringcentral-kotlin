@@ -15,20 +15,29 @@ class Index(val rc: com.ringcentral.RestClient, val apiVersion: String? = "v1.0"
      * Operation: Get API Versions
      * Http Get /restapi
      */
-    fun list(): com.ringcentral.definitions.GetVersionsResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false)).string(), com.ringcentral.definitions.GetVersionsResponse::class.java)
+    fun list(): com.ringcentral.definitions.GetVersionsResponse? {
+        val str: String? = rc.get(this.path(false)).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetVersionsResponse::class.java)
     }
+
 
     /**
      * Operation: Get Version Info
      * Http Get /restapi/{apiVersion}
      */
-    fun get(): com.ringcentral.definitions.GetVersionResponse {
+    fun get(): com.ringcentral.definitions.GetVersionResponse? {
         if (this.apiVersion == null) {
             throw NullPointerException("apiVersion")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GetVersionResponse::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetVersionResponse::class.java)
     }
 
 

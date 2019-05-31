@@ -166,7 +166,8 @@ public class RestClient {
             case MULTIPART:
                 MultipartBody.Builder multipartBodyBuilder = new MultipartBody.Builder();
                 List<Attachment> attachments = new ArrayList<Attachment>();
-                Map<String, Object> dict = new HashMap<String, Object>();
+                Map<String, Object> fields = new HashMap<String, Object>();
+                String attachmentName = "attachment";
                 for (Field field : body.getClass().getFields()) {
                     Object value = null;
                     try {
@@ -176,19 +177,22 @@ public class RestClient {
                     }
                     if (value != null) {
                         if (field.getType() == Attachment.class) {
+                            attachmentName = field.getName();
                             attachments.add((Attachment) value);
                         } else if (field.getType() == Attachment[].class) {
                             for (Attachment a : (Attachment[]) value) {
                                 attachments.add(a);
                             }
                         } else {
-                            dict.put(field.getName(), value);
+                            fields.put(field.getName(), value);
                         }
                     }
                 }
-                multipartBodyBuilder.addPart(RequestBody.create(jsonMediaType, JSON.toJSONString(dict)));
+                if (fields.size() > 0) {
+                    multipartBodyBuilder.addPart(RequestBody.create(jsonMediaType, JSON.toJSONString(fields)));
+                }
                 for (Attachment attachment : attachments) {
-                    multipartBodyBuilder.addFormDataPart("attachment", attachment.fileName, new RequestBody() {
+                    multipartBodyBuilder.addFormDataPart(attachmentName, attachment.fileName, new RequestBody() {
                         @Override
                         public MediaType contentType() {
                             if (attachment.contentType == null) {
@@ -203,7 +207,7 @@ public class RestClient {
                         }
                     });
                 }
-                requestBody = multipartBodyBuilder.build();
+                requestBody = multipartBodyBuilder.setType(MultipartBody.FORM).build();
                 break;
             default:
                 break;

@@ -16,51 +16,76 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ruleId:
      * Operation: Create Company Call Handling Rule
      * Http Post /restapi/v1.0/account/{accountId}/answering-rule
      */
-    fun post(companyAnsweringRuleRequest: com.ringcentral.definitions.CompanyAnsweringRuleRequest): com.ringcentral.definitions.CompanyAnsweringRuleInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), companyAnsweringRuleRequest).string(), com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+    fun post(companyAnsweringRuleRequest: com.ringcentral.definitions.CompanyAnsweringRuleRequest): com.ringcentral.definitions.CompanyAnsweringRuleInfo? {
+        val str: String? = rc.post(this.path(false), companyAnsweringRuleRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
     }
+
 
     /**
      * Operation: Get Company Call Handling Rule List
      * Http Get /restapi/v1.0/account/{accountId}/answering-rule
      */
-    fun list(): com.ringcentral.definitions.CompanyAnsweringRuleList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false)).string(), com.ringcentral.definitions.CompanyAnsweringRuleList::class.java)
+    fun list(): com.ringcentral.definitions.CompanyAnsweringRuleList? {
+        val str: String? = rc.get(this.path(false)).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyAnsweringRuleList::class.java)
     }
+
 
     /**
      * Operation: Get Company Call Handling Rule
      * Http Get /restapi/v1.0/account/{accountId}/answering-rule/{ruleId}
      */
-    fun get(): com.ringcentral.definitions.CompanyAnsweringRuleInfo {
+    fun get(): com.ringcentral.definitions.CompanyAnsweringRuleInfo? {
         if (this.ruleId == null) {
             throw NullPointerException("ruleId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
     }
+
 
     /**
      * Operation: Update Company Call Handling Rule
      * Http Put /restapi/v1.0/account/{accountId}/answering-rule/{ruleId}
      */
-    fun put(companyAnsweringRuleUpdate: com.ringcentral.definitions.CompanyAnsweringRuleUpdate): com.ringcentral.definitions.CompanyAnsweringRuleInfo {
+    fun put(companyAnsweringRuleUpdate: com.ringcentral.definitions.CompanyAnsweringRuleUpdate): com.ringcentral.definitions.CompanyAnsweringRuleInfo? {
         if (this.ruleId == null) {
             throw NullPointerException("ruleId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), companyAnsweringRuleUpdate).string(), com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+        val str: String? = rc.put(this.path(), companyAnsweringRuleUpdate).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
     }
+
 
     /**
      * Operation: Delete Company Call Handling Rule
      * Http Delete /restapi/v1.0/account/{accountId}/answering-rule/{ruleId}
      */
-    fun delete(): String {
+    fun delete(): String? {
         if (this.ruleId == null) {
             throw NullPointerException("ruleId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
+        val str: String? = rc.delete(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

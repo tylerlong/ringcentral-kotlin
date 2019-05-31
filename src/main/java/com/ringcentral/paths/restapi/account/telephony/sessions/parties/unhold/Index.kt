@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
      * Operation: Unhold Call Party
      * Http Post /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}/unhold
      */
-    fun post(): com.ringcentral.definitions.CallParty {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path()).string(), com.ringcentral.definitions.CallParty::class.java)
+    fun post(): com.ringcentral.definitions.CallParty? {
+        val str: String? = rc.post(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallParty::class.java)
     }
+
 }

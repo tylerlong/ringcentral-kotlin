@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.clientinfo.Index) {
      * Operation: Register SIP Device
      * Http Post /restapi/v1.0/client-info/sip-provision
      */
-    fun post(createSipRegistrationRequest: com.ringcentral.definitions.CreateSipRegistrationRequest): com.ringcentral.definitions.CreateSipRegistrationResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), createSipRegistrationRequest).string(), com.ringcentral.definitions.CreateSipRegistrationResponse::class.java)
+    fun post(createSipRegistrationRequest: com.ringcentral.definitions.CreateSipRegistrationRequest): com.ringcentral.definitions.CreateSipRegistrationResponse? {
+        val str: String? = rc.post(this.path(), createSipRegistrationRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CreateSipRegistrationResponse::class.java)
     }
+
 }

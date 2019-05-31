@@ -17,20 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val chatId: St
      * Http Get /restapi/v1.0/glip/chats
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListGlipChatsParameters? = null): com.ringcentral.definitions.GlipChatsList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GlipChatsList::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListGlipChatsParameters? = null): com.ringcentral.definitions.GlipChatsList? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipChatsList::class.java)
     }
+
 
     /**
      * Operation: Get Chat
      * Http Get /restapi/v1.0/glip/chats/{chatId}
      */
-    fun get(): com.ringcentral.definitions.GlipChatInfo {
+    fun get(): com.ringcentral.definitions.GlipChatInfo? {
         if (this.chatId == null) {
             throw NullPointerException("chatId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GlipChatInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipChatInfo::class.java)
     }
 
 

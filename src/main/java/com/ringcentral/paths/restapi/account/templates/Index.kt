@@ -17,19 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val templat
      * Http Get /restapi/v1.0/account/{accountId}/templates
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListUserTemplatesParameters? = null): com.ringcentral.definitions.UserTemplates {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.UserTemplates::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListUserTemplatesParameters? = null): com.ringcentral.definitions.UserTemplates? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserTemplates::class.java)
     }
+
 
     /**
      * Operation: Get User Template
      * Http Get /restapi/v1.0/account/{accountId}/templates/{templateId}
      */
-    fun get(): com.ringcentral.definitions.TemplateInfo {
+    fun get(): com.ringcentral.definitions.TemplateInfo? {
         if (this.templateId == null) {
             throw NullPointerException("templateId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.TemplateInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.TemplateInfo::class.java)
     }
+
 }

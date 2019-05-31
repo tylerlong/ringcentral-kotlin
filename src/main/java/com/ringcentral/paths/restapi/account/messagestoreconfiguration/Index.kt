@@ -12,15 +12,25 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index) {
      * Operation: Get Message Store Configuration
      * Http Get /restapi/v1.0/account/{accountId}/message-store-configuration
      */
-    fun get(): com.ringcentral.definitions.MessageStoreConfiguration {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.MessageStoreConfiguration::class.java)
+    fun get(): com.ringcentral.definitions.MessageStoreConfiguration? {
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MessageStoreConfiguration::class.java)
     }
+
 
     /**
      * Operation: Update Message Store Configuration
      * Http Put /restapi/v1.0/account/{accountId}/message-store-configuration
      */
-    fun put(messageStoreConfiguration: com.ringcentral.definitions.MessageStoreConfiguration): com.ringcentral.definitions.MessageStoreConfiguration {
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), messageStoreConfiguration).string(), com.ringcentral.definitions.MessageStoreConfiguration::class.java)
+    fun put(messageStoreConfiguration: com.ringcentral.definitions.MessageStoreConfiguration): com.ringcentral.definitions.MessageStoreConfiguration? {
+        val str: String? = rc.put(this.path(), messageStoreConfiguration).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MessageStoreConfiguration::class.java)
     }
+
 }

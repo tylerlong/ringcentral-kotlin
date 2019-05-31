@@ -13,7 +13,12 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index) {
      * Http Get /restapi/v1.0/dictionary/fax-cover-page
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ListFaxCoverPagesParameters? = null): com.ringcentral.definitions.ListFaxCoverPagesResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.ListFaxCoverPagesResponse::class.java)
+    fun get(queryParams: com.ringcentral.definitions.ListFaxCoverPagesParameters? = null): com.ringcentral.definitions.ListFaxCoverPagesResponse? {
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ListFaxCoverPagesResponse::class.java)
     }
+
 }

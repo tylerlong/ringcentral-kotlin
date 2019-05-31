@@ -17,20 +17,30 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val time
      * Http Get /restapi/v1.0/dictionary/timezone
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListTimezonesParameters? = null): com.ringcentral.definitions.GetTimezoneListResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GetTimezoneListResponse::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListTimezonesParameters? = null): com.ringcentral.definitions.GetTimezoneListResponse? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetTimezoneListResponse::class.java)
     }
+
 
     /**
      * Operation: Get Timezone
      * Http Get /restapi/v1.0/dictionary/timezone/{timezoneId}
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ReadTimezoneParameters? = null): com.ringcentral.definitions.GetTimezoneInfoResponse {
+    fun get(queryParams: com.ringcentral.definitions.ReadTimezoneParameters? = null): com.ringcentral.definitions.GetTimezoneInfoResponse? {
         if (this.timezoneId == null) {
             throw NullPointerException("timezoneId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.GetTimezoneInfoResponse::class.java)
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetTimezoneInfoResponse::class.java)
     }
+
 }

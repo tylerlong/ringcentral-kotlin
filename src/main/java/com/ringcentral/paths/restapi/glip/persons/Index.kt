@@ -16,11 +16,16 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val personId: 
      * Operation: Get Person
      * Http Get /restapi/v1.0/glip/persons/{personId}
      */
-    fun get(): com.ringcentral.definitions.GlipPersonInfo {
+    fun get(): com.ringcentral.definitions.GlipPersonInfo? {
         if (this.personId == null) {
             throw NullPointerException("personId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GlipPersonInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipPersonInfo::class.java)
     }
+
 }

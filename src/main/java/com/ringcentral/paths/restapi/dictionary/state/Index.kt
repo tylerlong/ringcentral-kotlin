@@ -17,19 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val stat
      * Http Get /restapi/v1.0/dictionary/state
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListStatesParameters? = null): com.ringcentral.definitions.GetStateListResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.GetStateListResponse::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListStatesParameters? = null): com.ringcentral.definitions.GetStateListResponse? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetStateListResponse::class.java)
     }
+
 
     /**
      * Operation: Get State
      * Http Get /restapi/v1.0/dictionary/state/{stateId}
      */
-    fun get(): com.ringcentral.definitions.GetStateInfoResponse {
+    fun get(): com.ringcentral.definitions.GetStateInfoResponse? {
         if (this.stateId == null) {
             throw NullPointerException("stateId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.GetStateInfoResponse::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetStateInfoResponse::class.java)
     }
+
 }

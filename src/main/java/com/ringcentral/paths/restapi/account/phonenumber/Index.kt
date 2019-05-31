@@ -17,19 +17,29 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val phoneNu
      * Http Get /restapi/v1.0/account/{accountId}/phone-number
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListAccountPhoneNumbersParameters? = null): com.ringcentral.definitions.AccountPhoneNumbers {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.AccountPhoneNumbers::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListAccountPhoneNumbersParameters? = null): com.ringcentral.definitions.AccountPhoneNumbers? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AccountPhoneNumbers::class.java)
     }
+
 
     /**
      * Operation: Get Phone Number
      * Http Get /restapi/v1.0/account/{accountId}/phone-number/{phoneNumberId}
      */
-    fun get(): com.ringcentral.definitions.CompanyPhoneNumberInfo {
+    fun get(): com.ringcentral.definitions.CompanyPhoneNumberInfo? {
         if (this.phoneNumberId == null) {
             throw NullPointerException("phoneNumberId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.CompanyPhoneNumberInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyPhoneNumberInfo::class.java)
     }
+
 }

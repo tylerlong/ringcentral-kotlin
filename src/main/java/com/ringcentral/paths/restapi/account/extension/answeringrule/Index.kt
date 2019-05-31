@@ -17,52 +17,77 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule
      */
     @JvmOverloads
-    fun list(queryParams: com.ringcentral.definitions.ListAnsweringRulesParameters? = null): com.ringcentral.definitions.UserAnsweringRuleList {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.UserAnsweringRuleList::class.java)
+    fun list(queryParams: com.ringcentral.definitions.ListAnsweringRulesParameters? = null): com.ringcentral.definitions.UserAnsweringRuleList? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserAnsweringRuleList::class.java)
     }
+
 
     /**
      * Operation: Create Call Handling Rule
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule
      */
-    fun post(createAnsweringRuleRequest: com.ringcentral.definitions.CreateAnsweringRuleRequest): com.ringcentral.definitions.AnsweringRuleInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createAnsweringRuleRequest).string(), com.ringcentral.definitions.AnsweringRuleInfo::class.java)
+    fun post(createAnsweringRuleRequest: com.ringcentral.definitions.CreateAnsweringRuleRequest): com.ringcentral.definitions.AnsweringRuleInfo? {
+        val str: String? = rc.post(this.path(false), createAnsweringRuleRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AnsweringRuleInfo::class.java)
     }
+
 
     /**
      * Operation: Get Call Handling Rule
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId}
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ReadAnsweringRuleParameters? = null): com.ringcentral.definitions.AnsweringRuleInfo {
+    fun get(queryParams: com.ringcentral.definitions.ReadAnsweringRuleParameters? = null): com.ringcentral.definitions.AnsweringRuleInfo? {
         if (this.ruleId == null) {
             throw NullPointerException("ruleId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.AnsweringRuleInfo::class.java)
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AnsweringRuleInfo::class.java)
     }
+
 
     /**
      * Operation: Update Call Handling Rule
      * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId}
      */
-    fun put(updateAnsweringRuleRequest: com.ringcentral.definitions.UpdateAnsweringRuleRequest): com.ringcentral.definitions.AnsweringRuleInfo {
+    fun put(updateAnsweringRuleRequest: com.ringcentral.definitions.UpdateAnsweringRuleRequest): com.ringcentral.definitions.AnsweringRuleInfo? {
         if (this.ruleId == null) {
             throw NullPointerException("ruleId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path(), updateAnsweringRuleRequest).string(), com.ringcentral.definitions.AnsweringRuleInfo::class.java)
+        val str: String? = rc.put(this.path(), updateAnsweringRuleRequest).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AnsweringRuleInfo::class.java)
     }
+
 
     /**
      * Operation: Delete Call Handling Rule
      * Http Delete /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId}
      */
-    fun delete(): String {
+    fun delete(): String? {
         if (this.ruleId == null) {
             throw NullPointerException("ruleId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
+        val str: String? = rc.delete(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.meetings
      * Operation: Get Assistants
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/meetings-configuration/assistants
      */
-    fun get(): com.ringcentral.definitions.AssistantsResource {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.AssistantsResource::class.java)
+    fun get(): com.ringcentral.definitions.AssistantsResource? {
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AssistantsResource::class.java)
     }
+
 }

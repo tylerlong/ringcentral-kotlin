@@ -17,24 +17,33 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.Index, v
      * Http Get /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ReadCallSessionStatusParameters? = null): com.ringcentral.definitions.CallSessionObject {
+    fun get(queryParams: com.ringcentral.definitions.ReadCallSessionStatusParameters? = null): com.ringcentral.definitions.CallSessionObject? {
         if (this.sessionId == null) {
             throw NullPointerException("sessionId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.CallSessionObject::class.java)
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallSessionObject::class.java)
     }
+
 
     /**
      * Operation: Drop Call Session
      * Http Delete /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}
      */
-    fun delete(): String {
+    fun delete(): String? {
         if (this.sessionId == null) {
             throw NullPointerException("sessionId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
+        val str: String? = rc.delete(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
 
 

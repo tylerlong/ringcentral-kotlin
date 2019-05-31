@@ -16,52 +16,76 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val promptI
      * Operation: Create IVR Prompts
      * Http Post /restapi/v1.0/account/{accountId}/ivr-prompts
      */
-    fun post(createIVRPromptRequest: com.ringcentral.definitions.CreateIvrPromptRequest): com.ringcentral.definitions.PromptInfo {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(false), createIVRPromptRequest, null, com.ringcentral.ContentType.MULTIPART).string(), com.ringcentral.definitions.PromptInfo::class.java)
+    fun post(createIVRPromptRequest: com.ringcentral.definitions.CreateIvrPromptRequest): com.ringcentral.definitions.PromptInfo? {
+        val str: String? = rc.post(this.path(false), createIVRPromptRequest, null, com.ringcentral.ContentType.MULTIPART).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PromptInfo::class.java)
     }
+
 
     /**
      * Operation: Get IVR Prompt List
      * Http Get /restapi/v1.0/account/{accountId}/ivr-prompts
      */
-    fun list(): com.ringcentral.definitions.IVRPrompts {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false)).string(), com.ringcentral.definitions.IVRPrompts::class.java)
+    fun list(): com.ringcentral.definitions.IVRPrompts? {
+        val str: String? = rc.get(this.path(false)).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.IVRPrompts::class.java)
     }
+
 
     /**
      * Operation: Get IVR Prompt
      * Http Get /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}
      */
-    fun get(): com.ringcentral.definitions.PromptInfo {
+    fun get(): com.ringcentral.definitions.PromptInfo? {
         if (this.promptId == null) {
             throw NullPointerException("promptId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), com.ringcentral.definitions.PromptInfo::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PromptInfo::class.java)
     }
+
 
     /**
      * Operation: Delete IVR Prompt
      * Http Delete /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}
      */
-    fun delete(): String {
+    fun delete(): String? {
         if (this.promptId == null) {
             throw NullPointerException("promptId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.delete(this.path()).string(), String::class.java)
+        val str: String? = rc.delete(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 
     /**
      * Operation: Update IVR Prompt
      * Http Put /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}
      */
-    fun put(): String {
+    fun put(): String? {
         if (this.promptId == null) {
             throw NullPointerException("promptId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.put(this.path()).string(), String::class.java)
+        val str: String? = rc.put(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
 
 

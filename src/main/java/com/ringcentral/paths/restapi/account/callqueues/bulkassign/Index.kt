@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callqueues.Index) 
      * Operation: Assign Multiple Call Queue Members
      * Http Post /restapi/v1.0/account/{accountId}/call-queues/{groupId}/bulk-assign
      */
-    fun post(callQueueBulkAssignResource: com.ringcentral.definitions.CallQueueBulkAssignResource): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path(), callQueueBulkAssignResource).string(), String::class.java)
+    fun post(callQueueBulkAssignResource: com.ringcentral.definitions.CallQueueBulkAssignResource): String? {
+        val str: String? = rc.post(this.path(), callQueueBulkAssignResource).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

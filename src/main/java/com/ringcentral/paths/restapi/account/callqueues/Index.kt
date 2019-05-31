@@ -17,8 +17,12 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val groupId
      * Http Get /restapi/v1.0/account/{accountId}/call-queues
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ListCallQueuesParameters? = null): com.ringcentral.definitions.CallQueues {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(false), queryParams).string(), com.ringcentral.definitions.CallQueues::class.java)
+    fun get(queryParams: com.ringcentral.definitions.ListCallQueuesParameters? = null): com.ringcentral.definitions.CallQueues? {
+        val str: String? = rc.get(this.path(false), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallQueues::class.java)
     }
 
 

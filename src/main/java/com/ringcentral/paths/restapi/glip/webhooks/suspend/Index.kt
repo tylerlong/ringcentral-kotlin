@@ -12,7 +12,12 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.webhooks.Index) {
      * Operation: Suspend Webhook
      * Http Post /restapi/v1.0/glip/webhooks/{webhookId}/suspend
      */
-    fun post(): String {
-        return com.alibaba.fastjson.JSON.parseObject(rc.post(this.path()).string(), String::class.java)
+    fun post(): String? {
+        val str: String? = rc.post(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }

@@ -13,7 +13,12 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index) {
      * Http Get /restapi/v1.0/dictionary/location
      */
     @JvmOverloads
-    fun get(queryParams: com.ringcentral.definitions.ListLocationsParameters? = null): com.ringcentral.definitions.GetLocationListResponse {
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path(), queryParams).string(), com.ringcentral.definitions.GetLocationListResponse::class.java)
+    fun get(queryParams: com.ringcentral.definitions.ListLocationsParameters? = null): com.ringcentral.definitions.GetLocationListResponse? {
+        val str: String? = rc.get(this.path(), queryParams).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetLocationListResponse::class.java)
     }
+
 }

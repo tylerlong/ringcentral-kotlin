@@ -16,11 +16,16 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.dataexport.Index, val
      * Operation: Get Glip Data Archive
      * Http Get /restapi/v1.0/glip/data-export/{taskId}/archive/{archiveId}
      */
-    fun get(): String {
+    fun get(): String? {
         if (this.archiveId == null) {
             throw NullPointerException("archiveId")
         }
 
-        return com.alibaba.fastjson.JSON.parseObject(rc.get(this.path()).string(), String::class.java)
+        val str: String? = rc.get(this.path()).string()
+        if (str == null) {
+            return null
+        }
+        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
     }
+
 }
