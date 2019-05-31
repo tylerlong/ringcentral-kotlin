@@ -38,9 +38,6 @@ const normalizeType = f => {
 
 const normalizeField = f => {
   f.type = normalizeType(f)
-  // if (['delegate', 'operator'].includes(f.name)) {
-  //   f.name = `@${f.name}`
-  // }
   return f
 }
 
