@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.chats.Index) {
      * Http Post /restapi/v1.0/glip/chats/{chatId}/read
      */
     fun post(): String? {
-        val str: String? = rc.post(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path())
+
+        return rb.string()
+
     }
 
 }

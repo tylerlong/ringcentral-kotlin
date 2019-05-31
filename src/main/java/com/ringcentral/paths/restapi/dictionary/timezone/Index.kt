@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val time
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListTimezonesParameters? = null): com.ringcentral.definitions.GetTimezoneListResponse? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetTimezoneListResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetTimezoneListResponse::class.java)
+
     }
 
 
@@ -36,11 +35,10 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val time
             throw NullPointerException("timezoneId")
         }
 
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetTimezoneInfoResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetTimezoneInfoResponse::class.java)
+
     }
 
 }

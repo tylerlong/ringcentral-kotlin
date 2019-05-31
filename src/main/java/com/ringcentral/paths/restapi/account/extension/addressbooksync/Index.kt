@@ -14,11 +14,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      */
     @JvmOverloads
     fun get(queryParams: com.ringcentral.definitions.SyncAddressBookParameters? = null): com.ringcentral.definitions.AddressBookSync? {
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AddressBookSync::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.AddressBookSync::class.java)
+
     }
 
 }

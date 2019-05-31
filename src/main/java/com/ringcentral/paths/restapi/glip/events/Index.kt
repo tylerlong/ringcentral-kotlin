@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val eventId: S
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ReadGlipEventsParameters? = null): com.ringcentral.definitions.GlipEventsInfo? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipEventsInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipEventsInfo::class.java)
+
     }
 
 
@@ -31,11 +30,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val eventId: S
      * Http Post /restapi/v1.0/glip/events
      */
     fun post(glipEventCreate: com.ringcentral.definitions.GlipEventCreate): com.ringcentral.definitions.GlipEventInfo? {
-        val str: String? = rc.post(this.path(false), glipEventCreate).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipEventInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), glipEventCreate)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipEventInfo::class.java)
+
     }
 
 
@@ -48,11 +46,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val eventId: S
             throw NullPointerException("eventId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipEventInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipEventInfo::class.java)
+
     }
 
 
@@ -65,11 +62,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val eventId: S
             throw NullPointerException("eventId")
         }
 
-        val str: String? = rc.put(this.path(), glipEventCreate).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipEventInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), glipEventCreate)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipEventInfo::class.java)
+
     }
 
 
@@ -82,11 +78,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val eventId: S
             throw NullPointerException("eventId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 }

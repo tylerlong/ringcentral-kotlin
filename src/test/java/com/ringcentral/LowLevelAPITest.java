@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertNotNull;
 
-public class ModelsTest {
+public class LowLevelAPITest {
     @Test
     public void testParseObject() throws IOException, RestException {
         RestClient rc = new RestClient(

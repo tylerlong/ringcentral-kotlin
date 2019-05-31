@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callrecording.Inde
      */
     @JvmOverloads
     fun get(queryParams: com.ringcentral.definitions.ListCallRecordingCustomGreetingsParameters? = null): com.ringcentral.definitions.CallRecordingCustomGreetings? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallRecordingCustomGreetings::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CallRecordingCustomGreetings::class.java)
+
     }
 
 
@@ -35,11 +34,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callrecording.Inde
             throw NullPointerException("greetingId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 }

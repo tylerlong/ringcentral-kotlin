@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val lang
      * Http Get /restapi/v1.0/dictionary/language
      */
     fun list(): com.ringcentral.definitions.LanguageList? {
-        val str: String? = rc.get(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.LanguageList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false))
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.LanguageList::class.java)
+
     }
 
 
@@ -34,11 +33,10 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val lang
             throw NullPointerException("languageId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.LanguageInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.LanguageInfo::class.java)
+
     }
 
 }

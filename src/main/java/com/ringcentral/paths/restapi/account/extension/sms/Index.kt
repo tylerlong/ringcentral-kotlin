@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/sms
      */
     fun post(createSMSMessage: com.ringcentral.definitions.CreateSMSMessage): com.ringcentral.definitions.GetMessageInfoResponse? {
-        val str: String? = rc.post(this.path(), createSMSMessage).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetMessageInfoResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(), createSMSMessage)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetMessageInfoResponse::class.java)
+
     }
 
 }

@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting
      */
     fun post(createCustomUserGreetingRequest: com.ringcentral.definitions.CreateCustomUserGreetingRequest): com.ringcentral.definitions.CustomUserGreetingInfo? {
-        val str: String? = rc.post(this.path(false), createCustomUserGreetingRequest, null, com.ringcentral.ContentType.MULTIPART).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CustomUserGreetingInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), createCustomUserGreetingRequest, null, com.ringcentral.ContentType.MULTIPART)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CustomUserGreetingInfo::class.java)
+
     }
 
 
@@ -34,11 +33,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("greetingId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CustomUserGreetingInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CustomUserGreetingInfo::class.java)
+
     }
 
 }

@@ -192,24 +192,35 @@ const generate = (prefix = '/') => {
 ` : ''}`
       if (formUrlEncoded) {
         code += `
-        val str: String? = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.FORM).string()
+        val rb: okhttp3.ResponseBody = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.FORM)
         `
       } else if (multipart) {
         code += `
-        val str: String? = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.MULTIPART).string()
+        val rb: okhttp3.ResponseBody = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ', null'}, com.ringcentral.ContentType.MULTIPART)
         `
       } else {
         code += `
-        val str: String? = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''}).string()
+        val rb: okhttp3.ResponseBody = rc.${method.toLowerCase()}(this.path(${(!withParam && paramName) ? 'false' : ''})${bodyParam ? `, ${bodyParam}` : ''}${queryParams.length > 0 ? `, queryParams` : ''})
         `
       }
-      code += `if(str == null) {
-          return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, ${responseType}::class.java)
-      }
+      if (responseType === 'ByteArray') {
+        code += `
+        return rb.source().readByteArray()
+        `
+      } else if (responseType === 'String') {
+        code += `
+        return rb.string()
+        `
+      } else {
+        code += `
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), ${responseType}::class.java)
       `
+      }
+      code += `
+    }
+    `
     })
+
     code += `
 }
 `

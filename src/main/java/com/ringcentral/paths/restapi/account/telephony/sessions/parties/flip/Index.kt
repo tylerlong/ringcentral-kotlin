@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
      * Http Post /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}/flip
      */
     fun post(callPartyFlip: com.ringcentral.definitions.CallPartyFlip): String? {
-        val str: String? = rc.post(this.path(), callPartyFlip).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(), callPartyFlip)
+
+        return rb.string()
+
     }
 
 }

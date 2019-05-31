@@ -14,11 +14,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.recent.Index) {
      */
     @JvmOverloads
     fun get(queryParams: com.ringcentral.definitions.ListRecentChatsParameters? = null): com.ringcentral.definitions.GlipChatsListWithoutNavigation? {
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipChatsListWithoutNavigation::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipChatsListWithoutNavigation::class.java)
+
     }
 
 }

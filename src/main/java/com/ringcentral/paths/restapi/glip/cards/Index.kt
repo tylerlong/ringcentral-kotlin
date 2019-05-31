@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val cardId: St
      */
     @JvmOverloads
     fun post(glipMessageAttachmentInfoRequest: com.ringcentral.definitions.GlipMessageAttachmentInfoRequest, queryParams: com.ringcentral.definitions.CreateGlipCardParameters? = null): com.ringcentral.definitions.GlipMessageAttachmentInfo? {
-        val str: String? = rc.post(this.path(false), glipMessageAttachmentInfoRequest, queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipMessageAttachmentInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), glipMessageAttachmentInfoRequest, queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipMessageAttachmentInfo::class.java)
+
     }
 
 
@@ -35,11 +34,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val cardId: St
             throw NullPointerException("cardId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipMessageAttachmentInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipMessageAttachmentInfo::class.java)
+
     }
 
 
@@ -52,11 +50,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val cardId: St
             throw NullPointerException("cardId")
         }
 
-        val str: String? = rc.put(this.path(), glipMessageAttachmentInfoRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), glipMessageAttachmentInfoRequest)
+
+        return rb.string()
+
     }
 
 
@@ -69,11 +66,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val cardId: St
             throw NullPointerException("cardId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 }

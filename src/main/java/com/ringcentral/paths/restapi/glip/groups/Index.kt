@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val groupId: S
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListGlipGroupsParameters? = null): com.ringcentral.definitions.GlipGroupList? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipGroupList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipGroupList::class.java)
+
     }
 
 
@@ -31,11 +30,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val groupId: S
      * Http Post /restapi/v1.0/glip/groups
      */
     fun post(glipCreateGroup: com.ringcentral.definitions.GlipCreateGroup): com.ringcentral.definitions.GlipGroupInfo? {
-        val str: String? = rc.post(this.path(false), glipCreateGroup).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipGroupInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), glipCreateGroup)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipGroupInfo::class.java)
+
     }
 
 
@@ -48,11 +46,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val groupId: S
             throw NullPointerException("groupId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipGroupInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipGroupInfo::class.java)
+
     }
 
 

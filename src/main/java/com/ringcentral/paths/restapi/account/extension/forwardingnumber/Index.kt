@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListForwardingNumbersParameters? = null): com.ringcentral.definitions.GetExtensionForwardingNumberListResponse? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetExtensionForwardingNumberListResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetExtensionForwardingNumberListResponse::class.java)
+
     }
 
 
@@ -31,11 +30,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number
      */
     fun post(createForwardingNumberRequest: com.ringcentral.definitions.CreateForwardingNumberRequest): com.ringcentral.definitions.ForwardingNumberInfo? {
-        val str: String? = rc.post(this.path(false), createForwardingNumberRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ForwardingNumberInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), createForwardingNumberRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ForwardingNumberInfo::class.java)
+
     }
 
 
@@ -48,11 +46,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("forwardingNumberId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ForwardingNumberResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ForwardingNumberResource::class.java)
+
     }
 
 
@@ -65,11 +62,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("forwardingNumberId")
         }
 
-        val str: String? = rc.put(this.path(), updateForwardingNumberRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ForwardingNumberInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), updateForwardingNumberRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ForwardingNumberInfo::class.java)
+
     }
 
 
@@ -82,11 +78,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("forwardingNumberId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 }

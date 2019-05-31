@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ruleId:
      * Http Post /restapi/v1.0/account/{accountId}/answering-rule
      */
     fun post(companyAnsweringRuleRequest: com.ringcentral.definitions.CompanyAnsweringRuleRequest): com.ringcentral.definitions.CompanyAnsweringRuleInfo? {
-        val str: String? = rc.post(this.path(false), companyAnsweringRuleRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), companyAnsweringRuleRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+
     }
 
 
@@ -30,11 +29,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ruleId:
      * Http Get /restapi/v1.0/account/{accountId}/answering-rule
      */
     fun list(): com.ringcentral.definitions.CompanyAnsweringRuleList? {
-        val str: String? = rc.get(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyAnsweringRuleList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false))
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CompanyAnsweringRuleList::class.java)
+
     }
 
 
@@ -47,11 +45,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ruleId:
             throw NullPointerException("ruleId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+
     }
 
 
@@ -64,11 +61,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ruleId:
             throw NullPointerException("ruleId")
         }
 
-        val str: String? = rc.put(this.path(), companyAnsweringRuleUpdate).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), companyAnsweringRuleUpdate)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CompanyAnsweringRuleInfo::class.java)
+
     }
 
 
@@ -81,11 +77,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ruleId:
             throw NullPointerException("ruleId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 }

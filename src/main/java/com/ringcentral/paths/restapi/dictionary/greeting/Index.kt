@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val gree
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListStandardGreetingsParameters? = null): com.ringcentral.definitions.DictionaryGreetingList? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DictionaryGreetingList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.DictionaryGreetingList::class.java)
+
     }
 
 
@@ -35,11 +34,10 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val gree
             throw NullPointerException("greetingId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DictionaryGreetingInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.DictionaryGreetingInfo::class.java)
+
     }
 
 }

@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val taskId: St
      * Http Post /restapi/v1.0/glip/data-export
      */
     fun post(createDataExportTaskRequest: com.ringcentral.definitions.CreateDataExportTaskRequest): com.ringcentral.definitions.DataExportTask? {
-        val str: String? = rc.post(this.path(false), createDataExportTaskRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DataExportTask::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), createDataExportTaskRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.DataExportTask::class.java)
+
     }
 
 
@@ -34,11 +33,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val taskId: St
             throw NullPointerException("taskId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DataExportTask::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.DataExportTask::class.java)
+
     }
 
 

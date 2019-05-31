@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.addressb
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListContactsParameters? = null): com.ringcentral.definitions.ContactList? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ContactList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ContactList::class.java)
+
     }
 
 
@@ -32,11 +31,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.addressb
      */
     @JvmOverloads
     fun post(personalContactRequest: com.ringcentral.definitions.PersonalContactRequest, queryParams: com.ringcentral.definitions.CreateContactParameters? = null): com.ringcentral.definitions.PersonalContactResource? {
-        val str: String? = rc.post(this.path(false), personalContactRequest, queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PersonalContactResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), personalContactRequest, queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.PersonalContactResource::class.java)
+
     }
 
 
@@ -49,11 +47,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.addressb
             throw NullPointerException("contactId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PersonalContactResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.PersonalContactResource::class.java)
+
     }
 
 
@@ -67,11 +64,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.addressb
             throw NullPointerException("contactId")
         }
 
-        val str: String? = rc.put(this.path(), personalContactRequest, queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PersonalContactResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), personalContactRequest, queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.PersonalContactResource::class.java)
+
     }
 
 
@@ -84,11 +80,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.addressb
             throw NullPointerException("contactId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 }

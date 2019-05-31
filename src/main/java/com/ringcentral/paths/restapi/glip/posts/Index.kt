@@ -14,11 +14,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index) {
      */
     @JvmOverloads
     fun get(queryParams: com.ringcentral.definitions.ListGlipPostsParameters? = null): com.ringcentral.definitions.GlipPosts? {
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipPosts::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipPosts::class.java)
+
     }
 
 
@@ -27,11 +26,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index) {
      * Http Post /restapi/v1.0/glip/posts
      */
     fun post(glipCreatePost: com.ringcentral.definitions.GlipCreatePost): com.ringcentral.definitions.GlipPostInfo? {
-        val str: String? = rc.post(this.path(), glipCreatePost).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipPostInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(), glipCreatePost)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipPostInfo::class.java)
+
     }
 
 }

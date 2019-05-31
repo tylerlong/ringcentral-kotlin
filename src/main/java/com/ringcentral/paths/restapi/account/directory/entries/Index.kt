@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.directory.Index, v
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListDirectoryEntriesParameters? = null): com.ringcentral.definitions.DirectoryResource? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DirectoryResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.DirectoryResource::class.java)
+
     }
 
 
@@ -35,11 +34,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.directory.Index, v
             throw NullPointerException("entryId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ContactResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ContactResource::class.java)
+
     }
 
 

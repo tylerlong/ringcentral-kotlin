@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val callRec
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ReadCompanyCallLogParameters? = null): com.ringcentral.definitions.AccountCallLogResponse? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AccountCallLogResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.AccountCallLogResponse::class.java)
+
     }
 
 
@@ -35,11 +34,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val callRec
             throw NullPointerException("callRecordId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CompanyCallLogRecord::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CompanyCallLogRecord::class.java)
+
     }
 
 }

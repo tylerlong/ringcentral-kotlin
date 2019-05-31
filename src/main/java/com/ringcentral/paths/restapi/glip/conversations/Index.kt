@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val chatId: St
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListGlipConversationsParameters? = null): com.ringcentral.definitions.GlipConversationsList? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipConversationsList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipConversationsList::class.java)
+
     }
 
 
@@ -31,11 +30,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val chatId: St
      * Http Post /restapi/v1.0/glip/conversations
      */
     fun post(createGlipConversationRequest: com.ringcentral.definitions.CreateGlipConversationRequest): com.ringcentral.definitions.GlipConversationInfo? {
-        val str: String? = rc.post(this.path(false), createGlipConversationRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipConversationInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), createGlipConversationRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipConversationInfo::class.java)
+
     }
 
 
@@ -48,11 +46,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val chatId: St
             throw NullPointerException("chatId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipConversationInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipConversationInfo::class.java)
+
     }
 
 }

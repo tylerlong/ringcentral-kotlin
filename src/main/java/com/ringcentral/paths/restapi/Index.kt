@@ -16,11 +16,10 @@ class Index(val rc: com.ringcentral.RestClient, val apiVersion: String? = "v1.0"
      * Http Get /restapi
      */
     fun list(): com.ringcentral.definitions.GetVersionsResponse? {
-        val str: String? = rc.get(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetVersionsResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false))
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetVersionsResponse::class.java)
+
     }
 
 
@@ -33,11 +32,10 @@ class Index(val rc: com.ringcentral.RestClient, val apiVersion: String? = "v1.0"
             throw NullPointerException("apiVersion")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetVersionResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetVersionResponse::class.java)
+
     }
 
 

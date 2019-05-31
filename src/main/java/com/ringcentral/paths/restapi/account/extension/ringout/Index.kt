@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/ring-out
      */
     fun post(makeRingOutRequest: com.ringcentral.definitions.MakeRingOutRequest): com.ringcentral.definitions.GetRingOutStatusResponse? {
-        val str: String? = rc.post(this.path(false), makeRingOutRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetRingOutStatusResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), makeRingOutRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetRingOutStatusResponse::class.java)
+
     }
 
 
@@ -34,11 +33,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("ringoutId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetRingOutStatusResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetRingOutStatusResponse::class.java)
+
     }
 
 
@@ -51,11 +49,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("ringoutId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 }

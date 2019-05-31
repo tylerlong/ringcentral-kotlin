@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val webhookId:
      * Http Get /restapi/v1.0/glip/webhooks
      */
     fun list(): com.ringcentral.definitions.GlipWebhookList? {
-        val str: String? = rc.get(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipWebhookList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false))
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipWebhookList::class.java)
+
     }
 
 
@@ -34,11 +33,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val webhookId:
             throw NullPointerException("webhookId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipWebhookList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipWebhookList::class.java)
+
     }
 
 
@@ -51,11 +49,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val webhookId:
             throw NullPointerException("webhookId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 

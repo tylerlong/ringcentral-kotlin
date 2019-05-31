@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val stat
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListStatesParameters? = null): com.ringcentral.definitions.GetStateListResponse? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetStateListResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetStateListResponse::class.java)
+
     }
 
 
@@ -35,11 +34,10 @@ class Index(val parent: com.ringcentral.paths.restapi.dictionary.Index, val stat
             throw NullPointerException("stateId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetStateInfoResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetStateInfoResponse::class.java)
+
     }
 
 }

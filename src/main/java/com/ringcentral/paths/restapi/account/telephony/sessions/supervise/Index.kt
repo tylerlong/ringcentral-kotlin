@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
      * Http Post /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/supervise
      */
     fun post(superviseCallSessionRequest: com.ringcentral.definitions.SuperviseCallSessionRequest): com.ringcentral.definitions.SuperviseCallSession? {
-        val str: String? = rc.post(this.path(), superviseCallSessionRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.SuperviseCallSession::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(), superviseCallSessionRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.SuperviseCallSession::class.java)
+
     }
 
 }

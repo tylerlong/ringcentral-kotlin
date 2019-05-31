@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.scim.Index, val id: String? = null
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.SearchViaGet2Parameters? = null): com.ringcentral.definitions.UserSearchResponse? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserSearchResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.UserSearchResponse::class.java)
+
     }
 
 
@@ -31,11 +30,10 @@ class Index(val parent: com.ringcentral.paths.scim.Index, val id: String? = null
      * Http Post /scim/v2/Users
      */
     fun post(user: com.ringcentral.definitions.User): com.ringcentral.definitions.UserResponse? {
-        val str: String? = rc.post(this.path(false), user).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), user)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.UserResponse::class.java)
+
     }
 
 
@@ -48,11 +46,10 @@ class Index(val parent: com.ringcentral.paths.scim.Index, val id: String? = null
             throw NullPointerException("id")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.UserResponse::class.java)
+
     }
 
 
@@ -65,11 +62,10 @@ class Index(val parent: com.ringcentral.paths.scim.Index, val id: String? = null
             throw NullPointerException("id")
         }
 
-        val str: String? = rc.put(this.path(), user).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), user)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.UserResponse::class.java)
+
     }
 
 
@@ -82,11 +78,10 @@ class Index(val parent: com.ringcentral.paths.scim.Index, val id: String? = null
             throw NullPointerException("id")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 
@@ -99,11 +94,10 @@ class Index(val parent: com.ringcentral.paths.scim.Index, val id: String? = null
             throw NullPointerException("id")
         }
 
-        val str: String? = rc.patch(this.path(), userPatch).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.patch(this.path(), userPatch)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.UserResponse::class.java)
+
     }
 
 

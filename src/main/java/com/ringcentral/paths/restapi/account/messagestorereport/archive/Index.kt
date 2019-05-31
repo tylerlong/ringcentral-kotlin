@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.messagestorereport
      * Http Get /restapi/v1.0/account/{accountId}/message-store-report/{taskId}/archive
      */
     fun list(): com.ringcentral.definitions.MessageStoreReportArchive? {
-        val str: String? = rc.get(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MessageStoreReportArchive::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false))
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.MessageStoreReportArchive::class.java)
+
     }
 
 
@@ -34,11 +33,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.messagestorereport
             throw NullPointerException("archiveId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return rb.string()
+
     }
 
 }

@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.meeting.
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/service-info
      */
     fun get(): com.ringcentral.definitions.MeetingServiceInfoResource? {
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MeetingServiceInfoResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.MeetingServiceInfoResource::class.java)
+
     }
 
 }

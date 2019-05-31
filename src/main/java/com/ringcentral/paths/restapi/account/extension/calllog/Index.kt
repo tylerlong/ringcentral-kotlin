@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ReadUserCallLogParameters? = null): com.ringcentral.definitions.UserCallLogResponse? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserCallLogResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.UserCallLogResponse::class.java)
+
     }
 
 
@@ -32,11 +31,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      */
     @JvmOverloads
     fun delete(queryParams: com.ringcentral.definitions.DeleteUserCallLogParameters? = null): String? {
-        val str: String? = rc.delete(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path(false), queryParams)
+
+        return rb.string()
+
     }
 
 
@@ -50,11 +48,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("callRecordId")
         }
 
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.UserCallLogRecord::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.UserCallLogRecord::class.java)
+
     }
 
 }

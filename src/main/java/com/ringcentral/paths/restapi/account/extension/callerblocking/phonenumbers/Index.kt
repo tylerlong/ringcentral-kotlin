@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.callerbl
      */
     @JvmOverloads
     fun list(queryParams: com.ringcentral.definitions.ListBlockedAllowedNumbersParameters? = null): com.ringcentral.definitions.BlockedAllowedPhoneNumbersList? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.BlockedAllowedPhoneNumbersList::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.BlockedAllowedPhoneNumbersList::class.java)
+
     }
 
 
@@ -31,11 +30,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.callerbl
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-blocking/phone-numbers
      */
     fun post(addBlockedAllowedPhoneNumber: com.ringcentral.definitions.AddBlockedAllowedPhoneNumber): com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo? {
-        val str: String? = rc.post(this.path(false), addBlockedAllowedPhoneNumber).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), addBlockedAllowedPhoneNumber)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
+
     }
 
 
@@ -48,11 +46,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.callerbl
             throw NullPointerException("blockedNumberId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
+
     }
 
 
@@ -65,11 +62,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.callerbl
             throw NullPointerException("blockedNumberId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 
@@ -82,11 +78,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.callerbl
             throw NullPointerException("blockedNumberId")
         }
 
-        val str: String? = rc.put(this.path(), addBlockedAllowedPhoneNumber).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), addBlockedAllowedPhoneNumber)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.BlockedAllowedPhoneNumberInfo::class.java)
+
     }
 
 }

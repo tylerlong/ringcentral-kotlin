@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-id
      */
     fun get(): com.ringcentral.definitions.ExtensionCallerIdInfo? {
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ExtensionCallerIdInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ExtensionCallerIdInfo::class.java)
+
     }
 
 
@@ -26,11 +25,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Http Put /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-id
      */
     fun put(extensionCallerIdInfo: com.ringcentral.definitions.ExtensionCallerIdInfo): com.ringcentral.definitions.ExtensionCallerIdInfo? {
-        val str: String? = rc.put(this.path(), extensionCallerIdInfo).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ExtensionCallerIdInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), extensionCallerIdInfo)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ExtensionCallerIdInfo::class.java)
+
     }
 
 }

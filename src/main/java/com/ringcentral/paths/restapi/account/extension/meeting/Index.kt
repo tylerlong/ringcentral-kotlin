@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting
      */
     fun list(): com.ringcentral.definitions.MeetingsResource? {
-        val str: String? = rc.get(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MeetingsResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false))
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.MeetingsResource::class.java)
+
     }
 
 
@@ -30,11 +29,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
      * Http Post /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting
      */
     fun post(meetingRequestResource: com.ringcentral.definitions.MeetingRequestResource): com.ringcentral.definitions.MeetingResponseResource? {
-        val str: String? = rc.post(this.path(false), meetingRequestResource).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MeetingResponseResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), meetingRequestResource)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.MeetingResponseResource::class.java)
+
     }
 
 
@@ -47,11 +45,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("meetingId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MeetingResponseResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.MeetingResponseResource::class.java)
+
     }
 
 
@@ -64,11 +61,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("meetingId")
         }
 
-        val str: String? = rc.put(this.path(), meetingRequestResource).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MeetingResponseResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), meetingRequestResource)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.MeetingResponseResource::class.java)
+
     }
 
 
@@ -81,11 +77,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index, v
             throw NullPointerException("meetingId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 

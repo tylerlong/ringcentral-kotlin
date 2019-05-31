@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.Index, val subscriptionId:
      * Http Get /restapi/v1.0/subscription
      */
     fun list(): com.ringcentral.definitions.RecordsCollectionResourceSubscriptionResponse? {
-        val str: String? = rc.get(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.RecordsCollectionResourceSubscriptionResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false))
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.RecordsCollectionResourceSubscriptionResponse::class.java)
+
     }
 
 
@@ -30,11 +29,10 @@ class Index(val parent: com.ringcentral.paths.restapi.Index, val subscriptionId:
      * Http Post /restapi/v1.0/subscription
      */
     fun post(createSubscriptionRequest: com.ringcentral.definitions.CreateSubscriptionRequest): com.ringcentral.definitions.SubscriptionInfo? {
-        val str: String? = rc.post(this.path(false), createSubscriptionRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.SubscriptionInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), createSubscriptionRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.SubscriptionInfo::class.java)
+
     }
 
 
@@ -47,11 +45,10 @@ class Index(val parent: com.ringcentral.paths.restapi.Index, val subscriptionId:
             throw NullPointerException("subscriptionId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.SubscriptionInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.SubscriptionInfo::class.java)
+
     }
 
 
@@ -65,11 +62,10 @@ class Index(val parent: com.ringcentral.paths.restapi.Index, val subscriptionId:
             throw NullPointerException("subscriptionId")
         }
 
-        val str: String? = rc.put(this.path(), modifySubscriptionRequest, queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.SubscriptionInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), modifySubscriptionRequest, queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.SubscriptionInfo::class.java)
+
     }
 
 
@@ -82,11 +78,10 @@ class Index(val parent: com.ringcentral.paths.restapi.Index, val subscriptionId:
             throw NullPointerException("subscriptionId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 

@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index) {
      * Http Get /restapi/v1.0/account/{accountId}/business-address
      */
     fun get(): com.ringcentral.definitions.AccountBusinessAddressResource? {
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AccountBusinessAddressResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.AccountBusinessAddressResource::class.java)
+
     }
 
 
@@ -26,11 +25,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index) {
      * Http Put /restapi/v1.0/account/{accountId}/business-address
      */
     fun put(modifyAccountBusinessAddressRequest: com.ringcentral.definitions.ModifyAccountBusinessAddressRequest): com.ringcentral.definitions.AccountBusinessAddressResource? {
-        val str: String? = rc.put(this.path(), modifyAccountBusinessAddressRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AccountBusinessAddressResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), modifyAccountBusinessAddressRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.AccountBusinessAddressResource::class.java)
+
     }
 
 }

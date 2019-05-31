@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val groupId
      * Http Post /restapi/v1.0/account/{accountId}/call-monitoring-groups
      */
     fun post(createCallMonitoringGroupRequest: com.ringcentral.definitions.CreateCallMonitoringGroupRequest): com.ringcentral.definitions.CallMonitoringGroup? {
-        val str: String? = rc.post(this.path(false), createCallMonitoringGroupRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallMonitoringGroup::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), createCallMonitoringGroupRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CallMonitoringGroup::class.java)
+
     }
 
 
@@ -31,11 +30,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val groupId
      */
     @JvmOverloads
     fun get(queryParams: com.ringcentral.definitions.ListCallMonitoringGroupsParameters? = null): com.ringcentral.definitions.CallMonitoringGroups? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallMonitoringGroups::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CallMonitoringGroups::class.java)
+
     }
 
 
@@ -48,11 +46,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val groupId
             throw NullPointerException("groupId")
         }
 
-        val str: String? = rc.put(this.path(), createCallMonitoringGroupRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallMonitoringGroup::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), createCallMonitoringGroupRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CallMonitoringGroup::class.java)
+
     }
 
 
@@ -65,11 +62,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val groupId
             throw NullPointerException("groupId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 

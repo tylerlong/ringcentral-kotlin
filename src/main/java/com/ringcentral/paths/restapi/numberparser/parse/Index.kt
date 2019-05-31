@@ -14,11 +14,10 @@ class Index(val parent: com.ringcentral.paths.restapi.numberparser.Index) {
      */
     @JvmOverloads
     fun post(parsePhoneNumberRequest: com.ringcentral.definitions.ParsePhoneNumberRequest, queryParams: com.ringcentral.definitions.ParsePhoneNumberParameters? = null): com.ringcentral.definitions.ParsePhoneNumberResponse? {
-        val str: String? = rc.post(this.path(), parsePhoneNumberRequest, queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ParsePhoneNumberResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(), parsePhoneNumberRequest, queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ParsePhoneNumberResponse::class.java)
+
     }
 
 }

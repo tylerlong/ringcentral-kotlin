@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
      * Http Post /restapi/v1.0/account/{accountId}/telephony/sessions/{sessionId}/parties/{partyId}/recordings
      */
     fun post(): String? {
-        val str: String? = rc.post(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false))
+
+        return rb.string()
+
     }
 
 
@@ -35,11 +34,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
             throw NullPointerException("recordingId")
         }
 
-        val str: String? = rc.patch(this.path(), callRecordingUpdate, queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallRecording::class.java)
+        val rb: okhttp3.ResponseBody = rc.patch(this.path(), callRecordingUpdate, queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CallRecording::class.java)
+
     }
 
 }

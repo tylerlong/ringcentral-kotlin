@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.scim.Index) {
      * Http Get /scim/v2/ServiceProviderConfig
      */
     fun get(): com.ringcentral.definitions.ServiceProviderConfig? {
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.ServiceProviderConfig::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.ServiceProviderConfig::class.java)
+
     }
 
 }

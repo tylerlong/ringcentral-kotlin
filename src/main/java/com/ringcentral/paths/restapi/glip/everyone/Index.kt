@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index) {
      * Http Get /restapi/v1.0/glip/everyone
      */
     fun get(): com.ringcentral.definitions.GlipEveryoneInfo? {
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipEveryoneInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipEveryoneInfo::class.java)
+
     }
 
 
@@ -26,11 +25,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index) {
      * Http Patch /restapi/v1.0/glip/everyone
      */
     fun patch(updateGlipEveryoneRequest: com.ringcentral.definitions.UpdateGlipEveryoneRequest): com.ringcentral.definitions.GlipEveryoneInfo? {
-        val str: String? = rc.patch(this.path(), updateGlipEveryoneRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipEveryoneInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.patch(this.path(), updateGlipEveryoneRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipEveryoneInfo::class.java)
+
     }
 
 }

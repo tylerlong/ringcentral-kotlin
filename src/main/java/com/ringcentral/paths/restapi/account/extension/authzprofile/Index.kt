@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.Index) {
      * Http Get /restapi/v1.0/account/{accountId}/extension/{extensionId}/authz-profile
      */
     fun get(): com.ringcentral.definitions.AuthProfileResource? {
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.AuthProfileResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.AuthProfileResource::class.java)
+
     }
 
 

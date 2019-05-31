@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.directory.entries.
      * Http Post /restapi/v1.0/account/{accountId}/directory/entries/search
      */
     fun post(searchDirectoryEntriesRequest: com.ringcentral.definitions.SearchDirectoryEntriesRequest): com.ringcentral.definitions.DirectoryResource? {
-        val str: String? = rc.post(this.path(), searchDirectoryEntriesRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DirectoryResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(), searchDirectoryEntriesRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.DirectoryResource::class.java)
+
     }
 
 }

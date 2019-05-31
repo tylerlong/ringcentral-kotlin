@@ -22,11 +22,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val deviceI
             throw NullPointerException("deviceId")
         }
 
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GetDeviceInfoResponse::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GetDeviceInfoResponse::class.java)
+
     }
 
 
@@ -39,11 +38,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val deviceI
             throw NullPointerException("deviceId")
         }
 
-        val str: String? = rc.put(this.path(), accountDeviceUpdate).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.DeviceResource::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), accountDeviceUpdate)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.DeviceResource::class.java)
+
     }
 
 }

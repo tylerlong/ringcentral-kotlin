@@ -1,14 +1,14 @@
 package com.ringcentral;
 
 import com.ringcentral.definitions.TokenInfo;
-import okhttp3.ResponseBody;
 import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
-public class RestClientTest {
+public class AuthorizationTest {
     @Test
     public void testAuthorize() throws IOException, RestException {
         RestClient rc = new RestClient(
@@ -24,9 +24,6 @@ public class RestClientTest {
         );
         assertNotNull(token.access_token);
         assertNotNull(rc.token);
-        ResponseBody responseBody = rc.get("/restapi/v1.0/account/~/extension/~", null);
-        String responseString = responseBody.string();
-        assertTrue(responseString.contains("extensionNumber"));
         rc.revoke();
         assertNull(rc.token);
     }

@@ -18,11 +18,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.groups.Index, val pos
      */
     @JvmOverloads
     fun get(queryParams: com.ringcentral.definitions.ListGlipGroupPostsParameters? = null): com.ringcentral.definitions.GlipPosts? {
-        val str: String? = rc.get(this.path(false), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipPosts::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipPosts::class.java)
+
     }
 
 
@@ -31,11 +30,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.groups.Index, val pos
      * Http Post /restapi/v1.0/glip/groups/{groupId}/posts
      */
     fun post(glipCreatePost: com.ringcentral.definitions.GlipCreatePost): com.ringcentral.definitions.GlipPostInfo? {
-        val str: String? = rc.post(this.path(false), glipCreatePost).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipPostInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), glipCreatePost)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipPostInfo::class.java)
+
     }
 
 

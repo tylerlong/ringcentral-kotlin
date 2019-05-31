@@ -21,11 +21,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
             throw NullPointerException("partyId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallParty::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CallParty::class.java)
+
     }
 
 
@@ -38,11 +37,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.sessions
             throw NullPointerException("partyId")
         }
 
-        val str: String? = rc.patch(this.path(), partyUpdateRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallParty::class.java)
+        val rb: okhttp3.ResponseBody = rc.patch(this.path(), partyUpdateRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CallParty::class.java)
+
     }
 
 

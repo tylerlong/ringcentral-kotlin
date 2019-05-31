@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.oauth.Index) {
      * Http Post /restapi/oauth/token
      */
     fun post(getTokenRequest: com.ringcentral.definitions.GetTokenRequest): com.ringcentral.definitions.TokenInfo? {
-        val str: String? = rc.post(this.path(), getTokenRequest, null, com.ringcentral.ContentType.FORM).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.TokenInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(), getTokenRequest, null, com.ringcentral.ContentType.FORM)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.TokenInfo::class.java)
+
     }
 
 }

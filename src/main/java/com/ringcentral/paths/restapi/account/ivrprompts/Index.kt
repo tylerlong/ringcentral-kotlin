@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val promptI
      * Http Post /restapi/v1.0/account/{accountId}/ivr-prompts
      */
     fun post(createIVRPromptRequest: com.ringcentral.definitions.CreateIvrPromptRequest): com.ringcentral.definitions.PromptInfo? {
-        val str: String? = rc.post(this.path(false), createIVRPromptRequest, null, com.ringcentral.ContentType.MULTIPART).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PromptInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), createIVRPromptRequest, null, com.ringcentral.ContentType.MULTIPART)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.PromptInfo::class.java)
+
     }
 
 
@@ -30,11 +29,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val promptI
      * Http Get /restapi/v1.0/account/{accountId}/ivr-prompts
      */
     fun list(): com.ringcentral.definitions.IVRPrompts? {
-        val str: String? = rc.get(this.path(false)).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.IVRPrompts::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(false))
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.IVRPrompts::class.java)
+
     }
 
 
@@ -47,11 +45,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val promptI
             throw NullPointerException("promptId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PromptInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.PromptInfo::class.java)
+
     }
 
 
@@ -64,11 +61,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val promptI
             throw NullPointerException("promptId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 
@@ -81,11 +77,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val promptI
             throw NullPointerException("promptId")
         }
 
-        val str: String? = rc.put(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path())
+
+        return rb.string()
+
     }
 
 

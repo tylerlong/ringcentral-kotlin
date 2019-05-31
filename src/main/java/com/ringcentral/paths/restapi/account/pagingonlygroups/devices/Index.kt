@@ -14,11 +14,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.pagingonlygroups.I
      */
     @JvmOverloads
     fun get(queryParams: com.ringcentral.definitions.ListPagingGroupDevicesParameters? = null): com.ringcentral.definitions.PagingOnlyGroupDevices? {
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.PagingOnlyGroupDevices::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.PagingOnlyGroupDevices::class.java)
+
     }
 
 }

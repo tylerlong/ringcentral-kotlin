@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val taskId:
      * Http Post /restapi/v1.0/account/{accountId}/message-store-report
      */
     fun post(createMessageStoreReportRequest: com.ringcentral.definitions.CreateMessageStoreReportRequest): com.ringcentral.definitions.MessageStoreReport? {
-        val str: String? = rc.post(this.path(false), createMessageStoreReportRequest).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MessageStoreReport::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), createMessageStoreReportRequest)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.MessageStoreReport::class.java)
+
     }
 
 
@@ -34,11 +33,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val taskId:
             throw NullPointerException("taskId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.MessageStoreReport::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.MessageStoreReport::class.java)
+
     }
 
 

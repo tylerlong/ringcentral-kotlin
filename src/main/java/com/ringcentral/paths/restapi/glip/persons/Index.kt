@@ -21,11 +21,10 @@ class Index(val parent: com.ringcentral.paths.restapi.glip.Index, val personId: 
             throw NullPointerException("personId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.GlipPersonInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.GlipPersonInfo::class.java)
+
     }
 
 }

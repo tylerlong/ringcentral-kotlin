@@ -17,11 +17,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ivrMenu
      * Http Post /restapi/v1.0/account/{accountId}/ivr-menus
      */
     fun post(iVRMenuInfo: com.ringcentral.definitions.IVRMenuInfo): com.ringcentral.definitions.IVRMenuInfo? {
-        val str: String? = rc.post(this.path(false), iVRMenuInfo).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.IVRMenuInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(false), iVRMenuInfo)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.IVRMenuInfo::class.java)
+
     }
 
 
@@ -34,11 +33,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ivrMenu
             throw NullPointerException("ivrMenuId")
         }
 
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.IVRMenuInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.IVRMenuInfo::class.java)
+
     }
 
 
@@ -51,11 +49,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.Index, val ivrMenu
             throw NullPointerException("ivrMenuId")
         }
 
-        val str: String? = rc.put(this.path(), iVRMenuInfo).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.IVRMenuInfo::class.java)
+        val rb: okhttp3.ResponseBody = rc.put(this.path(), iVRMenuInfo)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.IVRMenuInfo::class.java)
+
     }
 
 }

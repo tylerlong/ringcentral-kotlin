@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.callmonitoringgrou
      * Http Post /restapi/v1.0/account/{accountId}/call-monitoring-groups/{groupId}/bulk-assign
      */
     fun post(callMonitoringBulkAssign: com.ringcentral.definitions.CallMonitoringBulkAssign): String? {
-        val str: String? = rc.post(this.path(), callMonitoringBulkAssign).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.post(this.path(), callMonitoringBulkAssign)
+
+        return rb.string()
+
     }
 
 }

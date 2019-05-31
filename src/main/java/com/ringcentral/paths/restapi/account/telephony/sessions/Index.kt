@@ -22,11 +22,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.Index, v
             throw NullPointerException("sessionId")
         }
 
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, com.ringcentral.definitions.CallSessionObject::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return com.alibaba.fastjson.JSON.parseObject(rb.string(), com.ringcentral.definitions.CallSessionObject::class.java)
+
     }
 
 
@@ -39,11 +38,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.telephony.Index, v
             throw NullPointerException("sessionId")
         }
 
-        val str: String? = rc.delete(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, String::class.java)
+        val rb: okhttp3.ResponseBody = rc.delete(this.path())
+
+        return rb.string()
+
     }
 
 

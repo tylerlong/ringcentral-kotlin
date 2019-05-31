@@ -13,11 +13,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.recording.Index) {
      * Http Get /restapi/v1.0/account/{accountId}/recording/{recordingId}/content
      */
     fun get(): ByteArray? {
-        val str: String? = rc.get(this.path()).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, ByteArray::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path())
+
+        return rb.source().readByteArray()
+
     }
 
 }

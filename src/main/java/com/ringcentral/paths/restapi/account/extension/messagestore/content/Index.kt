@@ -22,11 +22,10 @@ class Index(val parent: com.ringcentral.paths.restapi.account.extension.messages
             throw NullPointerException("attachmentId")
         }
 
-        val str: String? = rc.get(this.path(), queryParams).string()
-        if (str == null) {
-            return null
-        }
-        return com.alibaba.fastjson.JSON.parseObject(str, ByteArray::class.java)
+        val rb: okhttp3.ResponseBody = rc.get(this.path(), queryParams)
+
+        return rb.source().readByteArray()
+
     }
 
 }
