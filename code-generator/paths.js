@@ -6,9 +6,9 @@ import path from 'path'
 
 import { normalizePath, deNormalizePath, getResponseType } from './utils'
 
-const outputDir = '../RingCentral.Net/Paths'
+const outputDir = '../src/main/java/com/ringcentral/paths'
 
-const doc = yaml.safeLoad(fs.readFileSync('rc-platform-adjusted.yml', 'utf8'))
+const doc = yaml.safeLoad(fs.readFileSync('/Users/tyler.liu/src/dotnet/RingCentral.Net/code-generator/rc-platform-adjusted.yml', 'utf8'))
 
 // Delete /restapi/oauth/authorize: https://git.ringcentral.com/platform/api-metadata-specs/issues/26
 delete doc.paths['/restapi/oauth/authorize']
@@ -57,7 +57,7 @@ const generate = (prefix = '/') => {
       }
       return
     }
-    fs.mkdirSync(folderPath)
+    fs.mkdirSync(folderPath.toLowerCase())
     if (paramName) {
       console.log('paramName', paramName)
     }
@@ -72,9 +72,9 @@ const generate = (prefix = '/') => {
       defaultParamValue = '~'
     }
 
-    let code = `namespace RingCentral.Paths.${routes.join('.')}
-{
-    public partial class Index
+    let code = `package com.ringcentral.paths.${routes.join('.').toLowerCase()}
+
+    public class Index
     {
         public RestClient rc;`
 
@@ -150,11 +150,11 @@ const generate = (prefix = '/') => {
         })
       }
     })
-    if (operations.length > 0) {
-      code = `using System.Threading.Tasks;
+    //     if (operations.length > 0) {
+    //       code = `using System.Threading.Tasks;
 
-${code}`
-    }
+    // ${code}`
+    //     }
 
     operations.forEach(operation => {
       const method = changeCase.pascalCase(operation.method)
@@ -242,8 +242,8 @@ ${code}`
     })
 
     code += `
-    }
-}`
+}
+`
 
     if (routes.length === 1) { // top level path, such as /restapi & /scim
       code = `${code}
@@ -272,7 +272,7 @@ namespace RingCentral.Paths.${R.init(routes).join('.')}
     }
 }`
     }
-    fs.writeFileSync(path.join(folderPath, 'Index.cs'), code)
+    fs.writeFileSync(path.join(folderPath, 'Index.kt'), code)
 
     generate(`${prefix}${name}/`)
     if (paramName) {
