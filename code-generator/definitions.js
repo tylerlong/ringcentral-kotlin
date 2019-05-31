@@ -43,18 +43,30 @@ const normalizeField = f => {
 
 const generateField = (m, f) => {
   let p = ''
+  let pName = f.name
   if (f.name.includes('-')) {
     p += `@JSONField(name="${f.name}")`
-    p += `\n        public ${f.type} ${f.name.replace(/-([a-z])/g, (match, p1) => p1.toUpperCase())};`
+    pName = f.name.replace(/-([a-z])/g, (match, p1) => p1.toUpperCase())
+    p += `\n        public ${f.type} ${pName};`
   } else if (f.name.includes(':') || f.name.includes('.')) {
     p += `@JSONField(name="${f.name}")`
-    p += `\n        public ${f.type} ${f.name.replace(/[:.](\w)/g, '_$1')};`
+    pName = f.name.replace(/[:.](\w)/g, '_$1')
+    p += `\n        public ${f.type} ${pName};`
   } else if (f.name === 'public' || f.name === 'default') {
     p += `@JSONField(name="${f.name}")`
-    p += `\n        public ${f.type} _${f.name};`
+    pName = `_${f.name}`
+    p += `\n        public ${f.type} ${pName};`
   } else {
     p = `public ${f.type} ${f.name};`
   }
+
+  p += `
+  public ${m.name} ${pName}(${f.type} ${pName})
+  {
+    this.${pName} = ${pName};
+    return this;
+  }
+  `
 
   p = ` */\n        ${p}`
   if (f.enum) {
@@ -114,7 +126,7 @@ Object.keys(doc.paths).forEach(p => {
           if (p['$ref']) {
             p.type = p['$ref'].split('/').slice(-1)[0]
           }
-          return generateField({}, p)
+          return generateField({ name: className }, p)
         })
       fs.writeFileSync(path.join(outputDir, `${className}.java`), generateCode({ name: className }, fields))
     }
@@ -131,7 +143,7 @@ Object.keys(doc.paths).forEach(p => {
       const fields = operation.parameters.filter(p => p.in === 'query')
         .map(p => {
           p = normalizeField(p)
-          return generateField({}, p)
+          return generateField({ name: className }, p)
         })
       fs.writeFileSync(path.join(outputDir, `${className}.java`), generateCode({ name: className }, fields))
     }
